@@ -36,7 +36,7 @@ public class MainActivity extends LayoutGameActivity {
 	public Font mFontDefault;
 	public Camera mCamera;
 	
-	public final float TimeSplashToMenu = 2.2f;
+	public final float TimeSplashToMenu = 2.3f;
 	
 //	private ResourcesManager resourcesManager;
 	
