@@ -54,9 +54,9 @@ public class ResourcesManager {
 			"sound_btn_6.png"
 			};
 	
-	public final int BTN_IMG_WIDTH = 136;
-	public final int BTN_IMG_HEIGHT = 136;
-	private final int BTN_IMG_TILE_ROW = 6;
+	public final int BTN_IMG_WIDTH = 112;
+	public final int BTN_IMG_HEIGHT = 152;
+	private final int BTN_IMG_TILE_ROW = 10;
 	private final int BTN_IMG_TILE_COLUMN = 2;
 	
 	public ITextureRegion splash_region;
@@ -111,6 +111,7 @@ public class ResourcesManager {
 			MainActivity activity,
 			Camera camera,
 			VertexBufferObjectManager vbom){
+		
 		getInstance().engine = engine;
 		getInstance().activity = activity;
 		getInstance().camera = camera;
@@ -203,8 +204,11 @@ public class ResourcesManager {
 	
 	private void loadSoundBtnGraphics(){
 		mSoundBtnTextureAtlas = new BuildableBitmapTextureAtlas(
-				engine.getTextureManager(), BTN_IMG_WIDTH*2, BTN_IMG_HEIGHT*6,
+				engine.getTextureManager(), 
+				BTN_IMG_WIDTH*BTN_IMG_TILE_COLUMN, 
+				BTN_IMG_HEIGHT*BTN_IMG_TILE_ROW,
 				BitmapTextureFormat.RGBA_8888,TextureOptions.BILINEAR);
+		
 		mSoundBtnTextureRegion = BitmapTextureAtlasTextureRegionFactory
 				.createTiledFromAsset(mSoundBtnTextureAtlas, activity.getAssets(),
 						"sound_btns.png", BTN_IMG_TILE_COLUMN, BTN_IMG_TILE_ROW);

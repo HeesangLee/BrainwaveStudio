@@ -95,9 +95,9 @@ public class MainActivity extends LayoutGameActivity {
 		mEngine.registerUpdateHandler(new TimerHandler(TimeSplashToMenu,new ITimerCallback() {
 			
 			@Override
-			public void onTimePassed(TimerHandler pTimerHandler) {
+			public void onTimePassed(TimerHandler pTimerHandler) {//Splash scene 을 일정 시간 띄운 후 main menu scene을 실행.
 				mEngine.unregisterUpdateHandler(pTimerHandler);
-				SceneManager.getInstance().createMenuScene();
+				SceneManager.getInstance().createMenuScene();//메인메뉴 실행.
 			}
 		}));
 		pOnPopulateSceneCallback.onPopulateSceneFinished();
