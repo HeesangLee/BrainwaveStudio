@@ -35,9 +35,9 @@ public class ResourcesManager {
 	public Camera camera;
 	public VertexBufferObjectManager vbom;
 	
-	public final int SPLASH_LOGO_WIDTH = 673	;
+	public final int SPLASH_LOGO_WIDTH 	= 673;
 	public final int SPLASH_LOGO_HEIGHT = 232;
-	public final int LOADING_IMG_WIDTH = 518;
+	public final int LOADING_IMG_WIDTH 	= 518;
 	public final int LOADING_IMG_HEIGHT = 518;
 	
 	public Font mFont_grossnet;
@@ -45,14 +45,14 @@ public class ResourcesManager {
 	protected boolean isFontLoaded = false;
 	
 //	public ArrayList<String> soundBtnNames;
-	public String[] stringBtnNames={
-			"sound_btn_1.png",
-			"sound_btn_2.png",
-			"sound_btn_3.png",
-			"sound_btn_4.png",
-			"sound_btn_5.png",
-			"sound_btn_6.png"
-			};
+//	public String[] stringBtnNames={
+//			"sound_btn_1.png",
+//			"sound_btn_2.png",
+//			"sound_btn_3.png",
+//			"sound_btn_4.png",
+//			"sound_btn_5.png",
+//			"sound_btn_6.png"
+//			};
 	
 	public final int BTN_IMG_WIDTH = 112;
 	public final int BTN_IMG_HEIGHT = 152;
@@ -81,6 +81,7 @@ public class ResourcesManager {
 	public ITextureRegion mPlayCircle4Region;
 	public ITextureRegion mPlayCircle5Region;
 	public ITextureRegion mPlayCircle6Region;
+	
 	private BuildableBitmapTextureAtlas playImageAtlas;
 	
 	public Music mSound_1;
@@ -89,6 +90,10 @@ public class ResourcesManager {
 	public Music mSound_4;
 	public Music mSound_5;
 	public Music mSound_6;
+	public Music mSound_7;
+	public Music mSound_8;
+	public Music mSound_9;
+	public Music mSound_10;
 	
 	public ArrayList<Music> mSoundArray = new ArrayList<Music>();
 	//====================================================================

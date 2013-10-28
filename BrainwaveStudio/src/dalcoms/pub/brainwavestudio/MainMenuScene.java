@@ -136,17 +136,11 @@ public class MainMenuScene extends BaseScene{
 	}
 	
 	private void createSoundBtns(){
-		final float left_margin = 56f;
-		final float button_space = 1.2f;
-		final float button_width = ResourcesManager.getInstance().BTN_IMG_HEIGHT;
-		final float px_1 = left_margin;
-		final float py_1 = (camera.getHeight()-(button_width*2+button_space))/2;
-		
-		final float[] pxs={px_1,px_1+button_width+button_space,px_1+2*(button_width+button_space),
-				px_1,px_1+button_width+button_space,px_1+2*(button_width+button_space)};
-		final float[] pys={py_1,py_1,py_1,
-				py_1+button_width+button_space,py_1+button_width+button_space,py_1+button_width+button_space};
-		Log.v("btn",""+camera.getHeight());
+		// 위치는 Python + Inkscape으로 찾음. 수동입력.
+		final float[] pxs={108,226,344,462,580,
+						   108,226,344,462,580};
+		final float[] pys={139,139,139,139,139,
+						   289,289,289,289,289};
 		
 		btn_sound_1 = new SoundButtonTiledSprite(pxs[0], pys[0], 
 				resourcesManager.mSoundBtnTextureRegion, 
