@@ -44,15 +44,6 @@ public class ResourcesManager {
 	public Font mFont_Plok;
 	protected boolean isFontLoaded = false;
 	
-//	public ArrayList<String> soundBtnNames;
-//	public String[] stringBtnNames={
-//			"sound_btn_1.png",
-//			"sound_btn_2.png",
-//			"sound_btn_3.png",
-//			"sound_btn_4.png",
-//			"sound_btn_5.png",
-//			"sound_btn_6.png"
-//			};
 	
 	public final int BTN_IMG_WIDTH = 112;
 	public final int BTN_IMG_HEIGHT = 152;
@@ -75,12 +66,12 @@ public class ResourcesManager {
 	private BuildableBitmapTextureAtlas buttonsTextureAtlas;
 	
 	public ITextureRegion mPlayRingRegion;
-	public ITextureRegion mPlayCircle1Region;
-	public ITextureRegion mPlayCircle2Region;
-	public ITextureRegion mPlayCircle3Region;
-	public ITextureRegion mPlayCircle4Region;
-	public ITextureRegion mPlayCircle5Region;
-	public ITextureRegion mPlayCircle6Region;
+//	public ITextureRegion mPlayCircle1Region;
+//	public ITextureRegion mPlayCircle2Region;
+//	public ITextureRegion mPlayCircle3Region;
+//	public ITextureRegion mPlayCircle4Region;
+//	public ITextureRegion mPlayCircle5Region;
+//	public ITextureRegion mPlayCircle6Region;
 	
 	private BuildableBitmapTextureAtlas playImageAtlas;
 	
@@ -178,23 +169,23 @@ public class ResourcesManager {
 	
 	private void loadPlayImages(){
 		playImageAtlas = new BuildableBitmapTextureAtlas(activity.getTextureManager(), 
-				256*3, 256*3,
+				300, 300,
 				BitmapTextureFormat.RGBA_8888,TextureOptions.BILINEAR);
 		
 		mPlayRingRegion = BitmapTextureAtlasTextureRegionFactory.createFromAsset(playImageAtlas, 
 				activity, "play_ring.png");
-		mPlayCircle1Region = BitmapTextureAtlasTextureRegionFactory.createFromAsset(playImageAtlas, 
-				activity, "play_circle_1.png");
-		mPlayCircle2Region = BitmapTextureAtlasTextureRegionFactory.createFromAsset(playImageAtlas, 
-				activity, "play_circle_2.png");
-		mPlayCircle3Region = BitmapTextureAtlasTextureRegionFactory.createFromAsset(playImageAtlas, 
-				activity, "play_circle_3.png");
-		mPlayCircle4Region = BitmapTextureAtlasTextureRegionFactory.createFromAsset(playImageAtlas, 
-				activity, "play_circle_4.png");
-		mPlayCircle5Region = BitmapTextureAtlasTextureRegionFactory.createFromAsset(playImageAtlas, 
-				activity, "play_circle_5.png");
-		mPlayCircle6Region = BitmapTextureAtlasTextureRegionFactory.createFromAsset(playImageAtlas, 
-				activity, "play_circle_6.png");
+//		mPlayCircle1Region = BitmapTextureAtlasTextureRegionFactory.createFromAsset(playImageAtlas, 
+//				activity, "play_circle_1.png");
+//		mPlayCircle2Region = BitmapTextureAtlasTextureRegionFactory.createFromAsset(playImageAtlas, 
+//				activity, "play_circle_2.png");
+//		mPlayCircle3Region = BitmapTextureAtlasTextureRegionFactory.createFromAsset(playImageAtlas, 
+//				activity, "play_circle_3.png");
+//		mPlayCircle4Region = BitmapTextureAtlasTextureRegionFactory.createFromAsset(playImageAtlas, 
+//				activity, "play_circle_4.png");
+//		mPlayCircle5Region = BitmapTextureAtlasTextureRegionFactory.createFromAsset(playImageAtlas, 
+//				activity, "play_circle_5.png");
+//		mPlayCircle6Region = BitmapTextureAtlasTextureRegionFactory.createFromAsset(playImageAtlas, 
+//				activity, "play_circle_6.png");
 		
 		try{
 			playImageAtlas.build(
@@ -232,20 +223,28 @@ public class ResourcesManager {
 	
 	private void loadMenuAudio(){
 		MusicFactory.setAssetBasePath("sfx/");
-		
+		//TODO : 오디오 파일이 이어지는 부분이 매끄럽지 못함...>> 음원파일 수정해야 함. 상당히 거슬려
 		try{
 			mSound_1 = MusicFactory.createMusicFromAsset(
-					engine.getMusicManager(), activity, "dalcoms_seawave.mp3");
+					engine.getMusicManager(), activity, "wdelta_f2_l250_r252_a0p8.ogg");
 			mSound_2 = MusicFactory.createMusicFromAsset(
-					engine.getMusicManager(), activity, "dalcoms_owls.mp3");
+					engine.getMusicManager(), activity, "wtheta_f6_l324_r318_a0p8.ogg");
 			mSound_3 = MusicFactory.createMusicFromAsset(
-					engine.getMusicManager(), activity, "dalcoms_rain.mp3");
+					engine.getMusicManager(), activity, "walpha_f10_l386_r396_a0p8.ogg");
 			mSound_4 = MusicFactory.createMusicFromAsset(
-					engine.getMusicManager(), activity, "dalcoms_fire.mp3");
+					engine.getMusicManager(), activity, "brownnoise_a0p2.ogg");
 			mSound_5 = MusicFactory.createMusicFromAsset(
-					engine.getMusicManager(), activity, "dalcoms_stream.mp3");
+					engine.getMusicManager(), activity, "pinknoise_a0p2.ogg");
 			mSound_6 = MusicFactory.createMusicFromAsset(
-					engine.getMusicManager(), activity, "dalcoms_birds.mp3");
+					engine.getMusicManager(), activity, "wbetasmr_f13p5_l454_r467p5_a0p8.ogg");
+			mSound_7 = MusicFactory.createMusicFromAsset(
+					engine.getMusicManager(), activity, "wbetam_f17p5_l522_r539p5_a0p8.ogg");
+			mSound_8 = MusicFactory.createMusicFromAsset(
+					engine.getMusicManager(), activity, "wbetah_f25_l590_r615.ogg");
+			mSound_9 = MusicFactory.createMusicFromAsset(
+					engine.getMusicManager(), activity, "wgama_f40_l658_r698.ogg");
+			mSound_10 = MusicFactory.createMusicFromAsset(
+					engine.getMusicManager(), activity, "whitenoise_a0p2.ogg");
 			
 			mSoundArray.add(mSound_1);
 			mSoundArray.add(mSound_2);
@@ -253,6 +252,10 @@ public class ResourcesManager {
 			mSoundArray.add(mSound_4);
 			mSoundArray.add(mSound_5);
 			mSoundArray.add(mSound_6);
+			mSoundArray.add(mSound_7);
+			mSoundArray.add(mSound_8);
+			mSoundArray.add(mSound_9);
+			mSoundArray.add(mSound_10);
 			
 		}catch(IllegalStateException e){
 			e.printStackTrace();

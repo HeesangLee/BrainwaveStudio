@@ -23,6 +23,10 @@ public class MainMenuScene extends BaseScene{
 	private TiledSprite btn_sound_4;
 	private TiledSprite btn_sound_5;
 	private TiledSprite btn_sound_6;
+	private TiledSprite btn_sound_7;
+	private TiledSprite btn_sound_8;
+	private TiledSprite btn_sound_9;
+	private TiledSprite btn_sound_10;
 	
 	public Sprite backgroundSprite;
 	
@@ -427,64 +431,64 @@ public class MainMenuScene extends BaseScene{
 				pGLState.enableDither();
 			}
 		};
-		playCircle1Sprite = new Sprite(0,0,resourcesManager.mPlayCircle1Region,vbom){
-			@Override
-			protected void preDraw(GLState pGLState, Camera pCamera){
-				super.preDraw(pGLState, pCamera);
-				pGLState.enableDither();
-			}
-		};
-		playCircle2Sprite = new Sprite(0,0,resourcesManager.mPlayCircle2Region,vbom){
-			@Override
-			protected void preDraw(GLState pGLState, Camera pCamera){
-				super.preDraw(pGLState, pCamera);
-				pGLState.enableDither();
-			}
-		};
-		playCircle3Sprite = new Sprite(0,0,resourcesManager.mPlayCircle3Region,vbom){
-			@Override
-			protected void preDraw(GLState pGLState, Camera pCamera){
-				super.preDraw(pGLState, pCamera);
-				pGLState.enableDither();
-			}
-		};
-		playCircle4Sprite = new Sprite(0,0,resourcesManager.mPlayCircle4Region,vbom){
-			@Override
-			protected void preDraw(GLState pGLState, Camera pCamera){
-				super.preDraw(pGLState, pCamera);
-				pGLState.enableDither();
-			}
-		};
-		playCircle5Sprite = new Sprite(0,0,resourcesManager.mPlayCircle5Region,vbom){
-			@Override
-			protected void preDraw(GLState pGLState, Camera pCamera){
-				super.preDraw(pGLState, pCamera);
-				pGLState.enableDither();
-			}
-		};
-		playCircle6Sprite = new Sprite(0,0,resourcesManager.mPlayCircle6Region,vbom){
-			@Override
-			protected void preDraw(GLState pGLState, Camera pCamera){
-				super.preDraw(pGLState, pCamera);
-				pGLState.enableDither();
-			}
-		};
+//		playCircle1Sprite = new Sprite(0,0,resourcesManager.mPlayCircle1Region,vbom){
+//			@Override
+//			protected void preDraw(GLState pGLState, Camera pCamera){
+//				super.preDraw(pGLState, pCamera);
+//				pGLState.enableDither();
+//			}
+//		};
+//		playCircle2Sprite = new Sprite(0,0,resourcesManager.mPlayCircle2Region,vbom){
+//			@Override
+//			protected void preDraw(GLState pGLState, Camera pCamera){
+//				super.preDraw(pGLState, pCamera);
+//				pGLState.enableDither();
+//			}
+//		};
+//		playCircle3Sprite = new Sprite(0,0,resourcesManager.mPlayCircle3Region,vbom){
+//			@Override
+//			protected void preDraw(GLState pGLState, Camera pCamera){
+//				super.preDraw(pGLState, pCamera);
+//				pGLState.enableDither();
+//			}
+//		};
+//		playCircle4Sprite = new Sprite(0,0,resourcesManager.mPlayCircle4Region,vbom){
+//			@Override
+//			protected void preDraw(GLState pGLState, Camera pCamera){
+//				super.preDraw(pGLState, pCamera);
+//				pGLState.enableDither();
+//			}
+//		};
+//		playCircle5Sprite = new Sprite(0,0,resourcesManager.mPlayCircle5Region,vbom){
+//			@Override
+//			protected void preDraw(GLState pGLState, Camera pCamera){
+//				super.preDraw(pGLState, pCamera);
+//				pGLState.enableDither();
+//			}
+//		};
+//		playCircle6Sprite = new Sprite(0,0,resourcesManager.mPlayCircle6Region,vbom){
+//			@Override
+//			protected void preDraw(GLState pGLState, Camera pCamera){
+//				super.preDraw(pGLState, pCamera);
+//				pGLState.enableDither();
+//			}
+//		};
 		
 		playRingSprite.setPosition(xPos, yPos);
-		playCircle1Sprite.setPosition(xPos, yPos);
-		playCircle2Sprite.setPosition(xPos, yPos);
-		playCircle3Sprite.setPosition(xPos, yPos);
-		playCircle4Sprite.setPosition(xPos, yPos);
-		playCircle5Sprite.setPosition(xPos, yPos);
-		playCircle6Sprite.setPosition(xPos, yPos);
+//		playCircle1Sprite.setPosition(xPos, yPos);
+//		playCircle2Sprite.setPosition(xPos, yPos);
+//		playCircle3Sprite.setPosition(xPos, yPos);
+//		playCircle4Sprite.setPosition(xPos, yPos);
+//		playCircle5Sprite.setPosition(xPos, yPos);
+//		playCircle6Sprite.setPosition(xPos, yPos);
 		
 		attachChild(playRingSprite);
-		attachChild(playCircle1Sprite);
-		attachChild(playCircle2Sprite);
-		attachChild(playCircle3Sprite);
-		attachChild(playCircle4Sprite);
-		attachChild(playCircle5Sprite);
-		attachChild(playCircle6Sprite);
+//		attachChild(playCircle1Sprite);
+//		attachChild(playCircle2Sprite);
+//		attachChild(playCircle3Sprite);
+//		attachChild(playCircle4Sprite);
+//		attachChild(playCircle5Sprite);
+//		attachChild(playCircle6Sprite);
 		
 		playCircle1Sprite.registerEntityModifier(new LoopEntityModifier(new RotationModifier(2f, 0, 360)));
 		playCircle2Sprite.registerEntityModifier(new LoopEntityModifier(new RotationModifier(2.3f, 0, 360)));
