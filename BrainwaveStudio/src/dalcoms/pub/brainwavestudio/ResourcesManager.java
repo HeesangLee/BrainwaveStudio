@@ -66,12 +66,6 @@ public class ResourcesManager {
 	private BuildableBitmapTextureAtlas buttonsTextureAtlas;
 	
 	public ITextureRegion mPlayRingRegion;
-//	public ITextureRegion mPlayCircle1Region;
-//	public ITextureRegion mPlayCircle2Region;
-//	public ITextureRegion mPlayCircle3Region;
-//	public ITextureRegion mPlayCircle4Region;
-//	public ITextureRegion mPlayCircle5Region;
-//	public ITextureRegion mPlayCircle6Region;
 	
 	private BuildableBitmapTextureAtlas playImageAtlas;
 	
@@ -174,18 +168,6 @@ public class ResourcesManager {
 		
 		mPlayRingRegion = BitmapTextureAtlasTextureRegionFactory.createFromAsset(playImageAtlas, 
 				activity, "play_ring.png");
-//		mPlayCircle1Region = BitmapTextureAtlasTextureRegionFactory.createFromAsset(playImageAtlas, 
-//				activity, "play_circle_1.png");
-//		mPlayCircle2Region = BitmapTextureAtlasTextureRegionFactory.createFromAsset(playImageAtlas, 
-//				activity, "play_circle_2.png");
-//		mPlayCircle3Region = BitmapTextureAtlasTextureRegionFactory.createFromAsset(playImageAtlas, 
-//				activity, "play_circle_3.png");
-//		mPlayCircle4Region = BitmapTextureAtlasTextureRegionFactory.createFromAsset(playImageAtlas, 
-//				activity, "play_circle_4.png");
-//		mPlayCircle5Region = BitmapTextureAtlasTextureRegionFactory.createFromAsset(playImageAtlas, 
-//				activity, "play_circle_5.png");
-//		mPlayCircle6Region = BitmapTextureAtlasTextureRegionFactory.createFromAsset(playImageAtlas, 
-//				activity, "play_circle_6.png");
 		
 		try{
 			playImageAtlas.build(
