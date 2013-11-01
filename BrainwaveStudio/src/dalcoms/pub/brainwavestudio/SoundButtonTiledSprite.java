@@ -53,5 +53,4 @@ public class SoundButtonTiledSprite extends TiledSprite{
 		return super.onAreaTouched(pSceneTouchEvent, pTouchAreaLocalX,
 				pTouchAreaLocalY);
 	}
-	
 }
