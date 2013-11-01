@@ -63,6 +63,7 @@ public class ResourcesManager {
 	public ITextureRegion mReviewBtnRegion;
 	public ITextureRegion mMoreBtnRegion;
 	public ITextureRegion mShareBtnRegion;
+	public ITextureRegion mAlramBtnRegion;
 	private BuildableBitmapTextureAtlas buttonsTextureAtlas;
 	
 	public ITextureRegion mPlayRingRegion;
@@ -142,7 +143,7 @@ public class ResourcesManager {
 	
 	private void loadButtonsGraphics(){
 		buttonsTextureAtlas = new BuildableBitmapTextureAtlas(activity.getTextureManager(), 
-				128, 128*3,
+				55, 55*4,
 				BitmapTextureFormat.RGBA_8888,TextureOptions.BILINEAR);
 		mReviewBtnRegion = BitmapTextureAtlasTextureRegionFactory.createFromAsset(buttonsTextureAtlas, 
 				activity, "review_icon.png");
@@ -150,6 +151,8 @@ public class ResourcesManager {
 				activity, "more_icon.png");
 		mShareBtnRegion = BitmapTextureAtlasTextureRegionFactory.createFromAsset(buttonsTextureAtlas, 
 				activity, "share_icon.png");
+		mAlramBtnRegion = BitmapTextureAtlasTextureRegionFactory.createFromAsset(buttonsTextureAtlas, 
+				activity, "alram_icon.png");
 		
 		try{
 			buttonsTextureAtlas.build(

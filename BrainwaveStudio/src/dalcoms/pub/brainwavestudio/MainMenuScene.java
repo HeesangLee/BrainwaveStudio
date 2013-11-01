@@ -328,22 +328,56 @@ public class MainMenuScene extends BaseScene{
 		attachChild(btn_sound_9);
 		registerTouchArea(btn_sound_10);
 		attachChild(btn_sound_10);
-		
 	}
-	
 	
 	private void createExtraButtons(){
 		final float minusYOffset=6.765f;
 		final float myButton_width = ResourcesManager.getInstance().mMoreBtnRegion.getWidth();
-		final float myButton_height = ResourcesManager.getInstance().mMoreBtnRegion.getWidth();
+		final float myButton_height = ResourcesManager.getInstance().mMoreBtnRegion.getWidth()-0.2f;
 		final float refYBottom = btn_sound_10.getY()+btn_sound_10.getHeight();
 		final float xPos = camera.getWidth()-myButton_width;
 		final float yPos1st = refYBottom-myButton_height-minusYOffset;
-				
-		createMoreButton(xPos,yPos1st-2*myButton_height);
+		
 		createShareButton(xPos,yPos1st-myButton_height);
 		createReviewButton(xPos,yPos1st);
+		createMoreButton(xPos,yPos1st-2*myButton_height);
+		createAlarmButton(xPos,yPos1st-3*myButton_height);
 	}
+	
+	private void createAlarmButton(final float pX, final float pY){
+		final float positionX = pX;
+		final float positionY = pY;
+		
+		ButtonSprite alramButtonSprite = new ButtonSprite(
+				positionX,
+				positionY,
+				ResourcesManager.getInstance().mAlramBtnRegion,
+				engine.getVertexBufferObjectManager()){
+			@Override
+			protected void preDraw(final GLState pGLState, final Camera pCamera){
+				super.preDraw(pGLState, pCamera);
+				pGLState.enableDither();
+			}
+			@Override
+			public boolean onAreaTouched(TouchEvent pSceneTouchEvent,
+					float pTouchAreaLocalX, float pTouchAreaLocalY){
+				if(pSceneTouchEvent.isActionDown()){
+					this.setScale(1.5f);
+				}else{
+					this.setScale(1f);
+					if(pSceneTouchEvent.isActionUp()){
+						//TODO here
+					}
+				}
+				return super.onAreaTouched(pSceneTouchEvent, pTouchAreaLocalX,
+						pTouchAreaLocalY);
+			}
+		};
+		
+		registerTouchArea(alramButtonSprite);
+		attachChild(alramButtonSprite);
+	}
+	
 	private void createReviewButton(final float pX, final float pY){
 		final float positionX = pX;
 		final float positionY = pY;
