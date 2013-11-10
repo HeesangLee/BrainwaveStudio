@@ -42,8 +42,9 @@ public class ResourcesManager {
 	
 	public Font mFont_grossnet;
 	public Font mFont_Plok;
-	protected boolean isFontLoaded = false;
+	public Font mFont_UbuntuR;
 	
+	protected boolean isFontLoaded = true;
 	
 	public final int BTN_IMG_WIDTH = 112;
 	public final int BTN_IMG_HEIGHT = 152;
@@ -69,6 +70,12 @@ public class ResourcesManager {
 	public ITextureRegion mPlayRingRegion;
 	
 	private BuildableBitmapTextureAtlas playImageAtlas;
+	
+	public ITextureRegion mTimerSettingBgRegion;
+	private BitmapTextureAtlas timerSettingAtlas;
+	
+	public ITiledTextureRegion mTimerBtnHideTextureRegion;
+	private BuildableBitmapTextureAtlas mTimerBtnHideTextureAtlas;
 	
 	public Music mSound_1;
 	public Music mSound_2;
@@ -130,6 +137,41 @@ public class ResourcesManager {
 		loadSoundBtnGraphics();
 		loadButtonsGraphics();
 		loadPlayImages();
+		loadTimerSettingGraphics();
+	}
+	
+	private void loadTimerSettingGraphics(){
+		loadTimerSettingBg();
+		loadTimerSettingBtnHide();
+	}
+	private void loadTimerSettingBg(){
+		timerSettingAtlas = new BitmapTextureAtlas(activity.getTextureManager(), 
+				800, 346,
+				BitmapTextureFormat.RGBA_8888,TextureOptions.BILINEAR);
+		mTimerSettingBgRegion = BitmapTextureAtlasTextureRegionFactory.createFromAsset(timerSettingAtlas, 
+				activity, "timer_bg.png",0,0);
+		timerSettingAtlas.load();
+	}
+	
+	private void loadTimerSettingBtnHide(){
+		mTimerBtnHideTextureAtlas = new BuildableBitmapTextureAtlas(
+				engine.getTextureManager(), 
+				411+4, 
+				55+4,
+				BitmapTextureFormat.RGBA_8888,TextureOptions.BILINEAR);
+		
+		mTimerBtnHideTextureRegion = BitmapTextureAtlasTextureRegionFactory
+				.createTiledFromAsset(mTimerBtnHideTextureAtlas, activity.getAssets(),
+						"timer_btn_hide.png", 2, 1);
+		
+		try{
+			mTimerBtnHideTextureAtlas.build(
+					new BlackPawnTextureAtlasBuilder<IBitmapTextureAtlasSource, BitmapTextureAtlas>
+					(0,0,0));
+			mTimerBtnHideTextureAtlas.load();
+		}catch(TextureAtlasBuilderException e){
+			e.printStackTrace();
+		}
 	}
 	
 	private void loadBackgroundGraphics(){
@@ -145,6 +187,7 @@ public class ResourcesManager {
 		buttonsTextureAtlas = new BuildableBitmapTextureAtlas(activity.getTextureManager(), 
 				55, 55*4,
 				BitmapTextureFormat.RGBA_8888,TextureOptions.BILINEAR);
+		
 		mReviewBtnRegion = BitmapTextureAtlasTextureRegionFactory.createFromAsset(buttonsTextureAtlas, 
 				activity, "review_icon.png");
 		mMoreBtnRegion = BitmapTextureAtlasTextureRegionFactory.createFromAsset(buttonsTextureAtlas, 
@@ -272,9 +315,26 @@ public class ResourcesManager {
 				32f,
 				true,
 				Color.WHITE_ABGR_PACKED_INT);
+		mFont_Plok = FontFactory.createFromAsset(activity.getFontManager(), 
+				activity.getTextureManager(),
+				256,256,
+				activity.getAssets(),
+				"Plok.ttf",
+				32f,
+				true,
+				Color.WHITE_ABGR_PACKED_INT);
+		mFont_UbuntuR = FontFactory.createFromAsset(activity.getFontManager(), 
+				activity.getTextureManager(),
+				256,256,
+				activity.getAssets(),
+				"Ubuntu-R.ttf",
+				32f,
+				true,
+				Color.WHITE_ABGR_PACKED_INT);
 		
 		mFont_grossnet.load();
 		mFont_Plok.load();
+		mFont_UbuntuR.load();
 		isFontLoaded = true;
 	}
 	

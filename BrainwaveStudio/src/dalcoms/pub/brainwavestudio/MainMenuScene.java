@@ -2,6 +2,7 @@ package dalcoms.pub.brainwavestudio;
 
 import org.andengine.engine.camera.Camera;
 import org.andengine.entity.modifier.LoopEntityModifier;
+import org.andengine.entity.modifier.MoveModifier;
 import org.andengine.entity.modifier.RotationModifier;
 import org.andengine.entity.sprite.ButtonSprite;
 import org.andengine.entity.sprite.Sprite;
@@ -28,6 +29,7 @@ public class MainMenuScene extends BaseScene{
 	private TiledSprite btn_sound_10;
 	
 	public Sprite backgroundSprite;
+	public Sprite timerSettingSprite;
 	
 	private Sprite playRingSprite;
 	
@@ -40,6 +42,7 @@ public class MainMenuScene extends BaseScene{
 		createSoundBtns();
 		createExtraButtons(); // review,more,share buttons.
 		loadPlayImageSprites();
+		createTimerSettingWindow();
 	}
 
 	@Override
@@ -60,7 +63,18 @@ public class MainMenuScene extends BaseScene{
 		
 	}
 	
-
+	private void createTimerSettingWindow(){
+		timerSettingSprite = new TimerSprite(0,443.26f,resourcesManager.mTimerSettingBgRegion,vbom){
+			@Override
+			protected void preDraw(GLState pGLState, Camera pCamera){
+				super.preDraw(pGLState, pCamera);
+				pGLState.enableDither();
+			}
+		};
+//		backgroundSprite.setPosition(0, 0);
+		registerTouchArea(timerSettingSprite);
+		attachChild(timerSettingSprite);
+	}
 
 	private void createBackground(){
 		backgroundSprite = new Sprite(0,0,resourcesManager.mMainBackgroundRegion,vbom){
@@ -367,6 +381,10 @@ public class MainMenuScene extends BaseScene{
 					this.setScale(1f);
 					if(pSceneTouchEvent.isActionUp()){
 						//TODO here
+//						timerSettingSprite.setPosition(0f, 133.125f);
+						
+//						playRingSprite.registerEntityModifier(new LoopEntityModifier(new RotationModifier(6f, 360, 0)));
+						timerSettingSprite.registerEntityModifier(new MoveModifier(0.6f, 0, 0, 443.26f, 133.02f));
 					}
 				}
 				return super.onAreaTouched(pSceneTouchEvent, pTouchAreaLocalX,
