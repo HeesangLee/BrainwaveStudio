@@ -11,6 +11,8 @@ import org.andengine.opengl.vbo.VertexBufferObjectManager;
 
 
 public class TimerSprite extends Sprite{
+	public Sprite timerSettingIndicatorSprite;
+	public final float INDICATOR_Y = 0f;
 
 	public TimerSprite(float pX, float pY, ITextureRegion pTextureRegion,
 			VertexBufferObjectManager vbom) {
@@ -25,35 +27,25 @@ public class TimerSprite extends Sprite{
 		pGLState.enableDither();
 	}
 	
-	private void attachSprites(VertexBufferObjectManager vbom){
-		attachTimerButtonHide(vbom);
+	public void moveIndicator(float posX){
+		timerSettingIndicatorSprite.setPosition(posX, INDICATOR_Y);
 	}
 	
-	private void attachTimerButtonHide(VertexBufferObjectManager vbom){
-		TiledSprite hideButtonSprite;
-		hideButtonSprite = new TiledSprite(0, 0, ResourcesManager.getInstance().mTimerBtnHideTextureRegion, vbom){
+	private void attachSprites(VertexBufferObjectManager vbom){
+//		attachTimerButtonHide(vbom);
+		attachTimerIndicator(vbom);
+	}
+	
+	private void attachTimerIndicator(VertexBufferObjectManager vbom){
+		timerSettingIndicatorSprite = new Sprite(20,INDICATOR_Y,ResourcesManager.getInstance().mTimerIndicatorRegion,vbom){
 			@Override
-			protected void preDraw(final GLState pGLState, final Camera pCamera) {
+			protected void preDraw(GLState pGLState, Camera pCamera){
 				super.preDraw(pGLState, pCamera);
 				pGLState.enableDither();
 			}
-			@Override
-			public boolean onAreaTouched(TouchEvent pSceneTouchEvent,
-					float pTouchAreaLocalX, float pTouchAreaLocalY){
-				
-				if(pSceneTouchEvent.isActionUp()){
-					this.setCurrentTileIndex(0);
-				}else{
-					this.setCurrentTileIndex(1);
-				}
-				return super.onAreaTouched(pSceneTouchEvent, pTouchAreaLocalX,
-						pTouchAreaLocalY);
-			}
 		};
-		hideButtonSprite.setCurrentTileIndex(0);
-//		registerTouchArea(hideButtonSprite);
-	
-		attachChild(hideButtonSprite);
+		attachChild(timerSettingIndicatorSprite);
 	}
+
 }
 

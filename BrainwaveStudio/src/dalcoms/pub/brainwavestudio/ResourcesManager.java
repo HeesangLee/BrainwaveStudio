@@ -77,6 +77,9 @@ public class ResourcesManager {
 	public ITiledTextureRegion mTimerBtnHideTextureRegion;
 	private BuildableBitmapTextureAtlas mTimerBtnHideTextureAtlas;
 	
+	public ITextureRegion mTimerIndicatorRegion;
+	private BitmapTextureAtlas timerIndicatorAtlas;
+	
 	public Music mSound_1;
 	public Music mSound_2;
 	public Music mSound_3;
@@ -143,6 +146,15 @@ public class ResourcesManager {
 	private void loadTimerSettingGraphics(){
 		loadTimerSettingBg();
 		loadTimerSettingBtnHide();
+		loadTimerIndicator();
+	}
+	private void loadTimerIndicator(){
+		timerIndicatorAtlas = new BitmapTextureAtlas(activity.getTextureManager(), 
+				11, 62,
+				BitmapTextureFormat.RGBA_8888,TextureOptions.BILINEAR);
+		mTimerIndicatorRegion = BitmapTextureAtlasTextureRegionFactory.createFromAsset(timerIndicatorAtlas, 
+				activity, "timer_indicator.png",0,0);
+		timerIndicatorAtlas.load();
 	}
 	private void loadTimerSettingBg(){
 		timerSettingAtlas = new BitmapTextureAtlas(activity.getTextureManager(), 
