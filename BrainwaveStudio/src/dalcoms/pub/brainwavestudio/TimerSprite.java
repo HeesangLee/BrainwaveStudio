@@ -46,6 +46,5 @@ public class TimerSprite extends Sprite{
 		};
 		attachChild(timerSettingIndicatorSprite);
 	}
-
 }
 

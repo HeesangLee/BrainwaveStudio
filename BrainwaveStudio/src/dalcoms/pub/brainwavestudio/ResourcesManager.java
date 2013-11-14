@@ -377,3 +377,4 @@ public class ResourcesManager {
 		splash_region = null;
 	}
 }
+

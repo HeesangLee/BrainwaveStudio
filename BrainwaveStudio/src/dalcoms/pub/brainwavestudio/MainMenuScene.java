@@ -415,7 +415,8 @@ public class MainMenuScene extends BaseScene{
 					this.setScale(1f);
 					if(pSceneTouchEvent.isActionUp()){
 						//TODO here
-						timerSettingSprite.registerEntityModifier(new MoveModifier(duration, 0, 0, 443.26f, 133.02f));
+						timerSettingSprite.registerEntityModifier(new MoveModifier(duration, 0, 0, 
+								443.26f, 133.02f));
 						hideButtonSprite.registerEntityModifier(new MoveModifier(duration*3, btnHidePosX, btnHidePosX, 
 								btnHidePosY_sleep, btnHidePosY_active, EaseBounceInOut.getInstance()));
 					}
@@ -576,11 +577,6 @@ public class MainMenuScene extends BaseScene{
 	}
 	
 }
-
-
-
-
-
 
 
 
