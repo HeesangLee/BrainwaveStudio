@@ -11,9 +11,12 @@ import org.andengine.entity.sprite.TiledSprite;
 import org.andengine.input.touch.TouchEvent;
 import org.andengine.opengl.util.GLState;
 import org.andengine.util.modifier.ease.EaseBounceInOut;
+import org.andengine.util.modifier.ease.EaseBounceOut;
+import org.andengine.util.modifier.ease.EaseElasticIn;
 
 import android.content.Intent;
 import android.net.Uri;
+import android.util.Log;
 import dalcoms.pub.brainwavestudio.SceneManager.SceneType;
 //import org.andengine.entity.modifier.AlphaModifier;
 
@@ -33,6 +36,7 @@ public class MainMenuScene extends BaseScene{
 	public Sprite backgroundSprite;
 	public Sprite timerSettingSprite;
 	public TiledSprite hideButtonSprite;
+	public TiledSprite TimerSetButtonSprite;
 	
 	private Sprite playRingSprite;
 	
@@ -42,6 +46,11 @@ public class MainMenuScene extends BaseScene{
 	public final float btnHidePosX = (camera.getWidth()-resourcesManager.mTimerBtnHideTextureRegion.getWidth())/2;
 	public final float btnHidePosY_sleep = -1.0f*resourcesManager.mTimerSettingBgRegion.getHeight();//camera.getHeight()+resourcesManager.mTimerSettingBgRegion.getHeight(); // 정확한 위치일 필요 없다.;
 	public final float btnHidePosY_active = camera.getHeight()-resourcesManager.mTimerBtnHideTextureRegion.getHeight()+15.0f;
+	public float btnTimerSetPosX=65.69f;
+	public final float btnTimerSetPosY_sleep=-1.0f*resourcesManager.mTimerBtnSetRegion.getHeight();
+	public final float btnTimerSetPosY_active = 202.5f;
+	
+	public boolean flagTimerSetting = false;
 	
 	//========================================================
 
@@ -78,13 +87,13 @@ public class MainMenuScene extends BaseScene{
 		attachChild(timerSettingSprite);
 		
 		createTimerButtonHide();
+		createTimerButtonSet();
 	}
-	private void createTimerButtonHide(){
-//		btnHidePosX = (camera.getWidth()-resourcesManager.mTimerBtnHideTextureRegion.getWidth())/2;
-//		btnHidePosY_sleep =camera.getHeight()+resourcesManager.mTimerSettingBgRegion.getHeight(); // 정확한 위치일 필요 없다.
-//		btnHidePosY_active = camera.getHeight()-resourcesManager.mTimerBtnHideTextureRegion.getHeight();
-		
-		hideButtonSprite = new TiledSprite(btnHidePosX, btnHidePosY_sleep, resourcesManager.mTimerBtnHideTextureRegion, vbom){
+	private void createTimerButtonSet(){
+		final float PosX = 0;
+		final float PosY = -1.0f*resourcesManager.mTimerBtnSetRegion.getHeight();
+		TimerSetButtonSprite = new TiledSprite(PosX, PosY, 
+				resourcesManager.mTimerBtnSetRegion, vbom){
 			@Override
 			protected void preDraw(final GLState pGLState, final Camera pCamera) {
 				super.preDraw(pGLState, pCamera);
@@ -98,6 +107,35 @@ public class MainMenuScene extends BaseScene{
 					this.setCurrentTileIndex(0);
 				}else{
 					this.setCurrentTileIndex(1);
+				}
+				return super.onAreaTouched(pSceneTouchEvent, pTouchAreaLocalX,
+						pTouchAreaLocalY);
+			}
+		};
+		TimerSetButtonSprite.setCurrentTileIndex(0);
+		registerTouchArea(TimerSetButtonSprite);
+	
+		attachChild(TimerSetButtonSprite);
+	}
+	private void createTimerButtonHide(){
+		final float PosX = (camera.getWidth()-resourcesManager.mTimerBtnHideTextureRegion.getWidth())/2;
+		final float PosY = -1.0f*resourcesManager.mTimerSettingBgRegion.getHeight();//camera.getHeight()+resourcesManager.mTimerSettingBgRegion.getHeight(); // 정확한 위치일 필요 없다.;
+		hideButtonSprite = new TiledSprite(PosX, PosY, resourcesManager.mTimerBtnHideTextureRegion, vbom){
+			@Override
+			protected void preDraw(final GLState pGLState, final Camera pCamera) {
+				super.preDraw(pGLState, pCamera);
+				pGLState.enableDither();
+			}
+			@Override
+			public boolean onAreaTouched(TouchEvent pSceneTouchEvent,
+					float pTouchAreaLocalX, float pTouchAreaLocalY){
+				if(pSceneTouchEvent.isActionDown()){//hide
+					this.setCurrentTileIndex(1);
+				}else{
+					if(pSceneTouchEvent.isActionUp()){
+						timerSeetingHide();
+						this.setCurrentTileIndex(0);
+					}
 				}
 				return super.onAreaTouched(pSceneTouchEvent, pTouchAreaLocalX,
 						pTouchAreaLocalY);
@@ -408,17 +446,14 @@ public class MainMenuScene extends BaseScene{
 			@Override
 			public boolean onAreaTouched(TouchEvent pSceneTouchEvent,
 					float pTouchAreaLocalX, float pTouchAreaLocalY){
-				float duration = 0.65f;
+				
 				if(pSceneTouchEvent.isActionDown()){
 					this.setScale(1.5f);
 				}else{
 					this.setScale(1f);
 					if(pSceneTouchEvent.isActionUp()){
 						//TODO here
-						timerSettingSprite.registerEntityModifier(new MoveModifier(duration, 0, 0, 
-								443.26f, 133.02f));
-						hideButtonSprite.registerEntityModifier(new MoveModifier(duration*3, btnHidePosX, btnHidePosX, 
-								btnHidePosY_sleep, btnHidePosY_active, EaseBounceInOut.getInstance()));
+						timerSeetingShow();
 					}
 				}
 				return super.onAreaTouched(pSceneTouchEvent, pTouchAreaLocalX,
@@ -428,6 +463,33 @@ public class MainMenuScene extends BaseScene{
 		
 		registerTouchArea(alramButtonSprite);
 		attachChild(alramButtonSprite);
+	}
+	private void timerSeetingShow(){
+		float duration = 0.45f;
+		flagTimerSetting = true;
+		
+		timerSettingSprite.registerEntityModifier(new MoveModifier(duration, 0, 0, 
+				443.26f, 133.02f));
+		
+		hideButtonSprite.registerEntityModifier(new MoveModifier(duration*4, btnHidePosX, btnHidePosX, 
+				btnHidePosY_sleep, btnHidePosY_active, EaseBounceOut.getInstance()));
+		
+		TimerSetButtonSprite.registerEntityModifier(new MoveModifier(duration*2, btnTimerSetPosX, btnTimerSetPosX, 
+				btnTimerSetPosY_sleep, btnTimerSetPosY_active, EaseBounceOut.getInstance()));
+	}
+	
+	private void timerSeetingHide(){
+		float duration = 0.65f;
+		flagTimerSetting = false;
+		
+		timerSettingSprite.registerEntityModifier(new MoveModifier(duration, 0, 0, 
+				133.02f,443.26f ));
+		
+		hideButtonSprite.registerEntityModifier(new MoveModifier(duration/2, btnHidePosX, btnHidePosX, 
+				btnHidePosY_active, btnHidePosY_sleep));
+		
+		TimerSetButtonSprite.registerEntityModifier(new MoveModifier(duration/2, btnTimerSetPosX, btnTimerSetPosX, 
+				btnTimerSetPosY_active, btnTimerSetPosY_sleep));
 	}
 	
 	private void createReviewButton(final float pX, final float pY){

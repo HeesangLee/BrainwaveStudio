@@ -12,7 +12,7 @@ import org.andengine.opengl.vbo.VertexBufferObjectManager;
 
 public class TimerSprite extends Sprite{
 	public Sprite timerSettingIndicatorSprite;
-	public final float INDICATOR_Y = 0f;
+	public final float INDICATOR_Y = 25.793f;
 
 	public TimerSprite(float pX, float pY, ITextureRegion pTextureRegion,
 			VertexBufferObjectManager vbom) {
@@ -37,7 +37,7 @@ public class TimerSprite extends Sprite{
 	}
 	
 	private void attachTimerIndicator(VertexBufferObjectManager vbom){
-		timerSettingIndicatorSprite = new Sprite(20,INDICATOR_Y,ResourcesManager.getInstance().mTimerIndicatorRegion,vbom){
+		timerSettingIndicatorSprite = new Sprite(122f,INDICATOR_Y,ResourcesManager.getInstance().mTimerIndicatorRegion,vbom){
 			@Override
 			protected void preDraw(GLState pGLState, Camera pCamera){
 				super.preDraw(pGLState, pCamera);

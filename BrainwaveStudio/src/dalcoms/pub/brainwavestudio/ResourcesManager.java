@@ -80,6 +80,9 @@ public class ResourcesManager {
 	public ITextureRegion mTimerIndicatorRegion;
 	private BitmapTextureAtlas timerIndicatorAtlas;
 	
+	public ITiledTextureRegion mTimerBtnSetRegion;
+	private BuildableBitmapTextureAtlas mTimerBtnSetTextureAtlas;
+	
 	public Music mSound_1;
 	public Music mSound_2;
 	public Music mSound_3;
@@ -146,6 +149,7 @@ public class ResourcesManager {
 	private void loadTimerSettingGraphics(){
 		loadTimerSettingBg();
 		loadTimerSettingBtnHide();
+		loadTimerSettingBtn();
 		loadTimerIndicator();
 	}
 	private void loadTimerIndicator(){
@@ -163,6 +167,26 @@ public class ResourcesManager {
 		mTimerSettingBgRegion = BitmapTextureAtlasTextureRegionFactory.createFromAsset(timerSettingAtlas, 
 				activity, "timer_bg.png",0,0);
 		timerSettingAtlas.load();
+	}
+	private void loadTimerSettingBtn(){
+		mTimerBtnSetTextureAtlas = new BuildableBitmapTextureAtlas(
+				engine.getTextureManager(), 
+				270+4, 
+				135+4,
+				BitmapTextureFormat.RGBA_8888,TextureOptions.BILINEAR);
+		
+		mTimerBtnSetRegion = BitmapTextureAtlasTextureRegionFactory
+				.createTiledFromAsset(mTimerBtnSetTextureAtlas, activity.getAssets(),
+						"timer_btn_set.png", 2, 1);
+		
+		try{
+			mTimerBtnSetTextureAtlas.build(
+					new BlackPawnTextureAtlasBuilder<IBitmapTextureAtlasSource, BitmapTextureAtlas>
+					(0,0,0));
+			mTimerBtnSetTextureAtlas.load();
+		}catch(TextureAtlasBuilderException e){
+			e.printStackTrace();
+		}
 	}
 	
 	private void loadTimerSettingBtnHide(){
