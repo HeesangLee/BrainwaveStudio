@@ -16,6 +16,7 @@ import org.andengine.opengl.vbo.VertexBufferObjectManager;
 public class SoundButtonTiledSprite extends TiledSprite{
 	public int flagButtonStatus = 0;
 	private Music mySound;
+	public boolean flagTouchDisable=false;
 	
 	public SoundButtonTiledSprite(float pX, float pY,
 			ITiledTextureRegion pTiledTextureRegion,
@@ -27,6 +28,9 @@ public class SoundButtonTiledSprite extends TiledSprite{
 		this.setCurrentTileIndex(flagButtonStatus);
 		mySound = pMusic;
 	}
+	public void setTouchDisable(boolean off){
+		flagTouchDisable = off;
+	}
 	
 	@Override
 	protected void preDraw(final GLState pGLState, final Camera pCamera) {
@@ -37,6 +41,10 @@ public class SoundButtonTiledSprite extends TiledSprite{
 	@Override
 	public boolean onAreaTouched(TouchEvent pSceneTouchEvent,
 			float pTouchAreaLocalX, float pTouchAreaLocalY){
+		if(flagTouchDisable==true){
+			return super.onAreaTouched(pSceneTouchEvent, pTouchAreaLocalX,
+					pTouchAreaLocalY);
+		}
 		
 		if(pSceneTouchEvent.isActionUp()){
 			if (flagButtonStatus%2 == 0){//pause to play

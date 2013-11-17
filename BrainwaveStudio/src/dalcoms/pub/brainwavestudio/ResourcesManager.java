@@ -83,6 +83,10 @@ public class ResourcesManager {
 	public ITiledTextureRegion mTimerBtnSetRegion;
 	private BuildableBitmapTextureAtlas mTimerBtnSetTextureAtlas;
 	
+	public ITextureRegion mTimerLoopOnBtnRegion;
+	public ITextureRegion mTimerLoopOnRegion;
+	private BuildableBitmapTextureAtlas timerLoopBtnTextureAtlas;
+	
 	public Music mSound_1;
 	public Music mSound_2;
 	public Music mSound_3;
@@ -93,6 +97,8 @@ public class ResourcesManager {
 	public Music mSound_8;
 	public Music mSound_9;
 	public Music mSound_10;
+	
+	public Music mSoundEffect_btnClick;
 	
 	public ArrayList<Music> mSoundArray = new ArrayList<Music>();
 	//====================================================================
@@ -151,7 +157,29 @@ public class ResourcesManager {
 		loadTimerSettingBtnHide();
 		loadTimerSettingBtn();
 		loadTimerIndicator();
+		loadTimerLoop();
 	}
+	
+	private void loadTimerLoop(){
+		timerLoopBtnTextureAtlas = new BuildableBitmapTextureAtlas(activity.getTextureManager(), 
+				45, 29*2,
+				BitmapTextureFormat.RGBA_8888,TextureOptions.BILINEAR);
+		
+		mTimerLoopOnBtnRegion = BitmapTextureAtlasTextureRegionFactory.createFromAsset(timerLoopBtnTextureAtlas, 
+				activity, "timer_btn_loop.png");
+		mTimerLoopOnRegion = BitmapTextureAtlasTextureRegionFactory.createFromAsset(timerLoopBtnTextureAtlas, 
+				activity, "timer_loop_on.png");
+		
+		try{
+			timerLoopBtnTextureAtlas.build(
+					new BlackPawnTextureAtlasBuilder<IBitmapTextureAtlasSource, BitmapTextureAtlas>
+					(0,0,0));
+			timerLoopBtnTextureAtlas.load();
+		}catch(TextureAtlasBuilderException e){
+			e.printStackTrace();
+		}
+	}
+	
 	private void loadTimerIndicator(){
 		timerIndicatorAtlas = new BitmapTextureAtlas(activity.getTextureManager(), 
 				11, 62,
@@ -309,6 +337,9 @@ public class ResourcesManager {
 					engine.getMusicManager(), activity, "wgama_f40_l658_r698.ogg");
 			mSound_10 = MusicFactory.createMusicFromAsset(
 					engine.getMusicManager(), activity, "whitenoise_a0p2.ogg");
+			
+			mSoundEffect_btnClick = MusicFactory.createMusicFromAsset(
+					engine.getMusicManager(), activity, "btnclick.mp3");
 			
 			mSoundArray.add(mSound_1);
 			mSoundArray.add(mSound_2);

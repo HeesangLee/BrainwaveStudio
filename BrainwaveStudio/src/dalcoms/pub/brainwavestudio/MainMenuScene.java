@@ -22,21 +22,22 @@ import dalcoms.pub.brainwavestudio.SceneManager.SceneType;
 
 public class MainMenuScene extends BaseScene{
 	
-	private TiledSprite btn_sound_1;
-	private TiledSprite btn_sound_2;
-	private TiledSprite btn_sound_3;
-	private TiledSprite btn_sound_4;
-	private TiledSprite btn_sound_5;
-	private TiledSprite btn_sound_6;
-	private TiledSprite btn_sound_7;
-	private TiledSprite btn_sound_8;
-	private TiledSprite btn_sound_9;
-	private TiledSprite btn_sound_10;
+	private SoundButtonTiledSprite btn_sound_1;
+	private SoundButtonTiledSprite btn_sound_2;
+	private SoundButtonTiledSprite btn_sound_3;
+	private SoundButtonTiledSprite btn_sound_4;
+	private SoundButtonTiledSprite btn_sound_5;
+	private SoundButtonTiledSprite btn_sound_6;
+	private SoundButtonTiledSprite btn_sound_7;
+	private SoundButtonTiledSprite btn_sound_8;
+	private SoundButtonTiledSprite btn_sound_9;
+	private SoundButtonTiledSprite btn_sound_10;
 	
 	public Sprite backgroundSprite;
-	public Sprite timerSettingSprite;
+	public TimerSprite timerSettingSprite;
 	public TiledSprite hideButtonSprite;
 	public TiledSprite TimerSetButtonSprite;
+	public ButtonSprite timerLoopOnSprite ;
 	
 	private Sprite playRingSprite;
 	
@@ -49,6 +50,10 @@ public class MainMenuScene extends BaseScene{
 	public float btnTimerSetPosX=65.69f;
 	public final float btnTimerSetPosY_sleep=-1.0f*resourcesManager.mTimerBtnSetRegion.getHeight();
 	public final float btnTimerSetPosY_active = 202.5f;
+	
+	public final float btnTimerLoopPosX = 744.903f-resourcesManager.mTimerLoopOnBtnRegion.getWidth()/2;
+	public final float btnTimerLoopPosY_sleep = -1.1f*resourcesManager.mTimerLoopOnBtnRegion.getHeight();
+	public final float btnTimerLoopPosY_active = 268.240f-resourcesManager.mTimerLoopOnBtnRegion.getHeight()/2;
 	
 	public boolean flagTimerSetting = false;
 	
@@ -88,7 +93,49 @@ public class MainMenuScene extends BaseScene{
 		
 		createTimerButtonHide();
 		createTimerButtonSet();
+		createTimerLoopOn();
 	}
+	
+	private void createTimerLoopOn(){
+		final float posX = 744.903f-resourcesManager.mTimerLoopOnBtnRegion.getWidth()/2;
+		final float posY = -1.1f*resourcesManager.mTimerLoopOnBtnRegion.getHeight();
+		
+		timerLoopOnSprite = new ButtonSprite(
+				posX,
+				posY,
+				ResourcesManager.getInstance().mTimerLoopOnBtnRegion,
+				engine.getVertexBufferObjectManager()){
+			@Override
+			protected void preDraw(final GLState pGLState, final Camera pCamera){
+				super.preDraw(pGLState, pCamera);
+				pGLState.enableDither();
+			}
+			@Override
+			public boolean onAreaTouched(TouchEvent pSceneTouchEvent,
+					float pTouchAreaLocalX, float pTouchAreaLocalY){
+				
+				if(pSceneTouchEvent.isActionDown()){
+					this.setScale(1.5f);
+					resourcesManager.mSoundEffect_btnClick.play();
+				}else{
+					this.setScale(1f);
+					if(pSceneTouchEvent.isActionUp()){
+						if(timerSettingSprite.getTimerLoopOn()==true){
+							timerSettingSprite.setTimerLoopOn(false);
+						}else{
+							timerSettingSprite.setTimerLoopOn(true);
+						}
+					}
+				}
+				return super.onAreaTouched(pSceneTouchEvent, pTouchAreaLocalX,
+						pTouchAreaLocalY);
+			}
+		};
+		
+		registerTouchArea(timerLoopOnSprite);
+		attachChild(timerLoopOnSprite);
+	}
+	
 	private void createTimerButtonSet(){
 		final float PosX = 0;
 		final float PosY = -1.0f*resourcesManager.mTimerBtnSetRegion.getHeight();
@@ -131,6 +178,7 @@ public class MainMenuScene extends BaseScene{
 					float pTouchAreaLocalX, float pTouchAreaLocalY){
 				if(pSceneTouchEvent.isActionDown()){//hide
 					this.setCurrentTileIndex(1);
+					resourcesManager.mSoundEffect_btnClick.play();
 				}else{
 					if(pSceneTouchEvent.isActionUp()){
 						timerSeetingHide();
@@ -195,6 +243,10 @@ public class MainMenuScene extends BaseScene{
 			@Override
 			public boolean onAreaTouched(TouchEvent pSceneTouchEvent,
 					float pTouchAreaLocalX, float pTouchAreaLocalY){
+				if(flagTimerSetting==true){
+					return super.onAreaTouched(pSceneTouchEvent, pTouchAreaLocalX,
+							pTouchAreaLocalY);
+				}
 				if(pSceneTouchEvent.isActionUp()){
 					if (flagButtonStatus%2 == 0){//pause to play
 						enablePlayImageVisible(0);
@@ -215,6 +267,10 @@ public class MainMenuScene extends BaseScene{
 			@Override
 			public boolean onAreaTouched(TouchEvent pSceneTouchEvent,
 					float pTouchAreaLocalX, float pTouchAreaLocalY){
+				if(flagTimerSetting==true){
+					return super.onAreaTouched(pSceneTouchEvent, pTouchAreaLocalX,
+							pTouchAreaLocalY);
+				}
 				if(pSceneTouchEvent.isActionUp()){
 					if (flagButtonStatus%2 == 0){//pause to play
 						enablePlayImageVisible(1);
@@ -235,6 +291,10 @@ public class MainMenuScene extends BaseScene{
 			@Override
 			public boolean onAreaTouched(TouchEvent pSceneTouchEvent,
 					float pTouchAreaLocalX, float pTouchAreaLocalY){
+				if(flagTimerSetting==true){
+					return super.onAreaTouched(pSceneTouchEvent, pTouchAreaLocalX,
+							pTouchAreaLocalY);
+				}
 				if(pSceneTouchEvent.isActionUp()){
 					if (flagButtonStatus%2 == 0){//pause to play
 						enablePlayImageVisible(2);
@@ -255,6 +315,10 @@ public class MainMenuScene extends BaseScene{
 			@Override
 			public boolean onAreaTouched(TouchEvent pSceneTouchEvent,
 					float pTouchAreaLocalX, float pTouchAreaLocalY){
+				if(flagTimerSetting==true){
+					return super.onAreaTouched(pSceneTouchEvent, pTouchAreaLocalX,
+							pTouchAreaLocalY);
+				}
 				if(pSceneTouchEvent.isActionUp()){
 					if (flagButtonStatus%2 == 0){//pause to play
 						enablePlayImageVisible(3);
@@ -275,6 +339,10 @@ public class MainMenuScene extends BaseScene{
 			@Override
 			public boolean onAreaTouched(TouchEvent pSceneTouchEvent,
 					float pTouchAreaLocalX, float pTouchAreaLocalY){
+				if(flagTimerSetting==true){
+					return super.onAreaTouched(pSceneTouchEvent, pTouchAreaLocalX,
+							pTouchAreaLocalY);
+				}
 				if(pSceneTouchEvent.isActionUp()){
 					if (flagButtonStatus%2 == 0){//pause to play
 						enablePlayImageVisible(4);
@@ -295,6 +363,10 @@ public class MainMenuScene extends BaseScene{
 			@Override
 			public boolean onAreaTouched(TouchEvent pSceneTouchEvent,
 					float pTouchAreaLocalX, float pTouchAreaLocalY){
+				if(flagTimerSetting==true){
+					return super.onAreaTouched(pSceneTouchEvent, pTouchAreaLocalX,
+							pTouchAreaLocalY);
+				}
 				if(pSceneTouchEvent.isActionUp()){
 					if (flagButtonStatus%2 == 0){//pause to play
 						enablePlayImageVisible(5);
@@ -317,6 +389,10 @@ public class MainMenuScene extends BaseScene{
 			@Override
 			public boolean onAreaTouched(TouchEvent pSceneTouchEvent,
 					float pTouchAreaLocalX, float pTouchAreaLocalY){
+				if(flagTimerSetting==true){
+					return super.onAreaTouched(pSceneTouchEvent, pTouchAreaLocalX,
+							pTouchAreaLocalY);
+				}
 				if(pSceneTouchEvent.isActionUp()){
 					if (flagButtonStatus%2 == 0){//pause to play
 						enablePlayImageVisible(6);
@@ -338,6 +414,10 @@ public class MainMenuScene extends BaseScene{
 			@Override
 			public boolean onAreaTouched(TouchEvent pSceneTouchEvent,
 					float pTouchAreaLocalX, float pTouchAreaLocalY){
+				if(flagTimerSetting==true){
+					return super.onAreaTouched(pSceneTouchEvent, pTouchAreaLocalX,
+							pTouchAreaLocalY);
+				}
 				if(pSceneTouchEvent.isActionUp()){
 					if (flagButtonStatus%2 == 0){//pause to play
 						enablePlayImageVisible(7);
@@ -359,6 +439,10 @@ public class MainMenuScene extends BaseScene{
 			@Override
 			public boolean onAreaTouched(TouchEvent pSceneTouchEvent,
 					float pTouchAreaLocalX, float pTouchAreaLocalY){
+				if(flagTimerSetting==true){
+					return super.onAreaTouched(pSceneTouchEvent, pTouchAreaLocalX,
+							pTouchAreaLocalY);
+				}
 				if(pSceneTouchEvent.isActionUp()){
 					if (flagButtonStatus%2 == 0){//pause to play
 						enablePlayImageVisible(8);
@@ -380,6 +464,10 @@ public class MainMenuScene extends BaseScene{
 			@Override
 			public boolean onAreaTouched(TouchEvent pSceneTouchEvent,
 					float pTouchAreaLocalX, float pTouchAreaLocalY){
+				if(flagTimerSetting==true){
+					return super.onAreaTouched(pSceneTouchEvent, pTouchAreaLocalX,
+							pTouchAreaLocalY);
+				}
 				if(pSceneTouchEvent.isActionUp()){
 					if (flagButtonStatus%2 == 0){//pause to play
 						enablePlayImageVisible(9);
@@ -446,9 +534,13 @@ public class MainMenuScene extends BaseScene{
 			@Override
 			public boolean onAreaTouched(TouchEvent pSceneTouchEvent,
 					float pTouchAreaLocalX, float pTouchAreaLocalY){
-				
+				if(flagTimerSetting==true){
+					return super.onAreaTouched(pSceneTouchEvent, pTouchAreaLocalX,
+							pTouchAreaLocalY);
+				}
 				if(pSceneTouchEvent.isActionDown()){
 					this.setScale(1.5f);
+					resourcesManager.mSoundEffect_btnClick.play();
 				}else{
 					this.setScale(1f);
 					if(pSceneTouchEvent.isActionUp()){
@@ -464,6 +556,18 @@ public class MainMenuScene extends BaseScene{
 		registerTouchArea(alramButtonSprite);
 		attachChild(alramButtonSprite);
 	}
+	private void setSoundBtnTouch(){
+		btn_sound_1.setTouchDisable(flagTimerSetting);
+		btn_sound_2.setTouchDisable(flagTimerSetting);
+		btn_sound_3.setTouchDisable(flagTimerSetting);
+		btn_sound_4.setTouchDisable(flagTimerSetting);
+		btn_sound_5.setTouchDisable(flagTimerSetting);
+		btn_sound_6.setTouchDisable(flagTimerSetting);
+		btn_sound_7.setTouchDisable(flagTimerSetting);
+		btn_sound_8.setTouchDisable(flagTimerSetting);
+		btn_sound_9.setTouchDisable(flagTimerSetting);
+		btn_sound_10.setTouchDisable(flagTimerSetting);
+	}
 	private void timerSeetingShow(){
 		float duration = 0.45f;
 		flagTimerSetting = true;
@@ -476,6 +580,12 @@ public class MainMenuScene extends BaseScene{
 		
 		TimerSetButtonSprite.registerEntityModifier(new MoveModifier(duration*2, btnTimerSetPosX, btnTimerSetPosX, 
 				btnTimerSetPosY_sleep, btnTimerSetPosY_active, EaseBounceOut.getInstance()));
+		
+		timerLoopOnSprite.registerEntityModifier(new MoveModifier(duration*3, btnTimerLoopPosX, btnTimerLoopPosX, 
+				btnTimerLoopPosY_sleep, btnTimerLoopPosY_active, EaseBounceOut.getInstance()));
+		
+		setSoundBtnTouch();
+		
 	}
 	
 	private void timerSeetingHide(){
@@ -490,6 +600,10 @@ public class MainMenuScene extends BaseScene{
 		
 		TimerSetButtonSprite.registerEntityModifier(new MoveModifier(duration/2, btnTimerSetPosX, btnTimerSetPosX, 
 				btnTimerSetPosY_active, btnTimerSetPosY_sleep));
+		
+		timerLoopOnSprite.registerEntityModifier(new MoveModifier(duration/2, btnTimerLoopPosX, btnTimerLoopPosX, 
+				btnTimerLoopPosY_active, btnTimerLoopPosY_sleep));
+		setSoundBtnTouch();
 	}
 	
 	private void createReviewButton(final float pX, final float pY){
@@ -510,8 +624,13 @@ public class MainMenuScene extends BaseScene{
 			@Override
 			public boolean onAreaTouched(TouchEvent pSceneTouchEvent,
 					float pTouchAreaLocalX, float pTouchAreaLocalY){
+				if(flagTimerSetting==true){
+					return super.onAreaTouched(pSceneTouchEvent, pTouchAreaLocalX,
+							pTouchAreaLocalY);
+				}
 				if(pSceneTouchEvent.isActionDown()){
 					this.setScale(1.5f);
+					resourcesManager.mSoundEffect_btnClick.play();
 				}else{
 					this.setScale(1f);
 					if(pSceneTouchEvent.isActionUp()){
@@ -549,8 +668,13 @@ public class MainMenuScene extends BaseScene{
 			@Override
 			public boolean onAreaTouched(TouchEvent pSceneTouchEvent,
 					float pTouchAreaLocalX, float pTouchAreaLocalY){
+				if(flagTimerSetting==true){
+					return super.onAreaTouched(pSceneTouchEvent, pTouchAreaLocalX,
+							pTouchAreaLocalY);
+				}
 				if(pSceneTouchEvent.isActionDown()){
 					this.setScale(1.5f);
+					resourcesManager.mSoundEffect_btnClick.play();
 				}else{
 					this.setScale(1f);
 					if(pSceneTouchEvent.isActionUp()){
@@ -593,8 +717,13 @@ public class MainMenuScene extends BaseScene{
 			@Override
 			public boolean onAreaTouched(TouchEvent pSceneTouchEvent,
 					float pTouchAreaLocalX, float pTouchAreaLocalY){
+				if(flagTimerSetting==true){
+					return super.onAreaTouched(pSceneTouchEvent, pTouchAreaLocalX,
+							pTouchAreaLocalY);
+				}
 				if(pSceneTouchEvent.isActionDown()){
 					this.setScale(1.5f);
+					resourcesManager.mSoundEffect_btnClick.play();
 				}else{
 					this.setScale(1f);
 					if(pSceneTouchEvent.isActionUp()){
