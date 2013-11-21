@@ -26,8 +26,9 @@ public class TimerSprite extends Sprite{
 		pGLState.enableDither();
 	}
 	
+	
 	public void moveIndicator(float posX){
-		timerSettingIndicatorSprite.setPosition(posX, INDICATOR_Y);
+		timerSettingIndicatorSprite.setPosition(posX-timerSettingIndicatorSprite.getWidth()/2, INDICATOR_Y);
 	}
 	
 	public boolean setTimerLoopOn(boolean onOff){

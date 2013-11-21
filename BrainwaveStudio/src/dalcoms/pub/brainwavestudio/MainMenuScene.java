@@ -149,11 +149,19 @@ public class MainMenuScene extends BaseScene{
 			@Override
 			public boolean onAreaTouched(TouchEvent pSceneTouchEvent,
 					float pTouchAreaLocalX, float pTouchAreaLocalY){
+				this.setPosition(pSceneTouchEvent.getX()-this.getWidth()/2, btnTimerSetPosY_active);
+				timerSettingSprite.moveIndicator(pSceneTouchEvent.getX());
+//				Log.v("TouchEvent",""+pSceneTouchEvent.getAction());
 				
 				if(pSceneTouchEvent.isActionUp()){
 					this.setCurrentTileIndex(0);
+					
 				}else{
-					this.setCurrentTileIndex(1);
+					if(pSceneTouchEvent.isActionDown()){
+						this.setCurrentTileIndex(1);
+					}else{
+						this.setCurrentTileIndex(0);
+					}
 				}
 				return super.onAreaTouched(pSceneTouchEvent, pTouchAreaLocalX,
 						pTouchAreaLocalY);
