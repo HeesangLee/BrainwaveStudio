@@ -12,6 +12,9 @@ public class TimerSprite extends Sprite{
 	public Sprite timerLoopOnSprite;
 	public final float INDICATOR_Y = 25.793f;
 	private boolean flagLoopOn = false;
+	private final float TIME_MAX_MINUTE = 60f;
+	private final float X_MIN = 128.378f;
+	private final float X_MAX = ResourcesManager.getInstance().camera.getWidth()-X_MIN;
 
 	public TimerSprite(float pX, float pY, ITextureRegion pTextureRegion,
 			VertexBufferObjectManager vbom) {
@@ -34,6 +37,7 @@ public class TimerSprite extends Sprite{
 	public boolean setTimerLoopOn(boolean onOff){
 		flagLoopOn = onOff;
 		timerLoopOnSprite.setVisible(flagLoopOn);
+		timerSettingIndicatorSprite.setVisible(flagLoopOn);
 		return flagLoopOn;
 	}
 	public boolean getTimerLoopOn(){
@@ -54,6 +58,7 @@ public class TimerSprite extends Sprite{
 			}
 		};
 		attachChild(timerSettingIndicatorSprite);
+		timerSettingIndicatorSprite.setVisible(flagLoopOn);
 	}
 	
 	private void attachTimerLoopOn(VertexBufferObjectManager vbom){
@@ -70,6 +75,18 @@ public class TimerSprite extends Sprite{
 		};
 		attachChild(timerLoopOnSprite);
 		timerLoopOnSprite.setVisible(flagLoopOn);
+	}
+	
+	public float pos2Time(float posX){
+		float timeMinute = 0;
+		timeMinute = (TIME_MAX_MINUTE*(posX-X_MIN))/(X_MAX-X_MIN);
+		return timeMinute;
+	}
+	
+	public float time2Pos(float timeMinute){
+		float pos = 0;
+		pos = (((X_MAX-X_MIN)*timeMinute)/(TIME_MAX_MINUTE))+X_MIN;
+		return pos;
 	}
 }
 

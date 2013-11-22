@@ -43,7 +43,7 @@ public class MainMenuScene extends BaseScene{
 	
 	private boolean[] flagPlayList = {false,false,false,false,false,false,false,false,false,false};	
 	
-	public long timerSec=0;
+	public float timerMinute=0;
 	public final float btnHidePosX = (camera.getWidth()-resourcesManager.mTimerBtnHideTextureRegion.getWidth())/2;
 	public final float btnHidePosY_sleep = -1.0f*resourcesManager.mTimerSettingBgRegion.getHeight();//camera.getHeight()+resourcesManager.mTimerSettingBgRegion.getHeight(); // 정확한 위치일 필요 없다.;
 	public final float btnHidePosY_active = camera.getHeight()-resourcesManager.mTimerBtnHideTextureRegion.getHeight()+15.0f;
@@ -236,7 +236,6 @@ public class MainMenuScene extends BaseScene{
 	}
 
 	private void createSoundBtns(){
-		// 위치는 Python + Inkscape으로 찾음. 수동입력.
 		final float[] pxs={108,226,344,462,580,
 						   108,226,344,462,580};
 		final float[] pys={139,139,139,139,139,

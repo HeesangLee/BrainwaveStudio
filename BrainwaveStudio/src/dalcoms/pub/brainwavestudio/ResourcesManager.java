@@ -5,6 +5,8 @@ import java.util.ArrayList;
 
 import org.andengine.audio.music.Music;
 import org.andengine.audio.music.MusicFactory;
+//import org.andengine.audio.sound.Sound;
+//import org.andengine.audio.sound.SoundFactory;
 import org.andengine.engine.Engine;
 import org.andengine.engine.camera.Camera;
 //import org.andengine.entity.sprite.Sprite;
@@ -20,9 +22,14 @@ import org.andengine.opengl.texture.atlas.buildable.builder.ITextureAtlasBuilder
 import org.andengine.opengl.texture.bitmap.BitmapTextureFormat;
 import org.andengine.opengl.texture.region.ITextureRegion;
 import org.andengine.opengl.texture.region.ITiledTextureRegion;
-import org.andengine.opengl.util.GLState;
+//import org.andengine.opengl.util.GLState;
 import org.andengine.opengl.vbo.VertexBufferObjectManager;
 import org.andengine.util.color.Color;
+
+//import android.content.Context;
+//import android.media.AudioManager;
+//import android.media.SoundPool;
+import android.util.Log;
 
 public class ResourcesManager {
 	//******************************
@@ -97,10 +104,26 @@ public class ResourcesManager {
 	public Music mSound_8;
 	public Music mSound_9;
 	public Music mSound_10;
+
+// Change Music object to Sound object.	
+//	public Sound mSound_1;
+//	public Sound mSound_2;
+//	public Sound mSound_3;
+//	public Sound mSound_4;
+//	public Sound mSound_5;
+//	public Sound mSound_6;
+//	public Sound mSound_7;
+//	public Sound mSound_8;
+//	public Sound mSound_9;
+//	public Sound mSound_10;
 	
 	public Music mSoundEffect_btnClick;
 	
 	public ArrayList<Music> mSoundArray = new ArrayList<Music>();
+//	public ArrayList<Sound> mSoundArray = new ArrayList<Sound>();
+	
+//	public SoundPool mSoundPool = null;
+//	public ArrayList<Integer> mSoundArray = new ArrayList<Integer>();
 	//====================================================================
 	
 	public static ResourcesManager getInstance(){
@@ -315,7 +338,8 @@ public class ResourcesManager {
 	
 	private void loadMenuAudio(){
 		MusicFactory.setAssetBasePath("sfx/");
-		//TODO : 오디오 파일이 이어지는 부분이 매끄럽지 못함...>> 음원파일 수정해야 함. 상당히 거슬려
+//		SoundFactory.setAssetBasePath("sfx/");
+//		mSoundPool = new SoundPool(256, AudioManager.STREAM_MUSIC, 0);
 		try{
 			mSound_1 = MusicFactory.createMusicFromAsset(
 					engine.getMusicManager(), activity, "wdelta_f2_l250_r252_a0p8.ogg");
@@ -338,6 +362,29 @@ public class ResourcesManager {
 			mSound_10 = MusicFactory.createMusicFromAsset(
 					engine.getMusicManager(), activity, "whitenoise_a0p2.ogg");
 			
+
+/*			mSound_1 = SoundFactory.createSoundFromAsset(
+					engine.getSoundManager(), activity, "wdelta_f2_l250_r252_a0p8.ogg");
+			mSound_2 = SoundFactory.createSoundFromAsset(
+					engine.getSoundManager(), activity, "wtheta_f6_l324_r318_a0p8.ogg");
+			mSound_3 = SoundFactory.createSoundFromAsset(
+					engine.getSoundManager(), activity, "walpha_f10_l386_r396_a0p8.ogg");
+			mSound_4 = SoundFactory.createSoundFromAsset(
+					engine.getSoundManager(), activity, "brownnoise_a0p2.ogg");
+			mSound_5 = SoundFactory.createSoundFromAsset(
+					engine.getSoundManager(), activity, "pinknoise_a0p2.ogg");
+			mSound_6 = SoundFactory.createSoundFromAsset(
+					engine.getSoundManager(), activity, "wbetasmr_f13p5_l454_r467p5_a0p8.ogg");
+			mSound_7 = SoundFactory.createSoundFromAsset(
+					engine.getSoundManager(), activity, "wbetam_f17p5_l522_r539p5_a0p8.ogg");
+			mSound_8 = SoundFactory.createSoundFromAsset(
+					engine.getSoundManager(), activity, "wbetah_f25_l590_r615.ogg");
+			mSound_9 = SoundFactory.createSoundFromAsset(
+					engine.getSoundManager(), activity, "wgama_f40_l658_r698.ogg");
+			mSound_10 = SoundFactory.createSoundFromAsset(
+					engine.getSoundManager(), activity, "whitenoise_a0p2.ogg");*/
+
+			
 			mSoundEffect_btnClick = MusicFactory.createMusicFromAsset(
 					engine.getMusicManager(), activity, "btnclick.mp3");
 			
@@ -352,10 +399,19 @@ public class ResourcesManager {
 			mSoundArray.add(mSound_9);
 			mSoundArray.add(mSound_10);
 			
+//			for(Music snd:mSoundArray){
+//				snd.setLooping(true);
+//			}
+//			for(Sound snd:mSoundArray){
+//				snd.setLooping(true);
+//			}
+			
 		}catch(IllegalStateException e){
 			e.printStackTrace();
+			Log.v("Sound","importError?");
 		}catch(IOException e){
 			e.printStackTrace();
+			Log.v("Sound","importError?");
 		}
 	}
 	

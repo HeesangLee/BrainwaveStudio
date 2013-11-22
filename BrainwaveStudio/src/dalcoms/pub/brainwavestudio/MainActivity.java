@@ -38,6 +38,8 @@ public class MainActivity extends LayoutGameActivity {
 	
 	public final float TimeSplashToMenu = 2.5f;
 	
+	private final int MYFPS = 30;
+	
 //	private ResourcesManager resourcesManager;
 	
 	@Override
@@ -72,7 +74,7 @@ public class MainActivity extends LayoutGameActivity {
 	@Override
 	public Engine onCreateEngine(EngineOptions pEngineOptions){
 		
-		return new LimitedFPSEngine(pEngineOptions, 60);
+		return new LimitedFPSEngine(pEngineOptions, MYFPS);
 	}
 	
 	@Override
