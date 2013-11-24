@@ -5,11 +5,10 @@ import java.util.ArrayList;
 
 import org.andengine.audio.music.Music;
 import org.andengine.audio.music.MusicFactory;
-//import org.andengine.audio.sound.Sound;
-//import org.andengine.audio.sound.SoundFactory;
 import org.andengine.engine.Engine;
 import org.andengine.engine.camera.Camera;
-//import org.andengine.entity.sprite.Sprite;
+import org.andengine.entity.text.Text;
+import org.andengine.entity.text.TextOptions;
 import org.andengine.opengl.font.Font;
 import org.andengine.opengl.font.FontFactory;
 import org.andengine.opengl.texture.TextureOptions;
@@ -22,14 +21,19 @@ import org.andengine.opengl.texture.atlas.buildable.builder.ITextureAtlasBuilder
 import org.andengine.opengl.texture.bitmap.BitmapTextureFormat;
 import org.andengine.opengl.texture.region.ITextureRegion;
 import org.andengine.opengl.texture.region.ITiledTextureRegion;
-//import org.andengine.opengl.util.GLState;
+import org.andengine.opengl.util.GLState;
 import org.andengine.opengl.vbo.VertexBufferObjectManager;
+import org.andengine.util.HorizontalAlign;
 import org.andengine.util.color.Color;
 
+import android.util.Log;
+//import org.andengine.audio.sound.Sound;
+//import org.andengine.audio.sound.SoundFactory;
+//import org.andengine.entity.sprite.Sprite;
+//import org.andengine.opengl.util.GLState;
 //import android.content.Context;
 //import android.media.AudioManager;
 //import android.media.SoundPool;
-import android.util.Log;
 
 public class ResourcesManager {
 	//******************************
@@ -124,6 +128,8 @@ public class ResourcesManager {
 	
 //	public SoundPool mSoundPool = null;
 //	public ArrayList<Integer> mSoundArray = new ArrayList<Integer>();
+	
+	public Text timeText;
 	//====================================================================
 	
 	public static ResourcesManager getInstance(){
@@ -157,6 +163,7 @@ public class ResourcesManager {
 		loadMenuGraphics();
 		loadMenuAudio();
 		loadFonts();
+		prepareText();
 	}
 	public void unLoadMenuResources(){
 		unLoadMenuGraphics();
@@ -416,7 +423,7 @@ public class ResourcesManager {
 	}
 	
 	private void loadFonts(){
-		if(isFontLoaded == true){
+		if(isFontLoaded == false){
 			return;
 		}
 		
@@ -451,7 +458,7 @@ public class ResourcesManager {
 				256,256,
 				activity.getAssets(),
 				"Ubuntu-R.ttf",
-				32f,
+				22f,
 				true,
 				Color.WHITE_ABGR_PACKED_INT);
 		
@@ -459,6 +466,17 @@ public class ResourcesManager {
 		mFont_Plok.load();
 		mFont_UbuntuR.load();
 		isFontLoaded = true;
+	}
+	
+	private void prepareText(){
+		timeText = new Text(0, 0, this.mFont_UbuntuR, 
+				"000000000000000000min", new TextOptions(HorizontalAlign.CENTER), vbom){
+			@Override
+			protected void preDraw(final GLState pGLState, final Camera pCamera) {
+				super.preDraw(pGLState, pCamera);
+				pGLState.enableDither();
+			}
+		};
 	}
 	
 	public void loadSplashScreen(){

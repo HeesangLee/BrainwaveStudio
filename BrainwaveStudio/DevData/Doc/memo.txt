@@ -1,0 +1,12 @@
+timer setting touch event -> time update
+
+timeText 
+    1. 초기(터치이벤트 없을 시)에는 setting 원 가운데 위치하도록 하고
+    2. 터치 이벤트가 발생하면 손가락을 피해서 보이는 위치에 위치하도록 하고
+    3. 터치 이벤트가 없고 일정 시간이 지나면 다시 원 가운데로 위치하도록 한다.
+
+TimerSprite 에 updateHandler 를 넣어서 시간 관련된 기능을 집어 넣을 것.
+
+TimerSettingShow/Hide 의 PosX 좌표를 항상 현재 시간/위치를 얻어서 업데이트 할 수 있도록 할 것.
+
+

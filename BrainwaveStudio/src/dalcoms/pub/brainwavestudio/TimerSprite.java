@@ -2,25 +2,34 @@ package dalcoms.pub.brainwavestudio;
 
 import org.andengine.engine.camera.Camera;
 import org.andengine.entity.sprite.Sprite;
+import org.andengine.entity.text.Text;
+import org.andengine.entity.text.TextOptions;
 import org.andengine.opengl.texture.region.ITextureRegion;
 import org.andengine.opengl.util.GLState;
 import org.andengine.opengl.vbo.VertexBufferObjectManager;
+import org.andengine.util.HorizontalAlign;
+
+import android.util.Log;
 
 
 public class TimerSprite extends Sprite{
 	public Sprite timerSettingIndicatorSprite;
 	public Sprite timerLoopOnSprite;
 	public final float INDICATOR_Y = 25.793f;
-	private boolean flagLoopOn = false;
+	private boolean flagLoopOn = true;
 	private final float TIME_MAX_MINUTE = 60f;
 	private final float X_MIN = 128.378f;
 	private final float X_MAX = ResourcesManager.getInstance().camera.getWidth()-X_MIN;
+	
+	public float timerMinute=30f;
+	private Text timeText;
 
 	public TimerSprite(float pX, float pY, ITextureRegion pTextureRegion,
 			VertexBufferObjectManager vbom) {
 		super(pX, pY, pTextureRegion, vbom);
 
 		attachSprites(vbom);
+		loadText();
 	}
 
 	@Override
@@ -29,15 +38,31 @@ public class TimerSprite extends Sprite{
 		pGLState.enableDither();
 	}
 	
+	private void loadText(){	
+		timeText = ResourcesManager.getInstance().timeText;
+		attachChild(timeText);
+		timeText.setVisible(!flagLoopOn);
+	}
+	private void showTimeText(float posX){
+//		timeText.setVisible(true);
+		String tString="";
+		this.setTimerTime(this.pos2Time(posX));
+		tString =String.format("%.1fmin",this.timerMinute);
+//		Log.v("txt",tString);
+		timeText.setText(tString);
+		timeText.setPosition(posX+10f,47.980f);
+	}
 	
 	public void moveIndicator(float posX){
 		timerSettingIndicatorSprite.setPosition(posX-timerSettingIndicatorSprite.getWidth()/2, INDICATOR_Y);
+		showTimeText(posX);
 	}
 	
 	public boolean setTimerLoopOn(boolean onOff){
 		flagLoopOn = onOff;
 		timerLoopOnSprite.setVisible(flagLoopOn);
-		timerSettingIndicatorSprite.setVisible(flagLoopOn);
+		timerSettingIndicatorSprite.setVisible(!flagLoopOn);
+		timeText.setVisible(!flagLoopOn);
 		return flagLoopOn;
 	}
 	public boolean getTimerLoopOn(){
@@ -50,7 +75,10 @@ public class TimerSprite extends Sprite{
 	}
 	
 	private void attachTimerIndicator(VertexBufferObjectManager vbom){
-		timerSettingIndicatorSprite = new Sprite(122f,INDICATOR_Y,ResourcesManager.getInstance().mTimerIndicatorRegion,vbom){
+		timerSettingIndicatorSprite = new Sprite(this.getPosition()-ResourcesManager.getInstance().mTimerIndicatorRegion.getWidth()/2,
+				INDICATOR_Y,
+				ResourcesManager.getInstance().mTimerIndicatorRegion,
+				vbom){
 			@Override
 			protected void preDraw(GLState pGLState, Camera pCamera){
 				super.preDraw(pGLState, pCamera);
@@ -58,7 +86,7 @@ public class TimerSprite extends Sprite{
 			}
 		};
 		attachChild(timerSettingIndicatorSprite);
-		timerSettingIndicatorSprite.setVisible(flagLoopOn);
+		timerSettingIndicatorSprite.setVisible(!flagLoopOn);
 	}
 	
 	private void attachTimerLoopOn(VertexBufferObjectManager vbom){
@@ -87,6 +115,14 @@ public class TimerSprite extends Sprite{
 		float pos = 0;
 		pos = (((X_MAX-X_MIN)*timeMinute)/(TIME_MAX_MINUTE))+X_MIN;
 		return pos;
+	}
+	
+	public float getPosition(){
+		return time2Pos(timerMinute);
+	}
+	
+	private void setTimerTime(float timeMinute){
+		this.timerMinute = timeMinute;
 	}
 }
 

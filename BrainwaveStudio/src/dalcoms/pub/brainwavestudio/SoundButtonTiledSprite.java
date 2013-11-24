@@ -23,7 +23,7 @@ public class SoundButtonTiledSprite extends TiledSprite{
 	public int flagButtonStatus = 0;
 	private Music mySound;
 	public boolean flagTouchDisable=false;
-	public int newStreamId=0;
+//	public int newStreamId=0;
 	
 	public SoundButtonTiledSprite(float pX, float pY,
 			ITiledTextureRegion pTiledTextureRegion,

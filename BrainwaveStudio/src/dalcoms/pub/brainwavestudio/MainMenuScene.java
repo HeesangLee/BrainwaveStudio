@@ -43,7 +43,7 @@ public class MainMenuScene extends BaseScene{
 	
 	private boolean[] flagPlayList = {false,false,false,false,false,false,false,false,false,false};	
 	
-	public float timerMinute=0;
+//	public float timerMinute=0;
 	public final float btnHidePosX = (camera.getWidth()-resourcesManager.mTimerBtnHideTextureRegion.getWidth())/2;
 	public final float btnHidePosY_sleep = -1.0f*resourcesManager.mTimerSettingBgRegion.getHeight();//camera.getHeight()+resourcesManager.mTimerSettingBgRegion.getHeight(); // 정확한 위치일 필요 없다.;
 	public final float btnHidePosY_active = camera.getHeight()-resourcesManager.mTimerBtnHideTextureRegion.getHeight()+15.0f;
@@ -137,7 +137,7 @@ public class MainMenuScene extends BaseScene{
 	}
 	
 	private void createTimerButtonSet(){
-		final float PosX = 0;
+		final float PosX = timerSettingSprite.getPosition()-resourcesManager.mTimerBtnSetRegion.getWidth()/2;
 		final float PosY = -1.0f*resourcesManager.mTimerBtnSetRegion.getHeight();
 		TimerSetButtonSprite = new TiledSprite(PosX, PosY, 
 				resourcesManager.mTimerBtnSetRegion, vbom){
@@ -151,8 +151,7 @@ public class MainMenuScene extends BaseScene{
 					float pTouchAreaLocalX, float pTouchAreaLocalY){
 				this.setPosition(pSceneTouchEvent.getX()-this.getWidth()/2, btnTimerSetPosY_active);
 				timerSettingSprite.moveIndicator(pSceneTouchEvent.getX());
-//				Log.v("TouchEvent",""+pSceneTouchEvent.getAction());
-				
+				timerSettingSprite.setTimerLoopOn(false);
 				if(pSceneTouchEvent.isActionUp()){
 					this.setCurrentTileIndex(0);
 					
@@ -585,7 +584,9 @@ public class MainMenuScene extends BaseScene{
 		hideButtonSprite.registerEntityModifier(new MoveModifier(duration*4, btnHidePosX, btnHidePosX, 
 				btnHidePosY_sleep, btnHidePosY_active, EaseBounceOut.getInstance()));
 		
-		TimerSetButtonSprite.registerEntityModifier(new MoveModifier(duration*2, btnTimerSetPosX, btnTimerSetPosX, 
+		TimerSetButtonSprite.registerEntityModifier(new MoveModifier(duration*2, 
+				timerSettingSprite.getPosition()-resourcesManager.mTimerBtnSetRegion.getWidth()/2, 
+				timerSettingSprite.getPosition()-resourcesManager.mTimerBtnSetRegion.getWidth()/2, 
 				btnTimerSetPosY_sleep, btnTimerSetPosY_active, EaseBounceOut.getInstance()));
 		
 		timerLoopOnSprite.registerEntityModifier(new MoveModifier(duration*3, btnTimerLoopPosX, btnTimerLoopPosX, 
@@ -605,7 +606,9 @@ public class MainMenuScene extends BaseScene{
 		hideButtonSprite.registerEntityModifier(new MoveModifier(duration/2, btnHidePosX, btnHidePosX, 
 				btnHidePosY_active, btnHidePosY_sleep));
 		
-		TimerSetButtonSprite.registerEntityModifier(new MoveModifier(duration/2, btnTimerSetPosX, btnTimerSetPosX, 
+		TimerSetButtonSprite.registerEntityModifier(new MoveModifier(duration/2, 
+				timerSettingSprite.getPosition()-resourcesManager.mTimerBtnSetRegion.getWidth()/2, 
+				timerSettingSprite.getPosition()-resourcesManager.mTimerBtnSetRegion.getWidth()/2,  
 				btnTimerSetPosY_active, btnTimerSetPosY_sleep));
 		
 		timerLoopOnSprite.registerEntityModifier(new MoveModifier(duration/2, btnTimerLoopPosX, btnTimerLoopPosX, 
