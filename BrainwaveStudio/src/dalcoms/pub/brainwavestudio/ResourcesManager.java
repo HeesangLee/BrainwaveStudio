@@ -26,6 +26,7 @@ import org.andengine.opengl.vbo.VertexBufferObjectManager;
 import org.andengine.util.HorizontalAlign;
 import org.andengine.util.color.Color;
 
+import android.graphics.Typeface;
 import android.util.Log;
 //import org.andengine.audio.sound.Sound;
 //import org.andengine.audio.sound.SoundFactory;
@@ -54,6 +55,7 @@ public class ResourcesManager {
 	public Font mFont_grossnet;
 	public Font mFont_Plok;
 	public Font mFont_UbuntuR;
+	public Font mFont_Wednesday;
 	
 	protected boolean isFontLoaded = true;
 	
@@ -426,57 +428,51 @@ public class ResourcesManager {
 		if(isFontLoaded == false){
 			return;
 		}
-		
+
 		FontFactory.setAssetBasePath("fonts/");
-		mFont_grossnet = FontFactory.createFromAsset(activity.getFontManager(), 
-				activity.getTextureManager(),
-				256,256,
-				activity.getAssets(),
-				"GROSSNET.TTF",
-				32f,
-				true,
-				Color.WHITE_ABGR_PACKED_INT);
 		
-		mFont_Plok = FontFactory.createFromAsset(activity.getFontManager(), 
-				activity.getTextureManager(),
-				256,256,
-				activity.getAssets(),
-				"Plok.ttf",
-				32f,
-				true,
-				Color.WHITE_ABGR_PACKED_INT);
-		mFont_Plok = FontFactory.createFromAsset(activity.getFontManager(), 
-				activity.getTextureManager(),
-				256,256,
-				activity.getAssets(),
-				"Plok.ttf",
-				32f,
-				true,
-				Color.WHITE_ABGR_PACKED_INT);
 		mFont_UbuntuR = FontFactory.createFromAsset(activity.getFontManager(), 
 				activity.getTextureManager(),
 				256,256,
 				activity.getAssets(),
 				"Ubuntu-R.ttf",
-				22f,
+				45f,
 				true,
 				Color.WHITE_ABGR_PACKED_INT);
 		
-		mFont_grossnet.load();
-		mFont_Plok.load();
+		mFont_Wednesday = FontFactory.createFromAsset(activity.getFontManager(), 
+				activity.getTextureManager(),
+				256,256,
+				activity.getAssets(),
+				"Wednesday.ttf",
+				22f,
+				true,
+				Color.WHITE_ABGR_PACKED_INT);
+//		BitmapTextureAtlas mFontTexure = new BitmapTextureAtlas(activity.getTextureManager(),
+//				256, 256);
+//
+//		mFont_Wednesday = FontFactory.create(activity.getFontManager(), 
+//				mFontTexure, 
+////				Typeface.create(Typeface.DEFAULT, Typeface.BOLD), 
+//				Typeface.createFromAsset(activity.getAssets(), "Wednesday.ttf"),
+//				32, true, Color.WHITE_ABGR_PACKED_INT);
+		
 		mFont_UbuntuR.load();
+		mFont_Wednesday.load();
 		isFontLoaded = true;
 	}
 	
 	private void prepareText(){
 		timeText = new Text(0, 0, this.mFont_UbuntuR, 
-				"000000000000000000min", new TextOptions(HorizontalAlign.CENTER), vbom){
+				"000000000000000000min", new TextOptions(HorizontalAlign.LEFT), vbom){
 			@Override
 			protected void preDraw(final GLState pGLState, final Camera pCamera) {
 				super.preDraw(pGLState, pCamera);
 				pGLState.enableDither();
 			}
 		};
+		timeText.setScale(0.5f);
+		timeText.setColor(1f, 1f, 1f, 0.7f);
 	}
 	
 	public void loadSplashScreen(){
