@@ -4,6 +4,7 @@ import org.andengine.engine.camera.Camera;
 import org.andengine.entity.sprite.Sprite;
 import org.andengine.entity.text.Text;
 import org.andengine.entity.text.TextOptions;
+import org.andengine.input.touch.TouchEvent;
 import org.andengine.opengl.texture.region.ITextureRegion;
 import org.andengine.opengl.util.GLState;
 import org.andengine.opengl.vbo.VertexBufferObjectManager;
@@ -15,7 +16,7 @@ import android.util.Log;
 public class TimerSprite extends Sprite{
 	public Sprite timerSettingIndicatorSprite;
 	public Sprite timerLoopOnSprite;
-	public final float INDICATOR_Y = 25.793f;
+	public final float INDICATOR_Y = 10.793f;
 	private boolean flagLoopOn = true;
 	private final float TIME_MAX_MINUTE = 60f;
 	private final float X_MIN = 128.378f;
@@ -41,21 +42,34 @@ public class TimerSprite extends Sprite{
 	private void loadText(){	
 		timeText = ResourcesManager.getInstance().timeText;
 		attachChild(timeText);
+		this.showTimeText(this.getPosition());
 		timeText.setVisible(!flagLoopOn);
 	}
 	private void showTimeText(float posX){
-//		timeText.setVisible(true);
-		String tString="";
 		this.setTimerTime(this.pos2Time(posX));
-		tString =String.format("%.1fmin",this.timerMinute);
-//		Log.v("txt",tString);
-		timeText.setText(tString);
-		timeText.setPosition(posX+10f,47.980f);
+		timeText.setText(String.format("%.1fmin",this.timerMinute));
+		timeText.setPosition(posX+3f,47.980f);
 	}
 	
-	public void moveIndicator(float posX){
-		timerSettingIndicatorSprite.setPosition(posX-timerSettingIndicatorSprite.getWidth()/2, INDICATOR_Y);
-		showTimeText(posX);
+	public float moveIndicator(float posX){
+		float retPosX=0f;
+		retPosX = limitPosX(posX);
+		timerSettingIndicatorSprite.setPosition(retPosX-timerSettingIndicatorSprite.getWidth()/2, INDICATOR_Y);
+		showTimeText(retPosX);
+		this.setTimerLoopOn(false);
+		
+		return retPosX;
+	}
+	
+	private float limitPosX(float posX){
+		float retPosX=posX;
+		if (posX<this.X_MIN){
+			retPosX = this.X_MIN;
+		}else if(posX>this.X_MAX){
+			retPosX = this.X_MAX;
+		}
+		
+		return retPosX;
 	}
 	
 	public boolean setTimerLoopOn(boolean onOff){
@@ -124,6 +138,7 @@ public class TimerSprite extends Sprite{
 	private void setTimerTime(float timeMinute){
 		this.timerMinute = timeMinute;
 	}
+	
 }
 
 

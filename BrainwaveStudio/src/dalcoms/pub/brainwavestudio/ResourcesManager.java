@@ -194,7 +194,7 @@ public class ResourcesManager {
 	
 	private void loadTimerLoop(){
 		timerLoopBtnTextureAtlas = new BuildableBitmapTextureAtlas(activity.getTextureManager(), 
-				45, 29*2,
+				60, 60*2,
 				BitmapTextureFormat.RGBA_8888,TextureOptions.BILINEAR);
 		
 		mTimerLoopOnBtnRegion = BitmapTextureAtlasTextureRegionFactory.createFromAsset(timerLoopBtnTextureAtlas, 
@@ -214,7 +214,7 @@ public class ResourcesManager {
 	
 	private void loadTimerIndicator(){
 		timerIndicatorAtlas = new BitmapTextureAtlas(activity.getTextureManager(), 
-				11, 62,
+				28, 79,
 				BitmapTextureFormat.RGBA_8888,TextureOptions.BILINEAR);
 		mTimerIndicatorRegion = BitmapTextureAtlasTextureRegionFactory.createFromAsset(timerIndicatorAtlas, 
 				activity, "timer_indicator.png",0,0);
@@ -448,15 +448,7 @@ public class ResourcesManager {
 				22f,
 				true,
 				Color.WHITE_ABGR_PACKED_INT);
-//		BitmapTextureAtlas mFontTexure = new BitmapTextureAtlas(activity.getTextureManager(),
-//				256, 256);
-//
-//		mFont_Wednesday = FontFactory.create(activity.getFontManager(), 
-//				mFontTexure, 
-////				Typeface.create(Typeface.DEFAULT, Typeface.BOLD), 
-//				Typeface.createFromAsset(activity.getAssets(), "Wednesday.ttf"),
-//				32, true, Color.WHITE_ABGR_PACKED_INT);
-		
+
 		mFont_UbuntuR.load();
 		mFont_Wednesday.load();
 		isFontLoaded = true;
@@ -464,7 +456,7 @@ public class ResourcesManager {
 	
 	private void prepareText(){
 		timeText = new Text(0, 0, this.mFont_UbuntuR, 
-				"000000000000000000min", new TextOptions(HorizontalAlign.LEFT), vbom){
+				"000000000000000000min", new TextOptions(HorizontalAlign.CENTER), vbom){
 			@Override
 			protected void preDraw(final GLState pGLState, final Camera pCamera) {
 				super.preDraw(pGLState, pCamera);

@@ -1,6 +1,8 @@
 package dalcoms.pub.brainwavestudio;
 
 import org.andengine.engine.camera.Camera;
+import org.andengine.engine.handler.timer.ITimerCallback;
+import org.andengine.engine.handler.timer.TimerHandler;
 import org.andengine.entity.modifier.LoopEntityModifier;
 import org.andengine.entity.modifier.MoveModifier;
 import org.andengine.entity.modifier.MoveYModifier;
@@ -66,6 +68,7 @@ public class MainMenuScene extends BaseScene{
 		createExtraButtons(); // review,more,share buttons.
 		loadPlayImageSprites();
 		createTimerSettingWindow();
+		registerUpdateHandlerForTimer();
 	}
 
 	@Override
@@ -84,6 +87,17 @@ public class MainMenuScene extends BaseScene{
 	public void disposeScene() {
 		// TODO Auto-generated method stub
 		
+	}
+	
+	private void registerUpdateHandlerForTimer(){
+		this.registerUpdateHandler(new TimerHandler(1, true, new ITimerCallback() {
+			@Override
+			public void onTimePassed(TimerHandler pTimerHandler) {
+				if(flagTimerSetting==false){//gogo
+					timerSettingSprite.moveIndicator(timerSettingSprite.getPosition()-6f);
+				}
+			}
+		}));
 	}
 	
 	private void createTimerSettingWindow(){
@@ -116,16 +130,14 @@ public class MainMenuScene extends BaseScene{
 				
 				if(pSceneTouchEvent.isActionDown()){
 					this.setScale(1.5f);
+					if(timerSettingSprite.getTimerLoopOn()==true){
+						timerSettingSprite.setTimerLoopOn(false);
+					}else{
+						timerSettingSprite.setTimerLoopOn(true);
+					}
 					resourcesManager.mSoundEffect_btnClick.play();
 				}else{
 					this.setScale(1f);
-					if(pSceneTouchEvent.isActionUp()){
-						if(timerSettingSprite.getTimerLoopOn()==true){
-							timerSettingSprite.setTimerLoopOn(false);
-						}else{
-							timerSettingSprite.setTimerLoopOn(true);
-						}
-					}
 				}
 				return super.onAreaTouched(pSceneTouchEvent, pTouchAreaLocalX,
 						pTouchAreaLocalY);
@@ -149,9 +161,8 @@ public class MainMenuScene extends BaseScene{
 			@Override
 			public boolean onAreaTouched(TouchEvent pSceneTouchEvent,
 					float pTouchAreaLocalX, float pTouchAreaLocalY){
-				this.setPosition(pSceneTouchEvent.getX()-this.getWidth()/2, btnTimerSetPosY_active);
-				timerSettingSprite.moveIndicator(pSceneTouchEvent.getX());
-				timerSettingSprite.setTimerLoopOn(false);
+				this.setPosition(timerSettingSprite.moveIndicator(pSceneTouchEvent.getX())-this.getWidth()/2, 
+						btnTimerSetPosY_active);
 				if(pSceneTouchEvent.isActionUp()){
 					this.setCurrentTileIndex(0);
 					
@@ -574,6 +585,7 @@ public class MainMenuScene extends BaseScene{
 		btn_sound_9.setTouchDisable(flagTimerSetting);
 		btn_sound_10.setTouchDisable(flagTimerSetting);
 	}
+	
 	private void timerSeetingShow(){
 		float duration = 0.45f;
 		flagTimerSetting = true;
