@@ -10,4 +10,18 @@ TimerSettingShow/Hide 시 settingSprite의 PosX 좌표를 항상 현재 시간/위치를 얻어�
 
 TimerSprite 에 updateHandler 를 넣어서 시간 관련된 기능을 집어 넣을 것.
 
-TimerSettingSprite 의 posX 의 min/max 가 적용될 수 있도록 할 것.
+TimerSettingSprite 의 posX 의 min/max 가 적용될 수 있도록 할 것. (완료)
+
+--; 이제 뭐가 남은 거지?
+
+[2013년 11월 26일 기준 남은일은?]
+1. Update Handler 에서 시간 설정에 따른 행위 구현.
+>> Timer setting 창이 가려졌을 때에만 시간이 가도록 할 것.
+>> Loop on 되어 있을 경우에는 아무 행위도 하지 않을 것.
+>> Timer time 이 0 에 도달하면 모든 사운드를 끄고 Loop on 시킬 것.
+
+2. 가장 중요한 것은 음원파일임....
+>> 지금 상황에서 크게 시간 쏟지 말고 단순히 음원의 길이를 늘려서 거슬림을 줄이는 수밖에 없을 것 같다.
+
+4. 뒤로가기 키를 눌렀을 때, Dialog 를 띄워서 프로그램을 끝낼 것인지를 물어볼 것.
+
