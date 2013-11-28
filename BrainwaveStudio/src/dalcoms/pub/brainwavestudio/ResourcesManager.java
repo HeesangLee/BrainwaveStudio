@@ -11,6 +11,7 @@ import org.andengine.entity.text.Text;
 import org.andengine.entity.text.TextOptions;
 import org.andengine.opengl.font.Font;
 import org.andengine.opengl.font.FontFactory;
+import org.andengine.opengl.texture.ITexture;
 import org.andengine.opengl.texture.TextureOptions;
 import org.andengine.opengl.texture.atlas.bitmap.BitmapTextureAtlas;
 import org.andengine.opengl.texture.atlas.bitmap.BitmapTextureAtlasTextureRegionFactory;
@@ -26,7 +27,6 @@ import org.andengine.opengl.vbo.VertexBufferObjectManager;
 import org.andengine.util.HorizontalAlign;
 import org.andengine.util.color.Color;
 
-import android.graphics.Typeface;
 import android.util.Log;
 //import org.andengine.audio.sound.Sound;
 //import org.andengine.audio.sound.SoundFactory;
@@ -55,7 +55,7 @@ public class ResourcesManager {
 	public Font mFont_grossnet;
 	public Font mFont_Plok;
 	public Font mFont_UbuntuR;
-	public Font mFont_Wednesday;
+//	public Font mFont_Wednesday;
 	
 	protected boolean isFontLoaded = true;
 	
@@ -425,32 +425,28 @@ public class ResourcesManager {
 	}
 	
 	private void loadFonts(){
+		final ITexture ubuntuFontTexture = new BitmapTextureAtlas(activity.getTextureManager(), 256, 256, TextureOptions.BILINEAR);
+		
 		if(isFontLoaded == false){
 			return;
 		}
 
 		FontFactory.setAssetBasePath("fonts/");
-		
-		mFont_UbuntuR = FontFactory.createFromAsset(activity.getFontManager(), 
-				activity.getTextureManager(),
-				256,256,
-				activity.getAssets(),
-				"Ubuntu-R.ttf",
-				45f,
-				true,
-				Color.WHITE_ABGR_PACKED_INT);
-		
-		mFont_Wednesday = FontFactory.createFromAsset(activity.getFontManager(), 
-				activity.getTextureManager(),
-				256,256,
-				activity.getAssets(),
-				"Wednesday.ttf",
-				22f,
-				true,
-				Color.WHITE_ABGR_PACKED_INT);
+//		
+//		mFont_UbuntuR = FontFactory.createFromAsset(activity.getFontManager(), 
+//				activity.getTextureManager(),
+//				256,256,
+//				activity.getAssets(),
+//				"Ubuntu-R.ttf",
+//				45f,
+//				true,
+//				Color.WHITE_ABGR_PACKED_INT);
 
+		this.mFont_UbuntuR = FontFactory.createFromAsset(
+				activity.getFontManager(), ubuntuFontTexture, 
+				activity.getAssets(), "Ubuntu-R.ttf", 
+				22f, true, Color.WHITE_ABGR_PACKED_INT);
 		mFont_UbuntuR.load();
-		mFont_Wednesday.load();
 		isFontLoaded = true;
 	}
 	
@@ -463,7 +459,7 @@ public class ResourcesManager {
 				pGLState.enableDither();
 			}
 		};
-		timeText.setScale(0.5f);
+//		timeText.setScale(0.5f);
 		timeText.setColor(1f, 1f, 1f, 0.7f);
 	}
 	
