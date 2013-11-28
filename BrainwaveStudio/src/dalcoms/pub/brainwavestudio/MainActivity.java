@@ -38,7 +38,7 @@ public class MainActivity extends LayoutGameActivity {
 	
 	public final float TimeSplashToMenu = 2.5f;
 	
-	private final int MYFPS = 30;
+	private final int MYFPS = 60;
 	
 //	private ResourcesManager resourcesManager;
 	

@@ -24,6 +24,9 @@ public class TimerSprite extends Sprite{
 	
 	public float timerMinute=30f;
 	private Text timeText;
+	
+	private boolean flagTimerSettingShow=false;
+	private boolean flagTriggerTimeZero=false;
 
 	public TimerSprite(float pX, float pY, ITextureRegion pTextureRegion,
 			VertexBufferObjectManager vbom) {
@@ -65,6 +68,9 @@ public class TimerSprite extends Sprite{
 		float retPosX=posX;
 		if (posX<this.X_MIN){
 			retPosX = this.X_MIN;
+			if(!flagTimerSettingShow){//시간이 지남에 따라 0에 도달 했을 경우, 도달플래그 세트
+				flagTriggerTimeZero=true;
+			}
 		}else if(posX>this.X_MAX){
 			retPosX = this.X_MAX;
 		}
@@ -138,7 +144,23 @@ public class TimerSprite extends Sprite{
 	private void setTimerTime(float timeMinute){
 		this.timerMinute = timeMinute;
 	}
-	
+	public float getDiffPositonByMinute(float timeMinute){
+		float retPos=0;
+		retPos=this.time2Pos(timeMinute)-this.time2Pos(0);
+		return retPos;
+	}
+	public float getCurrentTimer(){
+		return this.timerMinute;
+	}
+	public void setTimerSettingShowFlag(boolean flagShow){
+		flagTimerSettingShow = flagShow;
+	}
+	public boolean checkTimerZeroOn(){
+		return this.flagTriggerTimeZero;
+	}
+	public void clearTimerZeroOn(){
+		this.flagTriggerTimeZero = false;
+	}
 }
 
 

@@ -90,11 +90,20 @@ public class MainMenuScene extends BaseScene{
 	}
 	
 	private void registerUpdateHandlerForTimer(){
-		this.registerUpdateHandler(new TimerHandler(1, true, new ITimerCallback() {
+		final float timerSecond = 1f;
+		this.registerUpdateHandler(new TimerHandler(timerSecond, true, new ITimerCallback() {
 			@Override
 			public void onTimePassed(TimerHandler pTimerHandler) {
-				if(flagTimerSetting==false){//gogo
-					timerSettingSprite.moveIndicator(timerSettingSprite.getPosition()-6f);
+				if(flagTimerSetting==false&&!timerSettingSprite.getTimerLoopOn()){//gogo
+					timerSettingSprite.moveIndicator(timerSettingSprite.getPosition()
+							-timerSettingSprite.getDiffPositonByMinute(timerSecond/60f));
+//					Log.v("timer","go"+timerSettingSprite.getDiffPositonByMinute(timerSecond/60f));
+					if(timerSettingSprite.checkTimerZeroOn()){
+						//TODO : 음원재생 끝내고 timer를 loop on 으로
+						// offSoundsAll>>>
+						timerSettingSprite.clearTimerZeroOn();
+						timerSettingSprite.setTimerLoopOn(true);
+					}
 				}
 			}
 		}));
@@ -584,6 +593,8 @@ public class MainMenuScene extends BaseScene{
 		btn_sound_8.setTouchDisable(flagTimerSetting);
 		btn_sound_9.setTouchDisable(flagTimerSetting);
 		btn_sound_10.setTouchDisable(flagTimerSetting);
+		
+		timerSettingSprite.setTimerSettingShowFlag(flagTimerSetting);
 	}
 	
 	private void timerSeetingShow(){
@@ -658,8 +669,11 @@ public class MainMenuScene extends BaseScene{
 					if(pSceneTouchEvent.isActionUp()){
 						try{
 							activity.startActivity(new Intent(Intent.ACTION_VIEW,Uri.parse("market://details?id="+appId)));
+//							activity.startActivity(new Intent(Intent.ACTION_VIEW,Uri.parse("market://details?id="+"com.sec.smartview")));
+							
 						}catch(android.content.ActivityNotFoundException e){
 							activity.startActivity(new Intent(Intent.ACTION_VIEW,Uri.parse("http://play.google.com/store/apps/details?id="+appId)));
+//							activity.startActivity(new Intent(Intent.ACTION_VIEW,Uri.parse("http://play.google.com/store/apps/details?id="+"com.sec.smartview")));
 						}
 					}
 				}
