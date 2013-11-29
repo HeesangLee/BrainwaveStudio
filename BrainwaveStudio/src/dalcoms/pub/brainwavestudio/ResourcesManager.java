@@ -124,6 +124,7 @@ public class ResourcesManager {
 //	public Sound mSound_10;
 	
 	public Music mSoundEffect_btnClick;
+	public Music mSoundEffect_settingHide;
 	
 	public ArrayList<Music> mSoundArray = new ArrayList<Music>();
 //	public ArrayList<Sound> mSoundArray = new ArrayList<Sound>();
@@ -370,32 +371,13 @@ public class ResourcesManager {
 					engine.getMusicManager(), activity, "wgama_f40_l658_r698.ogg");
 			mSound_10 = MusicFactory.createMusicFromAsset(
 					engine.getMusicManager(), activity, "whitenoise_a0p2.ogg");
-			
-
-/*			mSound_1 = SoundFactory.createSoundFromAsset(
-					engine.getSoundManager(), activity, "wdelta_f2_l250_r252_a0p8.ogg");
-			mSound_2 = SoundFactory.createSoundFromAsset(
-					engine.getSoundManager(), activity, "wtheta_f6_l324_r318_a0p8.ogg");
-			mSound_3 = SoundFactory.createSoundFromAsset(
-					engine.getSoundManager(), activity, "walpha_f10_l386_r396_a0p8.ogg");
-			mSound_4 = SoundFactory.createSoundFromAsset(
-					engine.getSoundManager(), activity, "brownnoise_a0p2.ogg");
-			mSound_5 = SoundFactory.createSoundFromAsset(
-					engine.getSoundManager(), activity, "pinknoise_a0p2.ogg");
-			mSound_6 = SoundFactory.createSoundFromAsset(
-					engine.getSoundManager(), activity, "wbetasmr_f13p5_l454_r467p5_a0p8.ogg");
-			mSound_7 = SoundFactory.createSoundFromAsset(
-					engine.getSoundManager(), activity, "wbetam_f17p5_l522_r539p5_a0p8.ogg");
-			mSound_8 = SoundFactory.createSoundFromAsset(
-					engine.getSoundManager(), activity, "wbetah_f25_l590_r615.ogg");
-			mSound_9 = SoundFactory.createSoundFromAsset(
-					engine.getSoundManager(), activity, "wgama_f40_l658_r698.ogg");
-			mSound_10 = SoundFactory.createSoundFromAsset(
-					engine.getSoundManager(), activity, "whitenoise_a0p2.ogg");*/
 
 			
 			mSoundEffect_btnClick = MusicFactory.createMusicFromAsset(
 					engine.getMusicManager(), activity, "btnclick.mp3");
+			
+			mSoundEffect_settingHide = MusicFactory.createMusicFromAsset(
+					engine.getMusicManager(), activity, "win_print_complete.wav");
 			
 			mSoundArray.add(mSound_1);
 			mSoundArray.add(mSound_2);
@@ -407,14 +389,7 @@ public class ResourcesManager {
 			mSoundArray.add(mSound_8);
 			mSoundArray.add(mSound_9);
 			mSoundArray.add(mSound_10);
-			
-//			for(Music snd:mSoundArray){
-//				snd.setLooping(true);
-//			}
-//			for(Sound snd:mSoundArray){
-//				snd.setLooping(true);
-//			}
-			
+
 		}catch(IllegalStateException e){
 			e.printStackTrace();
 			Log.v("Sound","importError?");

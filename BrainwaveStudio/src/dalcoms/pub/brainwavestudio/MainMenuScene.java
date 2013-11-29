@@ -5,23 +5,18 @@ import org.andengine.engine.handler.timer.ITimerCallback;
 import org.andengine.engine.handler.timer.TimerHandler;
 import org.andengine.entity.modifier.LoopEntityModifier;
 import org.andengine.entity.modifier.MoveModifier;
-import org.andengine.entity.modifier.MoveYModifier;
 import org.andengine.entity.modifier.RotationModifier;
 import org.andengine.entity.sprite.ButtonSprite;
 import org.andengine.entity.sprite.Sprite;
 import org.andengine.entity.sprite.TiledSprite;
 import org.andengine.input.touch.TouchEvent;
 import org.andengine.opengl.util.GLState;
-import org.andengine.util.modifier.ease.EaseBounceInOut;
 import org.andengine.util.modifier.ease.EaseBounceOut;
-import org.andengine.util.modifier.ease.EaseElasticIn;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
-import android.util.Log;
-import android.widget.Toast;
 import dalcoms.pub.brainwavestudio.SceneManager.SceneType;
 //import org.andengine.entity.modifier.AlphaModifier;
 
@@ -285,6 +280,7 @@ public class MainMenuScene extends BaseScene{
 					if(pSceneTouchEvent.isActionUp()){
 						timerSeetingHide();
 						this.setCurrentTileIndex(0);
+						resourcesManager.mSoundEffect_settingHide.play();
 					}
 				}
 				return super.onAreaTouched(pSceneTouchEvent, pTouchAreaLocalX,
@@ -697,7 +693,7 @@ public class MainMenuScene extends BaseScene{
 	private void timerSeetingHide(){
 		float duration = 0.65f;
 		flagTimerSetting = false;
-		
+
 		timerSettingSprite.registerEntityModifier(new MoveModifier(duration, 0, 0, 
 				133.02f,443.26f ));
 		

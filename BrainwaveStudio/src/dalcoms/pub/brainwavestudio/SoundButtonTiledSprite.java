@@ -1,22 +1,12 @@
 package dalcoms.pub.brainwavestudio;
 
 import org.andengine.audio.music.Music;
-import org.andengine.audio.sound.Sound;
 import org.andengine.engine.camera.Camera;
-//import org.andengine.entity.modifier.LoopEntityModifier;
-//import org.andengine.entity.modifier.RotationModifier;
-//import org.andengine.entity.sprite.Sprite;
 import org.andengine.entity.sprite.TiledSprite;
 import org.andengine.input.touch.TouchEvent;
 import org.andengine.opengl.texture.region.ITiledTextureRegion;
 import org.andengine.opengl.util.GLState;
 import org.andengine.opengl.vbo.VertexBufferObjectManager;
-
-import android.media.MediaPlayer;
-import android.media.MediaPlayer.OnCompletionListener;
-
-//import android.view.animation.RotateAnimation;
-
 
 
 public class SoundButtonTiledSprite extends TiledSprite{
