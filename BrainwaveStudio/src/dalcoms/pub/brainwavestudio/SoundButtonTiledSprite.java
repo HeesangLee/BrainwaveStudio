@@ -55,27 +55,34 @@ public class SoundButtonTiledSprite extends TiledSprite{
 		
 		if(pSceneTouchEvent.isActionUp()){
 			if (flagButtonStatus%2 == 0){//pause to play
-				flagButtonStatus += 1;
-//				mySound.seekTo(0);
-				mySound.play();
-				mySound.setLooping(true);
-//				mySound.setOnCompletionListener(new OnCompletionListener() {
-//					
-//					@Override
-//					public void onCompletion(MediaPlayer mp) {
-//						mySound.play();
-//						
-//					}
-//				});
+				this.playSound();
 			}else{//play to pause
-				flagButtonStatus -= 1;
-				mySound.pause();
-//				mySound.stop();
+				this.pauseSound();
 			}
-			this.setCurrentTileIndex(flagButtonStatus);
+			this.upDateCurrentTiledIndex();
 		}
 		return super.onAreaTouched(pSceneTouchEvent, pTouchAreaLocalX,
 				pTouchAreaLocalY);
+	}
+	
+	private void playSound(){
+		flagButtonStatus += 1;
+		mySound.play();
+		mySound.setLooping(true);
+	}
+	private void pauseSound(){
+		flagButtonStatus -= 1;
+		mySound.pause();
+	}
+	private void upDateCurrentTiledIndex(){
+		this.setCurrentTileIndex(flagButtonStatus);
+	}
+	public void offSound(){
+		if(this.mySound.isPlaying()){
+			this.pauseSound();
+			this.upDateCurrentTiledIndex();
+		}
+		
 	}
 }
 

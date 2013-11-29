@@ -16,9 +16,12 @@ import org.andengine.util.modifier.ease.EaseBounceInOut;
 import org.andengine.util.modifier.ease.EaseBounceOut;
 import org.andengine.util.modifier.ease.EaseElasticIn;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.util.Log;
+import android.widget.Toast;
 import dalcoms.pub.brainwavestudio.SceneManager.SceneType;
 //import org.andengine.entity.modifier.AlphaModifier;
 
@@ -73,9 +76,12 @@ public class MainMenuScene extends BaseScene{
 
 	@Override
 	public void onBackKeyPressed() {
-		// TODO : Pop-up 다이얼로그를 띄움 -> 다른 무료 앱을 원하냐?(내 앱들...House ad)  아니면 프로그램 종료.
-		// 우선은 프로그램 종료하도록 설정..
-		System.exit(0);
+		if (Math.random()<0.5){
+			popUpExtiMessageDlg();
+		}else{
+			popUpAdMsgDlg();
+		}
+		
 	}
 
 	@Override
@@ -89,6 +95,74 @@ public class MainMenuScene extends BaseScene{
 		
 	}
 	
+	private void popUpExtiMessageDlg(){
+		AlertDialog.Builder dlgBackPressed = new AlertDialog.Builder(activity);
+		dlgBackPressed.setMessage(R.string.say_good_bye)
+		.setPositiveButton("Yes",new DialogInterface.OnClickListener() {
+			
+			@Override
+			public void onClick(DialogInterface dialog, int which) {
+				System.exit(0);
+			}
+		})
+		.setNegativeButton("No", new DialogInterface.OnClickListener() {
+			
+			@Override
+			public void onClick(DialogInterface dialog, int which) {
+				dialog.cancel();
+			}
+		})
+		.setTitle("Exit")
+		.setIcon(R.drawable.ic_launcher)
+		.show();
+	}
+	private void popUpAdMsgDlg(){
+		AlertDialog.Builder dlgBackPressed = new AlertDialog.Builder(activity);
+		dlgBackPressed.setMessage(R.string.advertize_myself)
+		.setPositiveButton("Yes",new DialogInterface.OnClickListener() {
+			
+			@Override
+			public void onClick(DialogInterface dialog, int which) {
+				try{
+					activity.startActivity(
+							new Intent(Intent.ACTION_VIEW,
+									Uri.parse("market://search/?q=pub:Dalcoms")));
+				}catch(android.content.ActivityNotFoundException e){
+					activity.startActivity(
+							new Intent(Intent.ACTION_VIEW,
+									Uri.parse("https://play.google.com/store/search?q=dalcoms")));
+				}
+			}
+		})
+		.setNegativeButton("No", new DialogInterface.OnClickListener() {
+			
+			@Override
+			public void onClick(DialogInterface dialog, int which) {
+				dialog.cancel();
+				popUpExtiMessageDlg();
+			}
+		})
+		.setTitle("Free app")
+		.setIcon(R.drawable.ic_launcher)
+		.show();
+	}
+	private void offSoundsAll(){
+		final int numOfSound = 10;
+		btn_sound_1.offSound();
+		btn_sound_2.offSound();
+		btn_sound_3.offSound();
+		btn_sound_4.offSound();
+		btn_sound_5.offSound();
+		btn_sound_6.offSound();
+		btn_sound_7.offSound();
+		btn_sound_8.offSound();
+		btn_sound_9.offSound();
+		btn_sound_10.offSound();
+		
+		for (int i=0;i<numOfSound;i++){
+			disablePlayImageVisible(i);
+		}
+	}
 	private void registerUpdateHandlerForTimer(){
 		final float timerSecond = 1f;
 		this.registerUpdateHandler(new TimerHandler(timerSecond, true, new ITimerCallback() {
@@ -101,6 +175,7 @@ public class MainMenuScene extends BaseScene{
 					if(timerSettingSprite.checkTimerZeroOn()){
 						//TODO : 음원재생 끝내고 timer를 loop on 으로
 						// offSoundsAll>>>
+						offSoundsAll();
 						timerSettingSprite.clearTimerZeroOn();
 						timerSettingSprite.setTimerLoopOn(true);
 					}
@@ -279,7 +354,7 @@ public class MainMenuScene extends BaseScene{
 					}else{//play to pause
 						disablePlayImageVisible(0);
 					}
-					this.setCurrentTileIndex(flagButtonStatus);
+//					this.setCurrentTileIndex(flagButtonStatus);
 				}
 				return super.onAreaTouched(pSceneTouchEvent, pTouchAreaLocalX,
 						pTouchAreaLocalY);

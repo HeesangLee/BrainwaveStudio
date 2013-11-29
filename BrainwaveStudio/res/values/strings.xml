@@ -5,5 +5,7 @@
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
     <string name="company">Dalcoms</string>
+    <string name="say_good_bye">Are you sure you want to exit ?</string>
+    <string name="advertize_myself">Do you want to get more free app ?</string>
 
 </resources>
