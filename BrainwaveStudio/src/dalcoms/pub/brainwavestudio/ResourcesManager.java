@@ -354,7 +354,7 @@ public class ResourcesManager {
 			mSound_1 = MusicFactory.createMusicFromAsset(
 					engine.getMusicManager(), activity, "wdelta_f2_l250_r252_a0p8.ogg");
 			mSound_2 = MusicFactory.createMusicFromAsset(
-					engine.getMusicManager(), activity, "wtheta_f6_l324_r318_a0p8.ogg");
+					engine.getMusicManager(), activity, "wtheta_f6_l318_r324_a0p8.ogg");
 			mSound_3 = MusicFactory.createMusicFromAsset(
 					engine.getMusicManager(), activity, "walpha_f10_l386_r396_a0p8.ogg");
 			mSound_4 = MusicFactory.createMusicFromAsset(
@@ -377,7 +377,7 @@ public class ResourcesManager {
 					engine.getMusicManager(), activity, "btnclick.mp3");
 			
 			mSoundEffect_settingHide = MusicFactory.createMusicFromAsset(
-					engine.getMusicManager(), activity, "win_print_complete.wav");
+					engine.getMusicManager(), activity, "close.ogg");
 			
 			mSoundArray.add(mSound_1);
 			mSoundArray.add(mSound_2);

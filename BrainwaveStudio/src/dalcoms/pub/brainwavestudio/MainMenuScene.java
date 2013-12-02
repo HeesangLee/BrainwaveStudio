@@ -71,7 +71,7 @@ public class MainMenuScene extends BaseScene{
 
 	@Override
 	public void onBackKeyPressed() {
-		if (Math.random()<0.5){
+		if (Math.random()<0.78){
 			popUpExtiMessageDlg();
 		}else{
 			popUpAdMsgDlg();
