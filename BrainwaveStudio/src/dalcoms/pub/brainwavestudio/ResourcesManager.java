@@ -28,13 +28,6 @@ import org.andengine.util.HorizontalAlign;
 import org.andengine.util.color.Color;
 
 import android.util.Log;
-//import org.andengine.audio.sound.Sound;
-//import org.andengine.audio.sound.SoundFactory;
-//import org.andengine.entity.sprite.Sprite;
-//import org.andengine.opengl.util.GLState;
-//import android.content.Context;
-//import android.media.AudioManager;
-//import android.media.SoundPool;
 
 public class ResourcesManager {
 	//******************************
@@ -55,7 +48,6 @@ public class ResourcesManager {
 	public Font mFont_grossnet;
 	public Font mFont_Plok;
 	public Font mFont_UbuntuR;
-//	public Font mFont_Wednesday;
 	
 	protected boolean isFontLoaded = true;
 	
@@ -100,6 +92,12 @@ public class ResourcesManager {
 	public ITextureRegion mTimerLoopOnRegion;
 	private BuildableBitmapTextureAtlas timerLoopBtnTextureAtlas;
 	
+	public ITextureRegion mTimerTimeLineRegion;
+	private BitmapTextureAtlas mTimerTimeLineTextureAtlas;
+	
+	public ITextureRegion mTimerHelpRegion;
+	private BitmapTextureAtlas mTimerHelpAtlas;
+	
 	public Music mSound_1;
 	public Music mSound_2;
 	public Music mSound_3;
@@ -111,26 +109,10 @@ public class ResourcesManager {
 	public Music mSound_9;
 	public Music mSound_10;
 
-// Change Music object to Sound object.	
-//	public Sound mSound_1;
-//	public Sound mSound_2;
-//	public Sound mSound_3;
-//	public Sound mSound_4;
-//	public Sound mSound_5;
-//	public Sound mSound_6;
-//	public Sound mSound_7;
-//	public Sound mSound_8;
-//	public Sound mSound_9;
-//	public Sound mSound_10;
-	
 	public Music mSoundEffect_btnClick;
 	public Music mSoundEffect_settingHide;
 	
 	public ArrayList<Music> mSoundArray = new ArrayList<Music>();
-//	public ArrayList<Sound> mSoundArray = new ArrayList<Sound>();
-	
-//	public SoundPool mSoundPool = null;
-//	public ArrayList<Integer> mSoundArray = new ArrayList<Integer>();
 	
 	public Text timeText;
 	//====================================================================
@@ -191,6 +173,26 @@ public class ResourcesManager {
 		loadTimerSettingBtn();
 		loadTimerIndicator();
 		loadTimerLoop();
+		loadTimerTimeLine();
+		loadTimerHelp();
+	}
+	
+	private void loadTimerHelp(){
+		mTimerHelpAtlas = new BitmapTextureAtlas(activity.getTextureManager(), 
+				304, 156,
+				BitmapTextureFormat.RGBA_8888,TextureOptions.BILINEAR);
+		mTimerHelpRegion = BitmapTextureAtlasTextureRegionFactory.createFromAsset(mTimerHelpAtlas, 
+				activity, "help.png",0,0);
+		mTimerHelpAtlas.load();
+	}
+	
+	private void loadTimerTimeLine(){
+		mTimerTimeLineTextureAtlas = new BitmapTextureAtlas(activity.getTextureManager(), 
+				580, 62,
+				BitmapTextureFormat.RGBA_8888,TextureOptions.BILINEAR);
+		mTimerTimeLineRegion = BitmapTextureAtlasTextureRegionFactory.createFromAsset(mTimerTimeLineTextureAtlas, 
+				activity, "timeline.png",0,0);
+		mTimerTimeLineTextureAtlas.load();
 	}
 	
 	private void loadTimerLoop(){
@@ -348,8 +350,7 @@ public class ResourcesManager {
 	
 	private void loadMenuAudio(){
 		MusicFactory.setAssetBasePath("sfx/");
-//		SoundFactory.setAssetBasePath("sfx/");
-//		mSoundPool = new SoundPool(256, AudioManager.STREAM_MUSIC, 0);
+
 		try{
 			mSound_1 = MusicFactory.createMusicFromAsset(
 					engine.getMusicManager(), activity, "wdelta_f2_l250_r252_a0p8.ogg");
@@ -407,15 +408,6 @@ public class ResourcesManager {
 		}
 
 		FontFactory.setAssetBasePath("fonts/");
-//		
-//		mFont_UbuntuR = FontFactory.createFromAsset(activity.getFontManager(), 
-//				activity.getTextureManager(),
-//				256,256,
-//				activity.getAssets(),
-//				"Ubuntu-R.ttf",
-//				45f,
-//				true,
-//				Color.WHITE_ABGR_PACKED_INT);
 
 		this.mFont_UbuntuR = FontFactory.createFromAsset(
 				activity.getFontManager(), ubuntuFontTexture, 
@@ -434,7 +426,7 @@ public class ResourcesManager {
 				pGLState.enableDither();
 			}
 		};
-//		timeText.setScale(0.5f);
+
 		timeText.setColor(1f, 1f, 1f, 0.7f);
 	}
 	

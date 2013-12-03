@@ -1,21 +1,22 @@
 package dalcoms.pub.brainwavestudio;
 
 import org.andengine.engine.camera.Camera;
+import org.andengine.entity.modifier.AlphaModifier;
+import org.andengine.entity.modifier.LoopEntityModifier;
+import org.andengine.entity.modifier.RotationModifier;
+import org.andengine.entity.modifier.SequenceEntityModifier;
 import org.andengine.entity.sprite.Sprite;
 import org.andengine.entity.text.Text;
-import org.andengine.entity.text.TextOptions;
-import org.andengine.input.touch.TouchEvent;
 import org.andengine.opengl.texture.region.ITextureRegion;
 import org.andengine.opengl.util.GLState;
 import org.andengine.opengl.vbo.VertexBufferObjectManager;
-import org.andengine.util.HorizontalAlign;
-
-import android.util.Log;
-
+import org.andengine.util.modifier.SequenceModifier;
 
 public class TimerSprite extends Sprite{
 	public Sprite timerSettingIndicatorSprite;
 	public Sprite timerLoopOnSprite;
+	public Sprite timerTimeLineSprite;
+	public Sprite helpSprite;
 	public final float INDICATOR_Y = 10.793f;
 	private boolean flagLoopOn = true;
 	private final float TIME_MAX_MINUTE = 60f;
@@ -61,6 +62,7 @@ public class TimerSprite extends Sprite{
 		showTimeText(retPosX);
 		this.setTimerLoopOn(false);
 		
+		detachChild(helpSprite);
 		return retPosX;
 	}
 	
@@ -82,6 +84,7 @@ public class TimerSprite extends Sprite{
 		flagLoopOn = onOff;
 		timerLoopOnSprite.setVisible(flagLoopOn);
 		timerSettingIndicatorSprite.setVisible(!flagLoopOn);
+		timerTimeLineSprite.setVisible(!flagLoopOn);
 		timeText.setVisible(!flagLoopOn);
 		return flagLoopOn;
 	}
@@ -92,6 +95,50 @@ public class TimerSprite extends Sprite{
 	private void attachSprites(VertexBufferObjectManager vbom){
 		attachTimerIndicator(vbom);
 		attachTimerLoopOn(vbom);
+		attachTimerTimeLine(vbom);
+		attachTimerHelp(vbom);
+	}
+	
+	private void attachTimerHelp(VertexBufferObjectManager vbom){
+
+		helpSprite= new Sprite(248.03f,
+				105.453f,
+				ResourcesManager.getInstance().mTimerHelpRegion,
+				vbom){
+			@Override
+			protected void preDraw(GLState pGLState, Camera pCamera){
+				super.preDraw(pGLState, pCamera);
+				pGLState.enableDither();
+			}
+		};
+		attachChild(helpSprite);
+	}
+	
+	private void attachTimerTimeLine(VertexBufferObjectManager vbom){
+		final float xCent=ResourcesManager.getInstance().camera.getWidth()/2;
+		final float yCent=23.785f;
+		timerTimeLineSprite= new Sprite(xCent-ResourcesManager.getInstance().mTimerTimeLineRegion.getWidth()/2,
+				yCent-ResourcesManager.getInstance().mTimerTimeLineRegion.getHeight()/2,
+				ResourcesManager.getInstance().mTimerTimeLineRegion,
+				vbom){
+			@Override
+			protected void preDraw(GLState pGLState, Camera pCamera){
+				super.preDraw(pGLState, pCamera);
+				pGLState.enableDither();
+			}
+		};
+		attachChild(timerTimeLineSprite);
+		timerTimeLineSprite.setVisible(!flagLoopOn);
+		timerTimeLineSprite.registerEntityModifier(
+				new LoopEntityModifier(
+						new SequenceEntityModifier(
+								new AlphaModifier(2f, 0.35f, 0.8f),
+								new AlphaModifier(2f, 0.8f, 1f),
+								new AlphaModifier(2f, 1f, 0.8f),
+								new AlphaModifier(2f, 0.8f, 0.35f)
+								)
+						)
+				);
 	}
 	
 	private void attachTimerIndicator(VertexBufferObjectManager vbom){
@@ -110,7 +157,7 @@ public class TimerSprite extends Sprite{
 	}
 	
 	private void attachTimerLoopOn(VertexBufferObjectManager vbom){
-		final float posCent[] = {744.903f,23.778f};
+		final float posCent[] = {744.903f,23.785f};
 		final float posX = posCent[0]-ResourcesManager.getInstance().mTimerLoopOnRegion.getWidth()/2;
 		final float posY = posCent[1]-ResourcesManager.getInstance().mTimerLoopOnRegion.getHeight()/2;
 		timerLoopOnSprite = new Sprite(posX,posY,
@@ -122,6 +169,16 @@ public class TimerSprite extends Sprite{
 			}
 		};
 		attachChild(timerLoopOnSprite);
+		timerLoopOnSprite.registerEntityModifier(
+				new LoopEntityModifier(
+						new SequenceEntityModifier(
+								new AlphaModifier(2f, 0.65f, 0.8f),
+								new AlphaModifier(2f, 0.8f, 1f),
+								new AlphaModifier(2f, 1f, 0.8f),
+								new AlphaModifier(2f, 0.8f, 0.65f)
+								)
+						)
+				);
 		timerLoopOnSprite.setVisible(flagLoopOn);
 	}
 	

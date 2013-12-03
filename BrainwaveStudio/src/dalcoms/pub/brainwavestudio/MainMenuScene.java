@@ -14,11 +14,12 @@ import org.andengine.opengl.util.GLState;
 import org.andengine.util.modifier.ease.EaseBounceOut;
 
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.media.AudioManager;
 import android.net.Uri;
 import dalcoms.pub.brainwavestudio.SceneManager.SceneType;
-//import org.andengine.entity.modifier.AlphaModifier;
 
 public class MainMenuScene extends BaseScene{
 	
@@ -43,7 +44,6 @@ public class MainMenuScene extends BaseScene{
 	
 	private boolean[] flagPlayList = {false,false,false,false,false,false,false,false,false,false};	
 	
-//	public float timerMinute=0;
 	public final float btnHidePosX = (camera.getWidth()-resourcesManager.mTimerBtnHideTextureRegion.getWidth())/2;
 	public final float btnHidePosY_sleep = -1.0f*resourcesManager.mTimerSettingBgRegion.getHeight();//camera.getHeight()+resourcesManager.mTimerSettingBgRegion.getHeight(); // 정확한 위치일 필요 없다.;
 	public final float btnHidePosY_active = camera.getHeight()-resourcesManager.mTimerBtnHideTextureRegion.getHeight()+15.0f;
@@ -67,6 +67,7 @@ public class MainMenuScene extends BaseScene{
 		loadPlayImageSprites();
 		createTimerSettingWindow();
 		registerUpdateHandlerForTimer();
+		setInitialAudioVolumn();
 	}
 
 	@Override
@@ -90,6 +91,21 @@ public class MainMenuScene extends BaseScene{
 		
 	}
 	
+	private void setInitialAudioVolumn(){
+		AudioManager am = (AudioManager) resourcesManager.activity.getSystemService(Context.AUDIO_SERVICE);
+		am.setStreamVolume(AudioManager.STREAM_MUSIC, 
+				(2*am.getStreamMaxVolume(AudioManager.STREAM_MUSIC))/3, 
+				AudioManager.FLAG_PLAY_SOUND);
+//		if(am.getStreamVolume(AudioManager.STREAM_MUSIC)<am.getStreamMaxVolume(AudioManager.STREAM_MUSIC)/3){
+//			am.setStreamVolume(AudioManager.STREAM_MUSIC, 
+//					am.getStreamMaxVolume(AudioManager.STREAM_MUSIC)/2, 
+//					AudioManager.FLAG_PLAY_SOUND);
+//		}else{
+//			am.setStreamVolume(AudioManager.STREAM_MUSIC, 
+//					(2*am.getStreamMaxVolume(AudioManager.STREAM_MUSIC))/3, 
+//					AudioManager.FLAG_PLAY_SOUND);
+//		}
+	}
 	private void popUpExtiMessageDlg(){
 		AlertDialog.Builder dlgBackPressed = new AlertDialog.Builder(activity);
 		dlgBackPressed.setMessage(R.string.say_good_bye)
