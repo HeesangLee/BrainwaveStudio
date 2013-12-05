@@ -48,3 +48,10 @@ TimerSettingSprite 의 posX 의 min/max 가 적용될 수 있도록 할 것. (완료)
 	5. 고해상도 아이콘 : 512x512
 	6. 그래픽 이미지 : 1024*500
 	7. 프로
+	
+** 애드몹 설명
+Brainwave Studio make sound can synchronize the human brainwave to the well-known special brainwave frequency.
+This application make this effect by using the binaural beat theory.
+Some well-known frequency included on this application affect human good effect.
+If your brain and body want to be relaxed, you can easily get effect with this app.
+Also, this app have advantage to mix signals and then you can feel variety experience.
