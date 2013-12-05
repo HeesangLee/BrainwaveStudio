@@ -3,14 +3,12 @@ package dalcoms.pub.brainwavestudio;
 import org.andengine.engine.camera.Camera;
 import org.andengine.entity.modifier.AlphaModifier;
 import org.andengine.entity.modifier.LoopEntityModifier;
-import org.andengine.entity.modifier.RotationModifier;
 import org.andengine.entity.modifier.SequenceEntityModifier;
 import org.andengine.entity.sprite.Sprite;
 import org.andengine.entity.text.Text;
 import org.andengine.opengl.texture.region.ITextureRegion;
 import org.andengine.opengl.util.GLState;
 import org.andengine.opengl.vbo.VertexBufferObjectManager;
-import org.andengine.util.modifier.SequenceModifier;
 
 public class TimerSprite extends Sprite{
 	public Sprite timerSettingIndicatorSprite;
@@ -52,7 +50,19 @@ public class TimerSprite extends Sprite{
 	private void showTimeText(float posX){
 		this.setTimerTime(this.pos2Time(posX));
 		timeText.setText(String.format("%.1fmin",this.timerMinute));
-		timeText.setPosition(posX+3f,47.980f);
+		timeText.setColor((this.timerMinute/this.TIME_MAX_MINUTE)*0.9f, 
+				(1f-this.timerMinute/this.TIME_MAX_MINUTE)*0.8f,
+				(1f-this.timerMinute/this.TIME_MAX_MINUTE)*0.3f);//시간에 따른 색상 변경
+		
+		if(this.flagTimerSettingShow){//인디게이터 옆에 위치하도록
+			timeText.setPosition(posX+3f,47.980f);
+			timeText.setScale(1f);
+		}else{//좌측 상단에 위치하도록 
+			if(timeText.getY()>20f){
+				timeText.setPosition(4f,5.65f);
+				timeText.setScale(0.88f);
+			}
+		}
 	}
 	
 	public float moveIndicator(float posX){
@@ -211,6 +221,7 @@ public class TimerSprite extends Sprite{
 	}
 	public void setTimerSettingShowFlag(boolean flagShow){
 		flagTimerSettingShow = flagShow;
+		showTimeText(getPosition());
 	}
 	public boolean checkTimerZeroOn(){
 		return this.flagTriggerTimeZero;
