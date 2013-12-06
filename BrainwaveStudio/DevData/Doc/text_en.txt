@@ -1,92 +1,87 @@
-1. Á¦¸ñ
-============ 
-"³úÆÄ ½ºÆ©µğ¿À" [ Brainwave studio ]
+1 . Subject
 ============
-2.ÇÁ·Î¸ğ¼Ç ÅØ½ºÆ®
+Brainwave studio [EEG generator]
 ============
-"³úÆÄ ½ºÆ©µğ¿À"¸¦ ÅëÇØ ´ç½ÅÀÇ ³ú »óÅÂ¸¦ ´ç½ÅÀÌ ¿øÇÏ´Â »óÅÂ·Î ¸¸µé ¼ö ÀÖ½À´Ï´Ù.
-±íÀº ¾ÈÁ¤, ÇĞ½À ¸ôÀÔ, ÀÚ±â ÃÖ¸éÀ» À§ÇØ "³úÆÄ ½ºÆ©µğ¿À"¸¦ »ç¿ëÇØ º¸¼¼¿ä.
+2 promotional text
 ============
-3. ¼³¸í
+You can create the desired brain state with "Brainwave Studio"
+Try Brainwave Studio for deep stable, immersive learning , self-hypnosis.
 ============
-"³úÆÄ ½ºÆ©µğ¿À"´Â ¿À·£¿¬±¸¸¦ ÅëÇØ ¾Ë·ÁÁø ³úÆÄÁøµ¿¼ö¸¦ ÀÌ¿ëÇØ¼­ »ç¿ëÀÚ°¡ ¿øÇÏ´Â »óÅÂÀÇ ³úÆÄ¸¦ °®À» ¼ö ÀÖµµ·Ï ÇÑ´Ù.
-½º¸¶Æ®ÆùÀÇ ÀÌ¾îÆù¿¡¼­ Ãâ·ÂµÇ´Â ¼Ò¸®¸¦ ÀÌ¿ëÇØ¼­ »ç¿ëÀÚÀÇ ³úÆÄ¸¦ ¿øÇÏ´Â »óÅÂ·Î µ¿±âÈ­ÇÏ±â À§ÇØ¼­ "³úÆÄ ½ºÆ©µğ¿À"´Â Binaural beats ¸¦ »ç¿ëÇÑ´Ù.
-Binaural beats ¸¦ ÅëÇØ¼­ ³ú¿¡ ¿µÇâÀ» ¹ÌÄ¡´Â Áß¿äÇÑ ³úÆÄµéÀ» ¸¸µé ¼ö °¡ ÀÖ´Ù.  
+3 . Explanation
+============
+You can synchronize your brainwave frequecy to well-known special frequency with application "Brainwave Studio".
+"Brainwave Studio" uses Binaural Beats to generate these kinds of brainwave frequency. 
+You can hear this Generated binaural beats sound with earphone output of smart-phone.
+Binaural beats can create the significant brainwaves such as delta wave, theta wave, alpha wave, beta wave and gamma wave.
+"Brainwave Studio" includes these significant brainwaves which have positive effect on a person and color noises-white noise, pink noise and brown noise.
 
-"³úÆÄ ½ºÆ©µğ¿À"¿¡´Â »ç¶÷ÀÇ ³ú¿¡ ±àÁ¤Àû ¿µÇâÀ» ¹ÌÄ¡´Â ³úÆÄÀÎ µ¨Å¸ ÆÄ(Delta wave), ½êÅ¸ ÆÄ(Theta wave), ¾ËÆÄ ÆÄ(Alpha wave), º£Å¸ ÆÄ(Beta wave), °¨¸¶ ÆÄ(Gamma wave) ±×¸®°í ±àÁ¤Àû ¼ÒÀ½À¸·Î ¾Ë·ÁÁø È­ÀÌÆ® ³ëÀÌÁî(White noise), ÇÎÅ© ³ëÀÌÁî(Pink noise), ºê¶ó¿î³ëÀÌÁî(Brown noise)°¡ Æ÷ÇÔµÇ¾î ÀÖ´Ù.
+* Delta wave
+   - Delta wave EEG is generated when a person is in deep sleep condition.
+   - If you want to effective high-quality sleep it is suitable for this purpose.
+   - If your body is experiencing tension or headache, try delta wave about 10 minutes.
+   - Delta wave of growing children help to generate more growth hormone(GH).
 
-* µ¨Å¸ ÆÄ(Delta wave)
-   - µ¨Å¸ ÆÄ(Delta wave)´Â »ç¶÷ÀÌ ±íÀº ¼ö¸é »óÅÂ¿¡ ÀÖÀ» ¶§ ¹ß»ıµÇ´Â ³úÆÄÀÌ´Ù. ºÒ¸éÁõ¿¡ ½Ã´Ş¸®°Å³ª ÂªÀº ½Ã°£¿¡ ¾çÁúÀÇ ¼ö¸éÀ» ÃëÇÏ°íÀÚ ÇÒ ¶§ »ç¿ëÇÏ¸é È¿°úÀûÀÌ´Ù.
-   - ¸öÀÌ ±äÀå»óÅÂ¿¡ ÀÖ°Å³ª ½ÉÇÑ µÎÅëÀ» °Ş°í ÀÖ´Ù¸é ´«À» °¨°í µ¨Å¸ ÆÄ(Delta wave)¸¦ 10ºĞÁ¤µµ ½ÇÇàÇØ º¸´Â °ÍÀÌ Å« µµ¿òÀÌ µÈ´Ù.
-   - ¼ºÀå±âÀÇ Ã»¼Ò³âÀº µ¨Å¸ ÆÄ(Delta wave) »óÅÂ¿¡¼­ ¸¹Àº ¾çÀÇ ¼ºÀå È£¸£¸óÀÌ »ı¼ºµÇ´Â °ÍÀ¸·Î ¾Ë·ÁÁ® ÀÖ´Ù.  
+* Theta wave
+   - Theta wave EEG is generated when a person is in a shallow sleep or in meditation state. 
+   - Theta wave is known as generated when using psychic powers.
+   - Theta wave EEG is helpful if you want to relax you brain and body.
+   - Theta wave EEG is useful to induce self-hypnosis and deep meditation.
 
-* ½êÅ¸ ÆÄ(Theta wave) 
-   - ½êÅ¸ ÆÄ(Theta wave)´Â ¾èÀº ¼ö¸é »óÅÂ ¶Ç´Â ¸í»óÇÒ¶§ ¹ß»ıµÇ´Â ³úÆÄÀÌ´Ù. ÃÊ´É·ÂÀ» ¹ßÈÖÇÒ ¶§ÀÇ ³úÆÄ¶ó°íµµ ºÒ¸°´Ù.
-   - µ¨Å¸ ÆÄ(Delta wave)¿Í ´Ş¸® ¿ÏÀüÇÑ ¼ö¸é»óÅÂ¿¡ ºüÁöÁö ¾Ê±â ¶§¹®¿¡ ¸í»óÀ» ÇÒ ¶§ µµ¿òÀÌ µÇ¸ç ³úÀÇ ÈŞ½ÄÀ» ÃëÇÏ°íÀÚ ÇÒ ¶§¿¡µµ Å« µµ¿òÀÌ µÈ´Ù.
-   - ÀÚ±â ÃÖ¸é »óÅÂ¿¡ ºüÁö°íÀÚ ÇÒ ¶§¿¡µµ ÃÖ¸é À¯µµ¸¦ µµ¿ÍÁÖ´Â ³úÆÄÀÌ´Ù.
+* Alpha wave
+   - Alpha wave is very positive EEG. This wave is generated when a person is in relaxed and comfortable state.
+   - If you want to release stress, it would be a good solution.
+   - Alpha wave boosts up memory and concentration for learning
 
-* ¾ËÆÄ ÆÄ(Alpha wave) : 
-   - ¾ËÆÄ ÆÄ(Alpha wave)´Â ¸Å¿ì ±àÁ¤ÀûÀÎ ³úÆÄ·Î ½É½ÅÀÌ ÀÌ¿ÏµÇ¾î Æí¾ÈÇÔÀ» ´À³¥ ¶§ °¡Àå ¸¹ÀÌ ³ª¿À´Â ³úÆÄÀÌ´Ù.
-   - ±äÀå¿ÏÈ­ È¿°ú°¡ Å¹¿ùÇÏ¿© ½ºÆ®·¹½º ÇØ¼Ò¿¡ È¿°úÀûÀÌ´Ù.
-   - ¾ËÆÄ ÆÄ°¡ ¸¹ÀÌ ³ª¿Ã ¶§ ±â¾ï·Â°ú ÁıÁß·ÂÀÌ ÃÖ´ë »óÅÂ·Î ÇĞ½À½Ã¿¡µµ À¯¿ëÇÏ´Ù.
+* Beta wave
+   - Brainwave between 12Hz and 30Hz are Beta wave and this wave is comprised to SMR beta, M beta and H beta.
+      * Beta SMR : This wave is related on preparing awakening and ready state of exercise. Useful when you want to be in immersed state.
+      * Beta M : This wave is much generated when a person is on conscious activity, mental activity. It is helpful to be immersed in learning.
+      * Beta H : This wave is generated when a person is in a state of tension. It is helpful to sports game.
 
-* º£Å¸ ÆÄ(Beta wave) :
-   - 12 ~ 30Hz »çÀÌÀÇ ³úÆÄ¸¦ º£Å¸ ÆÄ¶ó ÇÏ¸ç ÀÌ´Â ¾Æ·¡¿Í °°ÀÌ SMRÆÄ, MÆÄ, H ÆÄ ·Î ±¸ºĞµÉ ¼ö ÀÖ´Ù.
-   * Beta SMR : °¢¼º ÁØºñ »óÅÂ ¶Ç´Â ¿îµ¿°èÀÇ ´ë±â »óÅÂ·Î ÁÖÀÇÁıÁß¿¡ °ü·ÃµÈ´Ù. ¸ôÀÔÀ» ¿øÇÒ ¶§ À¯¿ëÇÏ´Ù.
-   * Beta M : ÀÇ½Ä È°µ¿, Á¤½Å È°µ¿, ÇĞ½À¿¡ ¸ôµÎÇÑ »óÅÂÀÏ ¶§ ¸¹ÀÌ ¹ß»ıµÈ´Ù. ¸ôÀÔÀ» ÅëÇÑ ÇĞ½ÀÀ» ÇÊ¿äÇÒ ¶§ µµ¿òÀÌ µÈ´Ù. (ÀÏ¹İÀûÀÎ ÇĞ½À½Ã¿¡´Â ¾ËÆÄ ÆÄ°¡ ´õ Àû´çÇÏ´Ù)
-   * Beta H : ±äÀåÀÌ³ª ÈïºĞ »óÅÂÀÏ ¶§ ¹ß»ıÇÑ´Ù. ¿îµ¿°æ±â¸¦ ÇÏ±âÀü¿¡ µéÀ¸¸é µµ¿òÀÌ µÈ´Ù. (* ÁÖÀÇ»çÇ× : Æò»ó½Ã¿¡ µéÀ¸¸é ³úÀÇ ±äÀå»óÅÂ¸¦ °¡Á®¿Ã ¼ö ÀÖ´Ù.)
-
-* °¨¸¶ ÆÄ(Gamma wave) 
-   - ÈïºĞ »óÅÂÀÏ ¶§ ¹ß»ıÇÑ´Ù. °íµµÀÇ ÀÎÁö ÀÛ¿ë½Ã¿¡µµ È°¼ºÈ­ µÈ´Ù.
-
-* È­ÀÌÆ® ³ëÀÌÁî(White noise) 
-   - ¹é»ö ¼ÒÀ½Àº °¡Ã» ÁÖÆÄ¼öÀÇ ¸ğµç ÆÄÀå´ëÀÇ ÁÖÆÄ¼ö ½ºÆåÆ®·³À» °¡Áö´Â ½ÅÈ£ÀÌ´Ù.
-   - ¹é»ö ¼ÒÀ½Àº ÁÖº¯ ¼ÒÀ½À» µ¤¾îÁÖ´Â È¿°ú°¡ ÀÖ¾î ÁÖÀÇ·Â Çâ»ó¿¡ µµ¿òÀÌ µÈ´Ù.
-   - ¾Æ±âµéÀÇ °æ¿ì ¹é»ö ¼ÒÀ½À» µé·ÁÁÖ¾úÀ» ¶§ ¾ÈÁ¤À» ÃëÇÏ´Â °æ¿ì°¡ ÀÖ´Ù. 
-   - ¾ËÆÄ ÆÄ À¯µµ¿¡ È¿°úÀûÀÌ°í ½ºÆ®·¹½º °¨¼ÒÈ¿°ú ÇĞ½À´É·Â Çâ»ó È¿°ú°¡ ÀÖ´Ù°í ¾Ë·ÁÁ® ÀÖ´Ù.
-
-* ÇÎÅ© ³ëÀÌÁî(Pink noise) 
-   - ÇÎÅ©³ëÀÌÁî´Â ¹é»ö ¼ÒÀ½°ú °°Àº È¿°ú¸¦ °®´Â´Ù.
-   - »ç¶÷¿¡ µû¶ó È­ÀÌÆ® ³ëÀÌÁî º¸´Ù ÇÎÅ© ³ëÀÌÁî È¤Àº ºê¶ó¿î ³ëÀÌÁî°¡ ´õ È¿°úÀûÀÏ ¼ö ÀÖ´Ù.
-
-* ºê¶ó¿î³ëÀÌÁî(Brown noise) :
-   - ÇÎÅ©³ëÀÌÁî´Â ¹é»ö ¼ÒÀ½°ú °°Àº È¿°ú¸¦ °®´Â´Ù.
-   - »ç¶÷¿¡ µû¶ó È­ÀÌÆ® ³ëÀÌÁî º¸´Ù ÇÎÅ© ³ëÀÌÁî È¤Àº ºê¶ó¿î ³ëÀÌÁî°¡ ´õ È¿°úÀûÀÏ ¼ö ÀÖ´Ù.
+* Gamma wave
+   - Gamma wave is generated when the excited state.
    
-"³úÆÄ ½ºÆ©µğ¿À"´Â ÁÖ¿äÇÑ °¢ ³úÆÄÀ½°ú »ö»ó ¼ÒÀ½À» °³º°ÀûÀ¸·Î Àç»ıÇÒ ¼ö ÀÖÀ» »Ó¸¸ ¾Æ´Ï¶ó °¢ ¼ÒÀ½À» »ç¿ëÀÚÀÇ ¼±ÅÃ¿¡ ÀÇÇØ ¿©·¯°³¸¦ µ¿½Ã¿¡ Àç»ıÇÒ ¼ö µµ ÀÖ´Ù.
+* White noise
+   - White noise has the all range of the audio frequency spectrum.
+   - White noise covers the surrounded noise so it is really helpful to increase the concentration.
+   - Young baby often keep their balance during hearing white noise.
+   - White noise is effective to induce the alpha-wave and also helpful to increase the learning.
 
-[ È¥ÇÕ Àç»ı È¿°ú ]
-* °¢ ³úÆÄ´Â Sine wave ·Î Çü¼ºµÈ Binaural beat ·Î µÇ¾î ÀÖ´Ù. ÇÏÁö¸¸ °£È¤ ¼ø¼öÇÑ Sine wave¸¦ µé¾úÀ» ¶§ °ÅºÎ°¨À» ³ªÅ¸³»´Â »ç¶÷ÀÌ ÀÖ´Ù. ÀÌ °æ¿ì¿¡´Â ¿øÇÏ´Â ³úÆÄ¿Í ¼ÒÀ½À» °°ÀÌ Àç»ıÇÏ¸é ÈÎ¾À Æí¾ÈÇÑ ´À³¦À» ¹ŞÀ» ¼ö ÀÖ´Ù.
-* °¢ ³úÆÄ¸¦ ¼¯¾úÀ» ¶§¿¡´Â ³úÆÄ°¡ ¼¯ÀÌ¸é¼­ ¹ß»ıÇÏ´Â ÀÓÀÇ ³úÆÄ°¡ Çü¼ºµÇ¾î ±ÔÁ¤ÇÒ ¼ö ¾ø´Â È¿°ú¸¦ ¾òÀ» ¼ö ÀÖ´Ù. ÀÌ·¯ÇÑ È¿°ú´Â Á÷Á¢ ³úÆÄ¸¦ ¼¯¾îº¸¸é¼­ Ã¼ÇèÇØ º¸±æ ¹Ù¶õ´Ù.
+* Pink noise
+   - Pink noise has a same effect as white-noise.
+   - Pink noise can be more effective for some people than other color-noise.
 
-[ ³úÆÄ ½ºÆ©µğ¿À ÀÀ¿ë ]
-* ÇĞ½À ´É·Â Çâ»ó 
-   - ¸ÅÀÏ ÀÏÁ¤ÇÑ ¾ËÆÄ ÆÄ(Alpha wave)¸¦ °æÇèÇßÀ» ¶§ ÁıÁß·Â, ±â¾ï·ÂµîÀÇ ÇĞ½À´É·ÂÀÌ Àü¹İÀûÀ¸·Î Çâ»óµÈ´Ù.
-   - ÇĞ½ÀÇÏ±â Àü ¾ËÆÄ ÆÄ(Alpha wave)¸¦ 30ºĞ Á¤µµ ½ÇÇàÇÏ¿© ³úÆÄ¸¦ ¾ËÆÄ »óÅÂ¿¡ ³õÀÌ°Ô ÇÑ´Ù.
-   - ÁÖÀÇ·ÂÀÌ ¶³¾îÁö°Å³ª ÁÖÀ§·ÎºÎÅÍÀÇ ¼ÒÀ½¿¡ ³ëÃâµÇ¾î ÀÖ´Â »óÈ²ÀÌ¶ó¸é »ö»ó ³ëÀÌÁî(È­ÀÌÆ® ³ëÀÌÁî, ÇÎÅ© ³ëÀÌÁî, ºê¶ó¿î ³ëÀÌÁî)¸¦ Àç»ı ½ÃÅ°´Â °ÍÀÌ Å« µµ¿òÀÌ µÈ´Ù.
-   - »ö»ó ³ëÀÌÁî¿Í ÇÔ²² ¾ËÆÄ ÆÄ(Alpha wave)¸¦ °°ÀÌ Àç»ıÇÏ´Â °Íµµ ÇĞ½À´É·Â Çâ»ó¿¡ µµ¿òÀÌ µÈ´Ù. 
-   
-* ¾çÁúÀÇ ¼ö¸é È¿°ú
-   - Çö´ëÀÎÀº ²÷ÀÓ¾ø´Â ¿ÜºÎÀÇ ÀÚ±Ø¿¡ ³ëÃâµÇ¾î ÀÖ´Ù. ¶ÇÇÑ ¹ã¿¡µµ ½Ç³» ±¤, TV, ½º¸¶Æ®ÆùµîÀÇ ±¤ÇĞÀÚ±Ø¿¡ ³ëÃâµÇ¾î ³úÀÇ »óÅÂ°¡ ¾ÈÁ¤µÇ¾î ÀÖÁö ¸øÇÑ °æ¿ì°¡ ¸¹´Ù. ³ú°¡ ÈïºĞ»óÅÂ¿¡ ÀÖ´Â °æ¿ì ¾ãÀº ¼ö¸éÀ» ÃëÇÏ°Ô µÇ¸ç ÀÌ´Â ÀáÀ» ÀÚµµ ¸öÀÌ ÃæºĞÈ÷ È¸º¹µÇÁö ¸øÇÏ°Ô ÇÑ´Ù.
-   - ÀáÀÚ¸®¿¡ µé±â Àü¿¡ ³ú¸¦ ½êÅ¸(Theta) »óÅÂ È¤Àº ¾ËÆÄ(Delta) »óÅÂ·Î ¸¸µé¾î ³õ´Â °ÍÀÌ ¾çÁúÀÇ ¼ö¸éÀ» ÃëÇÏ´Âµ¥ Å« µµ¿òÀÌ µÈ´Ù.
+* Brown noise
+   - Brown noise has a same effect as white-noise.
+   - Brown noise can be more effective for some people than other color-noise.
 
-* Á¹À½ ¿¹¹æ
-   - Á¹À½ÀÌ ¸ô·Á¿Ã¶§ º£Å¸ÆÄ¸¦ µè´Â °ÍÀÌ ³úÀÇ °¢¼º¿¡ µµ¿òÀÌ µÈ´Ù. 
-   
-* ¸í»ó
-   - ½êÅ¸ ÆÄ(Theta wave) ¸¦ µéÀ¸¸é¼­ ¸í»óÀ» ÇÑ´Ù¸é µµ¿òÀÌ µÈ´Ù. ¸í»óÇÏ°íÀÚ ÇÏ´Â ½Ã°£¿¡ µû¶ó 30ºĞ¿¡¼­ 60ºĞ Á¤µµÀÇ Å¸ÀÌ¸Ó¸¦ ¼³Á¤ÇÏ´Â °ÍÀÌ ÁÁ´Ù.
-   
-* µÎÅë ¿ÏÈ­
-   - ½ºÆ®·¹½º¿¡ ÀÇÇÑ µÎÅëÀÇ °æ¿ì ´«À» °¨°í µ¨Å¸ ÆÄ(Delta wave)¸¦ µè´Â °ÍÀÌ µµ¿òÀÌ µÈ´Ù. (* ÁÖÀÇ : µÎÅëÀÌ Áö¼ÓµÉ °æ¿ì ÀÇ»çÀÇ Áø·á¸¦ ¹Ş¾Æ¾ß ÇÑ´Ù.)
-   
-Çö´ëÀÎÀº ¹«ÇÑ °æÀï »çÈ¸¼Ó¿¡¼­ ½ºÆ®·¹½º¸¦ ¹Ş°í ÀÖÀ¸¸ç °è¼ÓµÈ ¿ÜºÎ ÀÚ±ØÀ¸·Î ÀÎÇØ À°Ã¼,Á¤½ÅÀÇ ÈŞ½Ä/È¸º¹ÀÌ Á¦´ë·Î ÀÛ¿ëÇÏÁö ¸øÇÏ°í ÀÖ´Ù. 
-ÀÚ¿¬ »óÅÂ¿¡¼­ÀÇ ÈŞ½ÄÀ» ÅëÇÑ À°Ã¼/Á¤½ÅÀÇ È¸º¹Àº °¡Àå Áß¿äÇÏ´Ù. ÇÏÁö¸¸ °æÀï »çÈ¸¿¡¼­ »ì¾Æ°¡¾ß ÇÑ´Ù´Â »ç½ÇÀ» ¶³ÃÄ ¹ö¸®´Â °ÍÀº °áÄÚ ½¬¿î ÀÏÀÌ ¾Æ´Ï´Ù. 
-¤FÀº ½Ã°£ÀÇ ÈŞ½ÄÀ» ÅëÇØ È¿°úÀûÀÎ À°Ã¼/Á¤½ÅÀÇ È¸º¹À» ¾ò±â À§ÇØ¼­´Â ²ÙÁØÇÑ ¸í»óÀÌ ÇÊ¿äÇÏ´Ù.
-¸í»óÀ» ÅëÇØ ³úÀÇ »óÅÂ¸¦ ÈïºĞ »óÅÂ¿¡¼­ ¾ÈÁ¤ »óÅÂ·Î »¡¸® µ¹·Á ³õ´Â ¿¬½ÀÀ» ÇØ¾ß ÇÑ´Ù.
-ÀÌ¶§, "³úÆÄ ½ºÆ©µğ¿À"´Â ¸í»óÀÇ º¸Á¶ÀûÀÎ ¿ªÇÒÀ» ¼öÇàÇÒ ¼ö ÀÖ´Ù.
+â€œBrainwave Studioâ€ can play a brainwave sound individually, as well as can play multiple sounds simultaneously.
 
-[Keyword ]
-³ú, ³úÆÄ, ÇĞ½À, ¸í»ó, ÈŞ½Ä, °¢¼º, ÃÖ¸é, ÀÚ°¢, ¼ö¸é, Á¹À½, µÎÅë, EGG, ³úÀüµµ, Binaural beats, mc2, ¿¥¾¾ ½ºÄù¾î, ¼ºÀå È£¸£¸ó , ÀÚ±â Á¶Àı ´É·Â, ±àÁ¤Àû ¿¡³ÊÁö, Á¤½Å·Â, ÁÖÆÄ¼ö, ÀÎÁö½Å°æ°úÇĞ, ´ë³úÇÇÁú, Slow wave, Fast wave, ½Ã³À½Ã½º, °úÀÎÇàµ¿, ÀÚ±â ÅëÁ¦·Â, ÀÇ½Ä ¼öÁØ, I-Doser, idoser, doser
+[ Mixed bainwave sounds effect ]
+* Brainwave sound on this application is composed to binaural beat-aid pure sine wave. But some people feel uncomfortable to pure sine wave. In this case, it is helpful to mix the color-noise to brainwave.
+* If you mix some brainwaves together, resulting arbitrary brainwave frequency would be generated and then you can experience some amazing mental status.
+
+[ Application note ]
+* Learning Improvement 
+   - Learning abilities such as memory and concentration would be improved if you hear alpha-wave daily regularly.
+   - Try to hear alpha-wave before learning about 30 minutes.
+   - Color-noises help to concentrate on something.
+   - It would be a good choice to mix the white noise to the alpha-wave.
+
+* Deep and good Sleep
+   - Modern people endless exposed to external stimulation. In addition, even at night, indoor light, TV, smart-phone, etc. disturb your brain. It is needed to turn your brain off before go to bed.
+   - Theta-wave or Delta-wave can help you got deep sleep.
+
+* Drowsiness prevention
+   - Beta-wave can awake you brain.
+* Meditation
+- Theta-wave help to sink in meditation.(30~60 minutes sound play is recommended)
+
+* Alleviate headache
+   - In the case of stress-induced headache, close your eyes and listen delta-wave.
+
+[Keyword]
+Brain , brain , learning, meditation , relaxation, arousal , hypnosis, self-awareness, sleep , drowsiness, headache , EGG, EEG , Binaural beats, mc2, MC Square , growth hormone, self-regulation skills, positive energy , Spirit , frequency, and Cognitive Neuroscience Science , cerebral cortex , Slow wave, Fast wave, synaptic , lesson, behavior, self- control , awareness level , I-Doser, idoser, doser
 
 [Reference]
 Abernethy, B., & Russell, D. G. (1987). Expert-novice differences in an applied selective attention task. Journal of Sport Psychology, 9, 326-345.
