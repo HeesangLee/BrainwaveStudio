@@ -72,7 +72,7 @@ public class MainMenuScene extends BaseScene{
 
 	@Override
 	public void onBackKeyPressed() {
-		if (Math.random()<0.78){
+		if (Math.random()<0.74){
 			popUpExtiMessageDlg();
 		}else{
 			popUpAdMsgDlg();
@@ -94,17 +94,9 @@ public class MainMenuScene extends BaseScene{
 	private void setInitialAudioVolumn(){
 		AudioManager am = (AudioManager) resourcesManager.activity.getSystemService(Context.AUDIO_SERVICE);
 		am.setStreamVolume(AudioManager.STREAM_MUSIC, 
-				(2*am.getStreamMaxVolume(AudioManager.STREAM_MUSIC))/3, 
+				8*am.getStreamMaxVolume(AudioManager.STREAM_MUSIC)/10, 
 				AudioManager.FLAG_PLAY_SOUND);
-//		if(am.getStreamVolume(AudioManager.STREAM_MUSIC)<am.getStreamMaxVolume(AudioManager.STREAM_MUSIC)/3){
-//			am.setStreamVolume(AudioManager.STREAM_MUSIC, 
-//					am.getStreamMaxVolume(AudioManager.STREAM_MUSIC)/2, 
-//					AudioManager.FLAG_PLAY_SOUND);
-//		}else{
-//			am.setStreamVolume(AudioManager.STREAM_MUSIC, 
-//					(2*am.getStreamMaxVolume(AudioManager.STREAM_MUSIC))/3, 
-//					AudioManager.FLAG_PLAY_SOUND);
-//		}
+
 	}
 	private void popUpExtiMessageDlg(){
 		AlertDialog.Builder dlgBackPressed = new AlertDialog.Builder(activity);
@@ -735,7 +727,7 @@ public class MainMenuScene extends BaseScene{
 				positionY,
 				ResourcesManager.getInstance().mReviewBtnRegion,
 				engine.getVertexBufferObjectManager()){
-			String appId = "dalcoms.pub.naturesound";
+			String appId = "dalcoms.pub.brainwavestudio";
 			@Override
 			protected void preDraw(final GLState pGLState, final Camera pCamera){
 				super.preDraw(pGLState, pCamera);
@@ -756,11 +748,9 @@ public class MainMenuScene extends BaseScene{
 					if(pSceneTouchEvent.isActionUp()){
 						try{
 							activity.startActivity(new Intent(Intent.ACTION_VIEW,Uri.parse("market://details?id="+appId)));
-//							activity.startActivity(new Intent(Intent.ACTION_VIEW,Uri.parse("market://details?id="+"com.sec.smartview")));
 							
 						}catch(android.content.ActivityNotFoundException e){
 							activity.startActivity(new Intent(Intent.ACTION_VIEW,Uri.parse("http://play.google.com/store/apps/details?id="+appId)));
-//							activity.startActivity(new Intent(Intent.ACTION_VIEW,Uri.parse("http://play.google.com/store/apps/details?id="+"com.sec.smartview")));
 						}
 					}
 				}
@@ -782,7 +772,7 @@ public class MainMenuScene extends BaseScene{
 				positionY,
 				ResourcesManager.getInstance().mShareBtnRegion,
 				engine.getVertexBufferObjectManager()){
-			String appId = "dalcoms.pub.naturesound";
+			String appId = "dalcoms.pub.brainwavestudio";
 			@Override
 			protected void preDraw(final GLState pGLState, final Camera pCamera){
 				super.preDraw(pGLState, pCamera);
@@ -804,7 +794,10 @@ public class MainMenuScene extends BaseScene{
 						try{
 							Intent sendIntent = new Intent();
 							sendIntent.setAction(Intent.ACTION_SEND);
-							sendIntent.putExtra(Intent.EXTRA_TEXT, "https://play.google.com/store/apps/details?id=dalcoms.pub.naturesound");
+							sendIntent.putExtra(Intent.EXTRA_SUBJECT, "Free App.recommendation : Brainwave Studio");
+							sendIntent.putExtra(Intent.EXTRA_TEXT, "Free Application recommendation : \n" +
+									"https://play.google.com/store/apps/details?id=dalcoms.pub.brainwavestudio \n" +
+									"Brainwave EGG generator");
 							sendIntent.setType("text/plain");
 							activity.startActivity(Intent.createChooser(sendIntent, "Sharing"));
 						}catch(android.content.ActivityNotFoundException e){

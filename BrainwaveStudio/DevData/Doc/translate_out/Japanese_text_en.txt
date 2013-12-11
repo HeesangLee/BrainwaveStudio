@@ -1,149 +1,154 @@
-1 。テーマ
+﻿1。タイトル
 ============
-脳波メーカー[ EEGジェネレータ]
+「脳波スタジオ"[ Brainwave studio ]
 ============
 2プロモーションテキスト
 ============
-あなたは「脳波スタジオ」で希望の脳の状態を作成することができます
-深い安定した、臨場感あふれる学習、自己催眠のための脳波メーカーを試してみてください。
+「脳波スタジオ」を使って、あなたの脳の状態をあなたが希望する状態にすることができます。
+深い安定した、学習没入、自己催眠のために「脳波スタジオ」を使ってみてください。
 ============
-3 。説明
+3。説明
 ============
-あなたがアプリケーション「脳波スタジオ」でよく知られている特殊な周波数にあなたの脳波出現する頻度を同期させることができます。
-「脳波Studioは、「使用していますバイノーラル脳波周波数のこれらの種類を生成するビート。
-この生成されたバイノーラルビートは、スマートフォンのイヤホン出力とサウンドを聞くことができます。
-バイノーラルビートは、デルタ波、シータ波、アルファ波、ベータ波とガンマ波として重要な脳波を作成することができます。
-「脳波Studioは、 「人と色ノイズ、ホワイトノイズ、ピンクノイズとブラウンノイズにプラスの効果を持っているこれらの重要な脳波が含まれています。
+「脳波スタジオ」は、長年の研究により知られている脳波振動数を利用して、ユーザーが目的の状態の脳波を持てるようにする。
+スマートフォンのイヤホンジャックから出力される音を利用してユーザーの脳波を目的の状態に同期するために「脳波スタジオ」はBinaural beatsを使用する。
+Binaural beatsを通って脳に影響を与える重要な脳波を作成することができる。
 
-*デルタ波
- - 人が、ディープスリープ状態にあるときにEEGデルタ波が生成される。
- - あなたが効果的な高品質のスリープ状態にする場合には、この目的に適している。
- - あなたの体は緊張や頭痛を経験している場合は、デルタ波を約10分を試してみてください。
- - 成長期の子供のデルタ波は、より成長ホルモン（ GH ）を生成するのに役立つ。
+「脳波スタジオ」には、人の脳に肯定的な影響を与える脳波のデルタ波（ Delta wave ） 、シータ波（ Theta wave ） 、アルファ波（ Alpha wave ） 、ベータ波（ Beta wave ） 、ガンマ波（ Gamma wave ）と、肯定的ノイズとして知られてホワイトノイズ（ White noise ） 、ピンクノイズ（ Pink noise ） 、ブラウンノイズ（ Brown noise ）が含まれている。
 
-*シータ波
- - 人は浅い眠りや瞑想状態にあるときにシータ波の脳波が生成されます。
- - シータ波は超能力を使用する際に発生するとして知られている。
- - あなたは、脳と体をリラックスしたい場合は、シータ波の脳波に便利です。
- - シータ波の脳波は自己催眠と深い瞑想を誘導するのに便利です。
+*デルタ波（ Delta wave ）
+    - デルタ波（ Delta wave ）は、人が深い眠りの状態にあるときに発生する脳波です。不眠症に苦しめられたり、短い時間で質の高い睡眠を取りたいときに使用すると効果的である。
+    - 体が緊張状態にあるか、ひどい頭痛を経験している場合は、目を閉じデルタ波（ Delta wave ）を10分程度実行してみることが大きな助けになる。
+    - 成長期の青少年は、デルタ波（ Delta wave ）の状態で、大量の成長ホルモンが生成されることが知られている。
 
-*アルファ波
- - アルファ波は非常に肯定的な脳波です。人がリラックスして快適な状態にあるとき、この波が生成されます。
- - あなたはストレスを解放したい場合は、それは良い解決策になる。
- - α波は、学習のための記憶力と集中を後押し
+*シータ波（ Theta wave ）
+    - シータ波（ Theta wave ）は、浅い睡眠状態、または瞑想するときに発生する脳波です。超能力を発揮するときの脳波とも呼ばれる。
+    - デルタ波（ Delta wave ）とは異なり、完全な睡眠状態に陥らないために瞑想をするときに役立ちますし、脳の休息を取りたい時にも大きな助けになる。
+    - 自己催眠状態に陥っうとするときにも催眠誘導を支援する脳波である。
 
-*ベータ波
- - 12Hzと30Hzの間の脳波はベータ波であり、この波は、SMRベータ、 MベータとHベータに構成されています。
-*ベータSMR ：この波は覚醒と運動の準備状態を準備に関連しています。便利ですが浸漬状態になりたい時に。
-*ベータM：人は意識的活動、精神活動にあるときに、この波が多く発生します。それは、学習中に浸漬することと便利です。
-*ベータH：人は緊張状態にあるとき、この波が生成される。それは、スポーツの試合と便利です。
+*アルファ波（ Alpha wave ） ：
+    - アルファ波（ Alpha wave ）は、非常に肯定的な脳波で心身が弛緩され、快適さを感じたときに最も頻繁に出現脳波である。
+    - 緊張緩和の効果が卓越してストレス解消に効果的である。
+    - アルファ波がたくさん出ると、記憶力と集中力が最大の状態で学習の際にも有用である。
 
-*ガンマ波
- - ガンマ波はとき励起状態が生成される。
+*ベータ波（ Beta wave ） ：
+    - 12 〜 30Hzの間の脳波をベータパラし、これ以下のようにSMR波、M波、 H波に区分することができる。
+   * Beta SMR ：覚醒準備状態または運動系の待機状態に注意集中に関連している。没入をしたいときに便利である。
+   * Beta M ：意識活動、精神活動、学習に没頭した状態のときに多く発生している。没入を通じた学習を必要なときに助けになる。 （一般的な学習の際にはアルファ波がより適している）
+   * Beta H ：緊張や興奮状態にあるときに発生する。運動競技をする前に聞けば助けになる。 （ *注意：普段聞けば、脳の緊張状態をもたらすことができる。 ）
 
-*ホワイトノイズ
- - ホワイトノイズは、可聴周波数スペクトルの全ての範囲を有する。
- - それは濃度を高めることは本当に便利ですので、ホワイトノイズが囲まれ、ノイズをカバーしています。
- - 若い赤ちゃんは、多くの場合、ホワイトノイズを聞いた時に、バランスを保つ。
- - ホワイトノイズは、学習を増加させるために、アルファ波とも役立つを誘導するのに有効である。
+*ガンマ波（ Gamma wave ）
+    - 興奮状態にあるときに発生する。高度の認知作用時にも有効になる。
 
-*ピンクノイズ
- - ピンクノイズは、ホワイトノイズと同様の効果を有する。
- - ピンクノイズは、他の色ノイズよりも何人かの人々のためのより効果的です。
+*ホワイトノイズ（ White noise ）
+    - ホワイトノイズは可聴周波数のすべての波長帯の周波数スペクトルを持つ信号である。
+    - 白色雑音は、周囲の騒音を覆ってくれる効果があり、注意の向上に役立つ。
+    - 赤ちゃんの場合、ホワイトノイズを聞かせてくれた時の安定をとる場合がある。
+    - アルファ波誘導に効果的で、ストレス低減効果の学習能力の向上効果があると知られている。
 
-*ブラウンノイズ
- - ブラウンノイズはホワイトノイズと同様の効果を有する。
- - ブラウンノイズは、他の色ノイズよりも何人かの人々のためのより効果的です。
+*ピンクノイズ（ Pink noise ）
+    - ピンクノイズは、ホワイトノイズのような効果を有する。
+    - 人によってホワイトノイズよりもピンクノイズやブラウンノイズがより効果的であることができる。
 
-「脳波Studioは、 「個別に脳波の音を再生することができ、また複数のサウンドを同時に再生することができます。
+*ブラウンノイズ（ Brown noise ） ：
+    - ピンクノイズは、ホワイトノイズのような効果を有する。
+    - 人によってホワイトノイズよりもピンクノイズやブラウンノイズがより効果的であることができる。
+   
+「脳波スタジオ」は、主要な各脳波音や色ノイズを個別に再生することができるだけでなく、それぞれの騒音を、ユーザーの選択によって、複数を同時に再生することもできる。
 
-[混載bainwaveは効果音を]を
-*このアプリケーション上の脳波音がバイノーラルビート援助純粋な正弦波に構成されています。しかし、一部の人々は、純粋な正弦波に不快に感じる。この場合には、脳波に色ノイズを混合することが有用である。
-*あなたは、一緒にいくつかの脳波を混ぜ任意の脳波の周波数が生成される結果と、あなたはいくつかの素晴らしい精神状態を体験することができます。
+[混合再生効果]
+*各脳波は、 Sine waveに形成されたBinaural beatとなっている。しかし、場合によっては純粋なSine waveを聞いたときに拒否感を示す人がいる。この場合には、目的の脳波とノイズを一緒に再生すると、はるかに快適な感じを受けることができる。
+*各脳波を混合したときには脳波が混ざり発生する任意の脳波が形成されて規定することがない効果を得ることができる。これらの効果は直接脳波を交えながら体験して見てほしい。
 
-[アプリケーションノート]
-*学習改善
- - あなたが定期的に日々のアルファ波が聞こえる場合、メモリや濃度などの学習能力を向上させることになる。
- - 約30分の学習前にアルファ波を聞いてみてください。
- - カラーノイズが何かに集中するのに役立ちます。
- - それはアルファ波にホワイトノイズをミックスするための良い選択である。
+[脳波スタジオアプリケーション]
+*学習能力の向上
+    - 毎日一定のアルファ波（ Alpha wave ）を経験したときに、集中力、記憶力などの学習能力が飛躍的に向上される。
+    - 学習する前に、アルファ波（ Alpha wave ）を30分程度実行して脳波をアルファ状態に置かない。
+    - 注意力が低下したり、周囲からの騒音にさらされている状況であればカラーノイズ（ホワイトノイズ、ピンクノイズ、ブラウンノイズ）を再生させることが大きな助けになる。
+    - カラーノイズと一緒にアルファ波（ Alpha wave ）のように再生することも、学習能力の向上に役立つ。
+   
+*良質の睡眠効果
+    - 現代人は絶え間ない外部の刺激にさらされている。また、夜も室内光、 TV 、スマートフォンなどの光学刺激にさらされて、脳の状態が安定していない場合が多い。脳が興奮状態にある場合は、薄い睡眠をとるようになってこれは寝ても、体が十分に回復していないようにする。
+    - 寝る前に脳をシータ（ Theta ）の状態あるいはアルファ（ Delta ）の状態にしておくことが良質の睡眠をとるために大きな助けになる。
 
-*深く、良い睡眠
- - 無限の現代人は、外的刺激にさらされる。加えて、夜間でも室内灯、テレビ、スマートフォンなどがあなたの脳を乱す。それは、寝る前にあなたの脳をオフにすることが必要である。
- - シータ波、デルタ波を使用すると、深い眠りを得たのに役立ちます。
-
-*眠気防止
- - ベータ波は、あなたの脳を目覚めことができます。
+*眠気予防
+    - 眠気が集まって来るベータ波を聞くことが、脳の覚醒に有用である。
+   
 *瞑想
- - 瞑想に沈むシータ波ヘルプ（ 30 〜 60分、サウンド、プレイを推奨します） 。
+    - シータ波（ Theta wave ）を聞きながら瞑想をする場合に役立ちます。瞑想しようとする時間に応じて30 〜60分程度のタイマーを設定するのが良い。
+   
+*頭痛の緩和
+    - ストレスによる頭痛の場合、目を閉じてデルタ波（ Delta wave ）を聞くことが有用である。 （ *注意：頭痛が続く場合は、医師の診療を受けてください。 ）
+   
+現代人は、無限競争社会の中でストレスを受けており、継続している外部の刺激により、物理的な、精神の休息/回復がきちんと作用していない。
+自然な状態での休憩を通じた肉体/精神の回復は最も重要である。しかし、競争社会の中で生きて行かなければならないという事実を振り払うてしまうのは決して簡単なことではない。
+チャᆱは、時間の休憩を介して効果的な肉体/精神の回復を得るためには、安定した瞑想が必要である。
+瞑想を通して、脳の状態を励起状態から安定状態にすぐに戻っておく練習をしなければならない。
+この時、 「脳波スタジオ」は、瞑想の補助的な役割を実行することができる。
 
-*頭痛を緩和
- - ストレス誘発頭痛の場合には、目を閉じて、デルタ波を聞く。
+[ Keyword ]
+脳、脳波、学習、瞑想、リラクゼーション、覚醒、催眠、自覚、睡眠、眠気、頭痛、 EGG 、脳波図、 Binaural beats 、 mc2 、MCスクエア、成長ホルモン、自己調整能力、肯定的なエネルギー、精神力、周波数、認知神経科学、大脳皮質、 Slow wave 、 Fast wave 、シナプス、過行動、自己統制力、意識のレベルでは、 I - Doser 、 idoser 、 doser
 
-[キーワード]
-脳、脳、学習、瞑想、リラクゼーション、覚醒、催眠、自己認識、睡眠、眠気、頭痛、卵、脳波、バイノーラルはビート、 MC2 、 MCスクエア、成長ホルモン、自主規制のスキル、ポジティブなエネルギー、スピリットは、周波数、および認知神経科学、大脳皮質、徐波、速波、シナプス、レッスン、行動、セルフコントロール、意識レベル、 I-投薬器、 idoser 、投与器
-
-[参考]
-アバネシー、B. ＆ラッセル、D. G. （ 1987 ） 。適用される選択的注意課題の専門家 - 初心者の違い。スポーツ心理学のジャーナル、 9 、 326から345 。
-アーメン、 D. G. （ 2002 ） 。魂のハードウェアヒーリング。報道の自由。
-アンドレアッシ、 J. L. （1989） 。精神生理学：ヒトの行動と生理反応。ヒルズデール、ニュージャージー州： Erlbaum 。
-アンナ、 W. （ 1995 ） 。高性能の心。ニューヨーク： Tarcherパトナム..
-バウマン、 N. 、クール、 J. 、 ＆ Kazen 、M. （ 2005 ） 。左半球の活性化と自己浸潤：内在化の神経心理学的モデルのテスト。
-動機や感情、 29 （ 3 ） 、 135から163 。
-ビーミッシュ、 C. R. （ 1995 ） 。すべての学生のための学習と高い自尊心に目に見えない障害物を取り除くための鍵：親、学生、教師のための脳についての知識。 ED 385 032 。
-雄牛、 SJ 、アルビンソン、 JG 、 ＆ Shambrock 、 CJ （ 1996 ） 。メンタルゲームプラン。
-ブライトン、イギリス： Fotodirect株式会社
-バトラー、 S. （ 1988 ） 。アルファ非対称性、半球専門化と認知ダイナミクスの問題。 D. Giannitrapani 、 ＆L Murri （編）では、精神活動の脳波（ 75-93頁） 。単打、カーガー。
-キャロン、 V. A.の（1980） 。スポーツの南カルフォルニア心理。イサカ、ニューヨーク：運動出版。
-ケーシー、 BJ 、 Giedd 、 JN 、 ＆トーマス、 KM （ 2000 ） 。構造的および機能的な脳の発達と認知発達との関係。生物学的心理学、 54 、 241から257 。
-チェン、 D. 、 ＆シンガー、R. N. （ 1992 ） 。自主規制やスポーツへの参加の認知戦略。スポーツ心理学の国際ジャーナル、 23 、 277から300 。
-コーワン、 J. 、 ＆アレン、 T. （ 2000 ） 。スポーツ活動中の濃度とリラクゼーションのシーケンスを訓練するために脳波バイオフィードバックを使用して。
-応用スポーツ心理学のAdvancemant 、 95のための第15回学会講演。
-Debener 、 S. 、ヘルマン、 CS、 Kranczioch 、 C. 、 Gembris 、 D. 、 ＆エンゲル、アラスカ州
-（2003） 。トップダウン注意の処理は、聴覚、ガンマバンド活動を誘発強化します。 Neuroreport 、 14 （ 5 ） 、 683から686 。
-デニソン、 P. 、E. 、 ＆デニソン、 G. E. （ 1985 ） 。パーソナライズされた全脳の積分。 C.A ：エドゥ- kinesthetics株式会社
-アイゼンバーグ、 N. 、 Fabes 、 RA ＆マーフィー、 BC （ 1996 ） 。子どもの否定的な感情に両親の反応：子どもの社会的能力および慰めの動作との関係。子どもの発達、 67 、 2272年から2247年。
-Eslinger 、 P. J. （ 1996 ） 。 、概念化の説明、および実行機能のコンポーネントの測定：概要を。リヨン、 G. R. 、 ＆ Krasnegor 、N. Aに
-（編） 、 Attetion 、メモリ、および実行機能（頁367から396 ） 。ポール· H·
-ブルックス、メリーランド州ボルチモア。
-フィンリー、 WW 、スミス、 HA、およびエサートン、メリーランド（ 1975 ） 。発作の削減と感覚バイオフィードバック訓練、次の厳しいてんかんにおける脳波の正常化：予備的研究。バイオロジカル。心理学、 2 、 189から203 。
-フィッシュ、ブルース· J. （ 1991 ） 。 Spehlmannの脳波入門。ニューヨーク：エルゼビア。 127から155まで。
-フリードリヒ、 R. 、フックス、 A. 、 ＆ハーケン、 H. （ 1991 ） 。時空間のEEG -パターンの相乗分析。ホールデンは、 AV、マルクス、M. ＆オスマー、 HG （ EDS） 、興奮性の媒体における非線形波のプロセス。ニューヨーク：プレナム。
-サフスター、 J. M. （1981） 。前頭前野：解剖学、生理学、前頭葉の神経心理学。ニューヨーク：レイヴン押し。
-Giedd 、 JN 、ブルーメンタール、 J.、ジェフリーズ、 NO 、カスティリャ、 FX、劉、 H. 、 Zijdenbos 、 A. 、パウス、 T. 、エヴァンス、交流、およびラポポート、 JL （ 1999年a ） 。縦のMRI研究：小児期および青年期の脳の発達。ネイチャーニューロサイエンス、 2 、 861から863 。
-Giedd 、 JN 、ブルーメンタール、 J.、ジェフリーズ、 NO 、ラージャパクサ、 JC 、 Vaituzis 、 C. 、フン、 L. 、ベリー、 Y. 、トービン、M.ネルソン、 J. 、 ＆カスティリャ、 FX （ 1999b ） 。
-縦のMRI研究：小児期および青年期に人間の脳梁の開発。神経精神薬理および生物学的精神医学、 23 、 571から588までの進展。
-Giedd 、 JN 、カスティリャ、 F· X 、ラージャパクサ、 JC 、 Vaituzis 、交流、およびラパポート、 JL （ 1997 ） 。発達人間の脳の性的二型。神経精神薬理および生物学的精神医学、 23 、 1185年から1201年の進歩。
-ガラス、 A. （1991 ） 。脳支配における脳波のアルファ非対称性の重要性。
-精神生理学、 11 、 32〜33の国際ジャーナル。
-ゴールドマン·ラキッチ、 P. S. （ 1993 ） 。高次脳機能の仕様。頭部外傷リハビリテーション、 8 、 ​​13-23ハーケン誌。ヘルマン。 （1996） 。脳活動、行動と認知の相乗アプローチ：脳が機能の原則。ベルリン：スプリンガー。 7月30日。
-ハナフォード、 C. （ 1995 ） 。スマート移動します。バージニア州：グレート·オーシャン·出版。
-ハリス、クリストファー· M. （ 1998 ） 。生物学的なトランジェントのフーリエ解析。
-神経科学の方法のジャーナル。 83 、 15-34 。
-Hergenhahn 、 B. R. （ 1988 ） 。学習の理論を紹介。ニューヨーク：
-プレンティスホール、 388から423 。
-ハチソン、 M. （ 1996 ） 。 Megabrain ：新しいツールや脳の成長と心の拡張（第2版）のための技術。ニューヨーク：バランタインの本。
-フッテンロッハー、 P 、 R. （ 1979） 。人間の前頭皮質におけるシナプス密度：
-発達的変化と老化の影響。脳研究、巻、 163 。 195から205まで。
-インチーザ。デッラロケッタA. 、 ＆ミルナー、B. （ 1993 ） 。戦略的な検索と取得阻害：前頭葉の役割。 Neuropsychologia 、 31 、 503から524 。
-ジェンセン、 E. （ 1998 ） 。脳互換学習入門。カリフォルニア州、脳通販。
-カンデル、 J.、シュワルツ、 J. 、 ＆イェッセル、 T. （ 1991 ） 。神経科学、第3版の原則。
-ニューヨーク：エルゼビア。
-ケルソ、 JAS 、ブレスラー、SL 、ブキャナン、 S. 、 DeGuzman 、 GC 、鼎、 M. 、フックス。
-A. 、 ＆ホルロイド、 T. （ 1991 ） 。人間の脳における協調と臨界現象は、複数のSQUIDで明らかにした。 D.デューク、 ＆ W·中
-プリチャード、 （編） 、ヒト脳内カオスの測定。シンガポール：世界の科学。
-Klimesch 、 W. （ 1995 ） 。記憶過程は、EEG -αとθ波の脳の振動として記述。心理学、 11 （ 2 ） 、 134-143 。
-レーヤー、J 、 E. （ 1982） 。アスリートの卓越性：スポーツメンタルタフネス研修、フォーラム
-publishin会社、 58から70 。
-Lubar 、 J. F. （1991） 。脳波診断および注意欠陥障害のためのバイオフィードバックの開発に関する言説。バイオフィードバックと
-自主規制、 16 、 201-225 。
-Lubar 、 J· F· 、 ·気分の良くない、M. N. （ 1976 ） 。脳波と感覚運動リズム（ SMR ）の活動過多の子供同時訓練の行動変化。予備報告。バイオフィードバックと自己規制、 1 、 293から306 。
-ルリア、 A. R. （ 1973 ） 。ワーキング脳：神経心理学入門。ニューヨーク： Bacisの書籍。
-マクリーン、 P. D. （ 1990 ） 。進化における三位一体の脳。 paleocerebral機能における役割。
-N.Y. ：プレナムプレス。
-Mesulam 、 M. M. （ 1981 ） 。監督の注目を集め、半側無視のための皮質ネットワーク。アンNeurol 、 10 、 309から325 。
-ミッセル、 W.、正田、 Y. ＆ Peake 、 P. K. （ 1988 ） 。満足の就学前の遅延によって予測思春期の能力の性質。人格と社会心理学研究、 54 、 687から696 。
-NAK、 C. L. （ 1992 ） 。脳波半球の統合が相関している。博士インディアナ大学。
-ナウ、 W· J· （ 1972 ） 。前頭皮質の神経団体。アクタNeurobiol上級（ウォーズ） 、 32（2 ） 、 125-140 。
+[ Reference ]
+Abernethy 、 B. 、 ＆ Russell 、 D. G. （ 1987 ） 。 Expert - novice differences in an applied selective attention task 。 Journal of Sport Psychology 、 9、 326-345 。
+Amen 、 D. G. （ 2002 ） 。 Healing the Hardware of the Soul 。 Free Press 。
+Andreassi 、 J. L. （ 1989 ） 。 Psychophysiology ： Human behavior and physiological response 。 Hillsdale 、 NJ ： Erlbaum 。
+Anna、 W. （ 1995 ） 。 High performance mind 。 New York ： Tarcher Putnam 。
+Baumann 、 N. 、 Kuhl 、 J. 、 ＆ Kazen 、 M. （ 2005 ） 。 Left - hemisphere activation and self - infiltration ： Testing a neuropsychological model of internalization 。
+Motivation and Emotion 、29（ 3 ） 、 135-163 。
+Beamish 、 C. R. （ 1995 ） 。 Knowledge about the brain for parents 、 students 、 and teachers ： The keys to removing the invisible roadblocks to learning and high self - esteem for all students 。 ED 385 032 。
+Bull 、 S. J. 、 Albinson 、 J. G. 、及びShambrock 、 C. J. （ 1996 ） 。 The Mental Game Plan 。
+Brighton 、 UK ​​： Fotodirect Ltd 。
+Butler 、 S. （ 1988 ） 。 Alpha asymmetry 、 hemispheric specialization and the problem of cognitive dynamics 。 In D. Giannitrapani 、及びL. Murri （ Eds. ） 、 The EEG of Mental Activities （ pp. 75-93 ） 。 Baser 、 Karger 。
+Carron 、 A. V. （ 1980 ） 。 Socal Psychology of Sport 。 Ithaca 、New York ： Movement Publications 。
+Casey 、 B. J. 、 Giedd 、 J. N. 、 ＆ Thomas 、 K. M. （ 2000 ） 。 Structural and functional brain development and its relation to cognitive development 。 Biological Psychology 、 54、 241-257 。
+Chen 、 D. 、 ＆ Singer 、 R. N. （ 1992 ） 。 Self - regulation and cognitive strategies in sport participation 。 International Journal of Sport Psychology 、 23、 277-300 。
+Cowan 、 J. 、 ＆ Allen 、 T. （ 2000 ） 。 Using brainwave biofeedback to train the sequence of concentration and relaxation in athletic activities 。
+proceedings of 15th Association for the Advancemant of Applied Sport Psychology 、 95 。
+Debener 、 S.、 Herrmann 、 C. S.、 Kranczioch 、 C.、 Gembris 、 D. 、 ＆ Engel 、 A. K.
+（ 2003 ） 。 Top - down attentional processing enhances auditory evoked gamma band activity 。 Neuroreport 、 14 （ 5 ） 、 683-686 。
+Dennison 、 P. E. 、 ＆ Dennison 、 G. E. （ 1985 ） 。 Personalized whole brain intergration 。 C.A ： Edu - kinesthetics 、Inc。
+Eisenberg 、 N. 、 Fabes 、 R. A. ＆ Murphy 、 B. C. （ 1996 ） 。 Parents reactions to children's negative emotions ： Relations to children's social competence and comforting behavior 。 Child Development 、 67、 2272-2247 。
+Eslinger 、 P. J. （ 1996 ） 。 Conceptualizing 、 describing 、 and measuring components of executive function ： A summary 。 In Lyon 、 G. R.、 ＆ Krasnegor 、 N. A.
+（ Eds. ） 、 Attetion 、 memory 、 and executive function （ pp. 367-396 ） 。 Paul H.
+Brookes 、 Baltimore、 MD 。
+Finley 、 W. W.、 Smith 、 H. A. 、 ＆ Etherton 、 M. D. （ 1975 ） 。 Reduction of seizures and normalization of the EEG in a severe epileptic following sensorimotor biofeedback training ： Preliminary study 。 Biol 。 Psychology 、2、 189-203 。
+Fisch 、 Bruce J. （ 1991 ） 。 Spehlmann's EEG Primer 。 New York ： Elsevier 。 127-155 。
+Friedrich 、 R.、 Fuchs 、 A. 、 ＆ Haken 、 H. （ 1991 ） 。 Synergetic analysis of spatio - temporal EEG - patterns 。 In Holden 、 A. V.、 Markus 、 M.、 ＆ Othmer 、 H. G. （ Eds ） 、 Nonlinear wave processes in excitable media 。 New York ： Plenum 。
+Fuster 、 J. M. （ 1981 ） 。 The prefrontal cortex ： Anatomy 、 Physiology 、 and Neuropsychology of the Frontal Lobe 。 New York ： Raven Press 。
+Giedd 、 J. N. 、 Blumenthal 、 J. 、 Jeffries 、 N. O.、 Castellanos 、 F. X. 、 Liu 、 H. 、 Zijdenbos 、 A. 、 Paus 、 T. 、 Evans 、 A. C.、及びRapoport 、 J. L. （ 1999a ） 。 Brain development during childhood and adolescence ： A longitudinal MRI study 。 Nature Neuroscience 、2、 861-863 。
+Giedd 、 J. N. 、 Blumenthal 、 J. 、 Jeffries 、 N. O.、 Rajapakse 、 J. C.、 Vaituzis 、 C.、 Hung 、 L.、 Berry 、 Y. 、 Tobin 、 M.、 Nelson 、 J. 、 ＆ Castellanos 、 F. X. （ 1999b ） 。
+Development of the human corpus callosum during childhood and adolescence ： A longitudinal MRI study 。 Progress in Neuropsychopharmacology and Biological Psychiatry 、 23、 571-588 。
+Giedd 、 J. N. 、 Castellanos 、 F. X、 Rajapakse 、 J. C.、 Vaituzis 、 A. C.、及びRapaport 、 J. L. （ 1997 ） 。 Sexual dimorphism of the developing human brain 。 Progress in Neuropsychopharmacology and Biological Psychiatry 、 23、 1185-1201 。
+Glass、 A. （ 1991 ） 。 Significance of EEG alpha asymmetries in cerebral dominance 。
+International Journal of Psychophysiology 、 11、 32-33 。
+Goldman - Rakic ​​、 P. S. （ 1993 ） 。 Specification of higher cortical functions 。 Journal of Head Trauma Rehabilitation 、 8、 13-23 Haken 。 Hermann 。 （ 1996 ） 。 Principles of Brain Functioning ： A Synergetic Approach to Brain Activity 、 Behavior and Cognition 。 Berlin ： Springer 。 7-30 。
+Hannaford 、 C. （ 1995 ） 。 Smart Moves 。 Virginia ： Great Ocean Publishers 。
+Harris 、 Christopher M. （ 1998 ） 。 The Fourier analysis of biological transients 。
+Journal of Neuroscience Methods 。 83、 15-34 。
+Hergenhahn 、 B. R. （ 1988 ） 。 An introduction to theories of learning 。 New York ：
+Prentice - Hall 、 388-423 。
+Hutchison 、 M. （ 1996 ） 。 Megabrain ： New tools and techniques for brain growth and mind expansion （ 2nd ed 。 ） 。 New York ： Ballantine books 。
+Huttenlocher 、P、 R. （ 1979 ） 。 Synaptic density in human frontal cortex ：
+Developmental changes and effects of aging 。 Brain Research 、 vol 、 163。 195-205 。
+Incisa 。 Della Rocchetta A. 、 ＆ Milner 、 B. （ 1993 ） 。 Strategic search and retrieval inhibition ： the role of the frontal lobes 。 Neuropsychologia 、 31、 503-524 。
+Jensen、 E. （ 1998 ） 。 Introduction to brain - compatible learning 。 CA ; The Brain Store 。
+Kandel 、 J. 、 Schwartz、 J. 、 ＆ Jessel 、 T. （ 1991 ） 。 Principles of Neural Science 、 3rd ed 。
+New York ： Elsevier 。
+Kelso 、 J. A. S.、 Bressler 、 S. L.、 Buchanan 、 S.、 DeGuzman 、 G. C.、 Ding 、 M.、 Fuchs 。
+A. 、 ＆ Holroyd 、 T. （ 1991 ） 。 Cooperative and critical phenomena in the human brain revealed by multiple SQUIDs 。 In D. Duke 、及びW.
+Pritchard 、 （ Eds. ） 、 Measuring Chaos in the Human Brain 。 Singapore ： World Scientific 。
+Klimesch 、 W. （ 1995 ） 。 Memory processes described as brain oscillations in the EEG - alpha and theta bands 。 Psychology 、 11 （2）、 134-143 。
+Loehr 、J、 E. （ 1982 ） 。 Athletic excellence ： Mental toughness training for sports 、 Forum
+publishin company 、 58-70 。
+Lubar 、 J. F. （ 1991 ） 。 Discourse on the development of EEG diagnostics and biofeedback for attention-deficit/hyperactivity disorders 。 Biofeedback and
+Self- Regulation 、 16、 201-225 。
+Lubar 、 J. F.、 ＆ Shouse 、 M. N. （ 1976 ） 。 EEG and behavioral changes in a hyperactive child concurrent training of the sensorimotor rhythm （ SMR ） 。 A preliminary report 。 Biofeedback and Self - Regulation 、 1、 293-306 。
+Luria 、 A. R. （ 1973 ） 。 The working Brain ： An Introduction to Neuropsychology 。 New York ： Bacis Books 。
+MacLean 、 P. D. （ 1990 ） 。 The Triune brain in evolution 。 role in paleocerebral functions 。
+N.Y. ： Plenum Press 。
+Mesulam 、 M. M. （ 1981 ） 。 A cortical network for directed attention and unilateral neglect 。 Ann Neurol 、 10、 309-325 。
+Mischel 、 W.、 Shoda 、 Y. ＆ Peake 、 P. K. （ 1988 ） 。 The nature of adolescent competencies predicted by preschool delay of gratification 。 Journal of Personality and Social Psychology 、 54、 687-696 。
+Nak 、 C. L. （ 1992 ） 。 Correlates of EEG hemispheric integration 。 Ph 。 D. Indiana University 。
+Nauta 、 W. J. （ 1972 ） 。 Neural associations of the frontal cortex 。 Acta Neurobiol Exp （ Wars ） 、32（ 2） 、 125-140 。
 
 ============
