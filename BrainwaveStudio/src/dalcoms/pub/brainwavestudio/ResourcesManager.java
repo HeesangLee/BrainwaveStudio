@@ -64,12 +64,16 @@ public class ResourcesManager {
 	private BuildableBitmapTextureAtlas mSoundBtnTextureAtlas;
 	
 	public ITextureRegion mMainBackgroundRegion;
+	
 	private BitmapTextureAtlas mainBgTextureAtlas;
 	
 	public ITextureRegion mReviewBtnRegion;
 	public ITextureRegion mMoreBtnRegion;
 	public ITextureRegion mShareBtnRegion;
 	public ITextureRegion mAlramBtnRegion;
+	public ITextureRegion mBlindBtnRegion;
+	public ITextureRegion mVolumeSetRegion;
+	public ITextureRegion mCurtainRegion;
 	private BuildableBitmapTextureAtlas buttonsTextureAtlas;
 	
 	public ITextureRegion mPlayRingRegion;
@@ -97,6 +101,24 @@ public class ResourcesManager {
 	
 	public ITextureRegion mTimerHelpRegion;
 	private BitmapTextureAtlas mTimerHelpAtlas;
+	
+	public ITextureRegion mSlideBgRegion;
+	
+	public ITextureRegion mVolumeSetBgRegion;
+	
+	public ITextureRegion mVolAlphaRegion;
+	public ITextureRegion mVolBetaHRegion;
+	public ITextureRegion mVolBetaMRegion;
+	public ITextureRegion mVolBetaSmrRegion;
+	public ITextureRegion mVolBrownRegion;
+	public ITextureRegion mVolDeltaRegion;
+	public ITextureRegion mVolGammaRegion;
+	public ITextureRegion mVolPinkRegion;
+	public ITextureRegion mVolThetaRegion;
+	public ITextureRegion mVolWhiteRegion;
+	
+	public ITiledTextureRegion mSlideKnobRegion;
+	private BuildableBitmapTextureAtlas mSlideAtlas;
 	
 	public Music mSound_1;
 	public Music mSound_2;
@@ -165,6 +187,67 @@ public class ResourcesManager {
 		loadButtonsGraphics();
 		loadPlayImages();
 		loadTimerSettingGraphics();
+		loadSlideGraphics();
+	}
+	
+	private void loadSlideGraphics(){
+		mSlideAtlas = new BuildableBitmapTextureAtlas(activity.getTextureManager(), 
+				816, 1024,
+				BitmapTextureFormat.RGBA_8888,TextureOptions.BILINEAR);
+		
+		mSlideBgRegion = BitmapTextureAtlasTextureRegionFactory.
+				createFromAsset(mSlideAtlas, 
+				activity, "slide_bg.png");
+		mSlideKnobRegion = BitmapTextureAtlasTextureRegionFactory.
+				createTiledFromAsset(mSlideAtlas, 
+				activity.getAssets(), "slide_knob.png",
+				2,1);
+//--------------------		
+		mVolAlphaRegion = BitmapTextureAtlasTextureRegionFactory.
+				createFromAsset(mSlideAtlas, 
+				activity, "v_alpha.png");
+		mVolBetaHRegion = BitmapTextureAtlasTextureRegionFactory.
+				createFromAsset(mSlideAtlas, 
+				activity, "v_beta_h.png");
+		mVolBetaMRegion = BitmapTextureAtlasTextureRegionFactory.
+				createFromAsset(mSlideAtlas, 
+				activity, "v_beta_m.png");
+		mVolBetaSmrRegion = BitmapTextureAtlasTextureRegionFactory.
+				createFromAsset(mSlideAtlas, 
+				activity, "v_beta_smr.png");
+		mVolBrownRegion = BitmapTextureAtlasTextureRegionFactory.
+				createFromAsset(mSlideAtlas, 
+				activity, "v_brown.png");
+		mVolDeltaRegion = BitmapTextureAtlasTextureRegionFactory.
+				createFromAsset(mSlideAtlas, 
+				activity, "v_delta.png");
+		mVolGammaRegion = BitmapTextureAtlasTextureRegionFactory.
+				createFromAsset(mSlideAtlas, 
+				activity, "v_gamma.png");
+		mVolPinkRegion = BitmapTextureAtlasTextureRegionFactory.
+				createFromAsset(mSlideAtlas, 
+				activity, "v_pink.png");
+		mVolThetaRegion = BitmapTextureAtlasTextureRegionFactory.
+				createFromAsset(mSlideAtlas, 
+				activity, "v_theta.png");
+		mVolWhiteRegion = BitmapTextureAtlasTextureRegionFactory.
+				createFromAsset(mSlideAtlas, 
+				activity, "v_white.png");
+		
+		mVolumeSetBgRegion = BitmapTextureAtlasTextureRegionFactory.
+				createFromAsset(mSlideAtlas, 
+				activity, "volume_bg.png");
+		
+		
+//--------------------
+		try{
+			mSlideAtlas.build(
+					new BlackPawnTextureAtlasBuilder<IBitmapTextureAtlasSource, BitmapTextureAtlas>
+					(0,0,5));
+			mSlideAtlas.load();
+		}catch(TextureAtlasBuilderException e){
+			e.printStackTrace();
+		}
 	}
 	
 	private void loadTimerSettingGraphics(){
@@ -277,14 +360,19 @@ public class ResourcesManager {
 		mainBgTextureAtlas = new BitmapTextureAtlas(activity.getTextureManager(), 
 				activity.CAMERA_WIDTH, activity.CAMERA_HEIGHT,
 				BitmapTextureFormat.RGBA_8888,TextureOptions.BILINEAR);
+		
+
+		
+		
 		mMainBackgroundRegion = BitmapTextureAtlasTextureRegionFactory.createFromAsset(mainBgTextureAtlas, 
 				activity, "bg.png",0,0);
+		
 		mainBgTextureAtlas.load();
 	}
 	
 	private void loadButtonsGraphics(){
 		buttonsTextureAtlas = new BuildableBitmapTextureAtlas(activity.getTextureManager(), 
-				55, 55*4,
+				activity.CAMERA_WIDTH*2,activity.CAMERA_HEIGHT*2,
 				BitmapTextureFormat.RGBA_8888,TextureOptions.BILINEAR);
 		
 		mReviewBtnRegion = BitmapTextureAtlasTextureRegionFactory.createFromAsset(buttonsTextureAtlas, 
@@ -295,11 +383,18 @@ public class ResourcesManager {
 				activity, "share_icon.png");
 		mAlramBtnRegion = BitmapTextureAtlasTextureRegionFactory.createFromAsset(buttonsTextureAtlas, 
 				activity, "alram_icon.png");
+		mBlindBtnRegion = BitmapTextureAtlasTextureRegionFactory.createFromAsset(buttonsTextureAtlas, 
+				activity, "blind_icon.png");
+		mVolumeSetRegion = BitmapTextureAtlasTextureRegionFactory.createFromAsset(buttonsTextureAtlas, 
+				activity, "volume_icon.png");
+		
+		mCurtainRegion = BitmapTextureAtlasTextureRegionFactory.createFromAsset(buttonsTextureAtlas, 
+				activity, "curtain.png");
 		
 		try{
 			buttonsTextureAtlas.build(
 					new BlackPawnTextureAtlasBuilder<IBitmapTextureAtlasSource, BitmapTextureAtlas>
-					(0,0,0));
+					(0,0,5));
 			buttonsTextureAtlas.load();
 		}catch(TextureAtlasBuilderException e){
 			e.printStackTrace();

@@ -1,15 +1,20 @@
 package dalcoms.pub.brainwavestudio;
 
+import java.util.Stack;
+
 import org.andengine.engine.camera.Camera;
 import org.andengine.engine.handler.timer.ITimerCallback;
 import org.andengine.engine.handler.timer.TimerHandler;
+import org.andengine.entity.IEntity;
 import org.andengine.entity.modifier.LoopEntityModifier;
 import org.andengine.entity.modifier.MoveModifier;
+import org.andengine.entity.modifier.MoveYModifier;
 import org.andengine.entity.modifier.RotationModifier;
 import org.andengine.entity.sprite.ButtonSprite;
 import org.andengine.entity.sprite.Sprite;
 import org.andengine.entity.sprite.TiledSprite;
 import org.andengine.input.touch.TouchEvent;
+import org.andengine.opengl.texture.region.ITextureRegion;
 import org.andengine.opengl.util.GLState;
 import org.andengine.util.modifier.ease.EaseBounceOut;
 
@@ -17,11 +22,19 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.media.AudioManager;
 import android.net.Uri;
 import dalcoms.pub.brainwavestudio.SceneManager.SceneType;
 
 public class MainMenuScene extends BaseScene{
+	
+	ButtonSprite reviewButtonSprite;
+	ButtonSprite shareButtonSprite;
+	ButtonSprite moreButtonSprite;
+	ButtonSprite alramButtonSprite;
+	ButtonSprite blindButtonSprite;
+	ButtonSprite volumeButtonSprite;
 	
 	private SoundButtonTiledSprite btn_sound_1;
 	private SoundButtonTiledSprite btn_sound_2;
@@ -39,6 +52,12 @@ public class MainMenuScene extends BaseScene{
 	public TiledSprite hideButtonSprite;
 	public TiledSprite TimerSetButtonSprite;
 	public ButtonSprite timerLoopOnSprite ;
+	public Sprite curtainSprite;
+	
+	Sprite spriteSetVoluemBg;
+	Stack<SlideSetVerticalSprite> spriteVolSlides = new Stack<SlideSetVerticalSprite>();
+	Stack<Sprite> spriteVolText = new Stack<Sprite>();
+	public TiledSprite spriteHideVolumeSetBtn;
 	
 	private Sprite playRingSprite;
 	
@@ -56,25 +75,45 @@ public class MainMenuScene extends BaseScene{
 	public final float btnTimerLoopPosY_active = 268.240f-resourcesManager.mTimerLoopOnBtnRegion.getHeight()/2;
 	
 	public boolean flagTimerSetting = false;
+	public boolean flagCurtainOn = false;
+	public boolean flagVolumeSetting = false;
 	
 	//========================================================
 
 	@Override
 	public void createScene() {
-		createBackground();
-		createSoundBtns();
-		createExtraButtons(); // review,more,share buttons.
-		loadPlayImageSprites();
-		createTimerSettingWindow();
-		registerUpdateHandlerForTimer();
-		setInitialAudioVolumn();
+		engine.runOnUpdateThread(new Runnable() {
+			
+			@Override
+			public void run() {
+				createBackground();
+				createSoundBtns();
+				createExtraButtons(); // review,more,share buttons.
+				loadPlayImageSprites();
+				createTimerSettingWindow();
+				registerUpdateHandlerForTimer();
+				setInitialAudioVolumn();
+				createCurtainSprite();
+				createVolumeSetSprites();
+			}
+		});
+		
 	}
 
 	@Override
 	public void onBackKeyPressed() {
-		if (Math.random()<0.74){
+		
+		saveCurrentVolume();
+		
+		if (Math.random()<0.78){
+			if(Math.random()<0.5){
+				SceneManager.getInstance().popAdmobInterstitialAd(true);
+			}
 			popUpExtiMessageDlg();
 		}else{
+			if(Math.random()<0.25){
+				SceneManager.getInstance().popAdmobInterstitialAd(true);
+			}
 			popUpAdMsgDlg();
 		}
 		
@@ -94,10 +133,37 @@ public class MainMenuScene extends BaseScene{
 	private void setInitialAudioVolumn(){
 		AudioManager am = (AudioManager) resourcesManager.activity.getSystemService(Context.AUDIO_SERVICE);
 		am.setStreamVolume(AudioManager.STREAM_MUSIC, 
-				8*am.getStreamMaxVolume(AudioManager.STREAM_MUSIC)/10, 
+				getSavedVolume(am), 
 				AudioManager.FLAG_PLAY_SOUND);
-
 	}
+	
+	private int getSavedVolume(AudioManager am){
+		SharedPreferences sharedPref = activity.getPreferences(Context.MODE_PRIVATE);
+		int currentVolume = am.getStreamVolume(AudioManager.STREAM_MUSIC);
+		int maxVolume = am.getStreamMaxVolume(AudioManager.STREAM_MUSIC);
+		int savedVolume ;
+		
+		if(currentVolume<0.2*maxVolume){
+			savedVolume = sharedPref.getInt(activity.getString(R.string.saved_volume), 2*maxVolume/10);
+			if(savedVolume<2*maxVolume/10){
+				savedVolume = 2*maxVolume/10;
+			}
+		}else{
+			savedVolume = currentVolume;
+		}
+		return savedVolume;
+	}
+	
+	private void saveCurrentVolume(){
+		AudioManager am = (AudioManager) resourcesManager.activity.getSystemService(Context.AUDIO_SERVICE);
+		
+		SharedPreferences sharedPref = activity.getPreferences(Context.MODE_PRIVATE);
+		SharedPreferences.Editor editor = sharedPref.edit();
+		editor.putInt(activity.getString(R.string.saved_volume), 
+				am.getStreamVolume(AudioManager.STREAM_MUSIC));
+		editor.commit();
+	}
+	
 	private void popUpExtiMessageDlg(){
 		AlertDialog.Builder dlgBackPressed = new AlertDialog.Builder(activity);
 		dlgBackPressed.setMessage(R.string.say_good_bye)
@@ -127,9 +193,16 @@ public class MainMenuScene extends BaseScene{
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
 				try{
-					activity.startActivity(
-							new Intent(Intent.ACTION_VIEW,
-									Uri.parse("market://search/?q=pub:Dalcoms")));
+					if(Math.random()<0.6f){
+						activity.startActivity(
+								new Intent(Intent.ACTION_VIEW,
+										Uri.parse("market://search/?q=pub:Dalcoms")));
+					}else{
+						activity.startActivity(
+								new Intent(Intent.ACTION_VIEW,
+										Uri.parse("market://details?id=dalcoms.pub.circlecolormatch")));
+					}
+					
 				}catch(android.content.ActivityNotFoundException e){
 					activity.startActivity(
 							new Intent(Intent.ACTION_VIEW,
@@ -181,6 +254,9 @@ public class MainMenuScene extends BaseScene{
 						offSoundsAll();
 						timerSettingSprite.clearTimerZeroOn();
 						timerSettingSprite.setTimerLoopOn(true);
+						if(Math.random()<0.85){
+							SceneManager.getInstance().popAdmobInterstitialAd(false);
+						}
 					}
 				}
 			}
@@ -300,6 +376,118 @@ public class MainMenuScene extends BaseScene{
 	
 		attachChild(hideButtonSprite);
 	}
+	
+	private void createVolumeSetSprites(){
+		createVolumeSetBg();
+		createVoumeSlides();
+		createVolmeText();
+		createHideButton();
+	}
+
+	private void createHideButton() {
+		final float PosX = (camera.getWidth()-resourcesManager.mTimerBtnHideTextureRegion.getWidth())/2;
+		final float PosY = -1.0f*resourcesManager.mTimerSettingBgRegion.getHeight();
+
+		spriteHideVolumeSetBtn = new TiledSprite(PosX, PosY,
+				resourcesManager.mTimerBtnHideTextureRegion, vbom){
+			@Override
+			protected void preDraw(final GLState pGLState, final Camera pCamera) {
+				super.preDraw(pGLState, pCamera);
+				pGLState.enableDither();
+			}
+			@Override
+			public boolean onAreaTouched(TouchEvent pSceneTouchEvent,
+					float pTouchAreaLocalX, float pTouchAreaLocalY){
+				if(pSceneTouchEvent.isActionDown()){//hide
+					this.setCurrentTileIndex(1);
+					resourcesManager.mSoundEffect_btnClick.play();
+				}else{
+					if(pSceneTouchEvent.isActionUp()){
+						hideVolumeSetting();
+						this.setCurrentTileIndex(0);
+						resourcesManager.mSoundEffect_settingHide.play();
+					}
+				}
+				return super.onAreaTouched(pSceneTouchEvent, pTouchAreaLocalX,
+						pTouchAreaLocalY);
+			}
+		};
+		spriteHideVolumeSetBtn.setCurrentTileIndex(0);
+		registerTouchArea(spriteHideVolumeSetBtn);
+	
+		attachChild(spriteHideVolumeSetBtn);
+		
+	}
+
+	private void createVolmeText() {
+		final float cameraHeight = camera.getHeight();
+		final int slideNo = 10;
+		final float xSpace = 8;
+		
+		ITextureRegion[] tempRegion = {
+				resourcesManager.mVolDeltaRegion,
+				resourcesManager.mVolThetaRegion,
+				resourcesManager.mVolAlphaRegion,
+				resourcesManager.mVolBrownRegion,
+				resourcesManager.mVolPinkRegion,
+				resourcesManager.mVolBetaSmrRegion,
+				resourcesManager.mVolBetaMRegion,
+				resourcesManager.mVolBetaHRegion,
+				resourcesManager.mVolGammaRegion,
+				resourcesManager.mVolWhiteRegion
+		};
+		
+		for(int i=0;i<slideNo;i++){
+			SlideSetVerticalSprite curSlide = spriteVolSlides.get(i);
+			Sprite tempText = 
+					new Sprite((curSlide.getX()+curSlide.getWidth()/2f)-tempRegion[i].getWidth()/2f, 
+							cameraHeight, tempRegion[i],vbom);
+
+			spriteVolText.push(tempText);
+			attachChild(tempText);
+		}
+	}
+
+	private void createVoumeSlides() {
+		final float cameraHeight = camera.getHeight();
+		final int slideNo = 10;
+		final float xSpace = 20f;
+		final float arrayLength = camera.getWidth()-2*xSpace-resourcesManager.mSlideKnobRegion.getWidth();
+		
+		SoundButtonTiledSprite[] sndBtns={
+				btn_sound_1,
+				btn_sound_2,
+				btn_sound_3,
+				btn_sound_4,
+				btn_sound_5,
+				btn_sound_6,
+				btn_sound_7,
+				btn_sound_8,
+				btn_sound_9,
+				btn_sound_10
+		};
+		
+		for(int i=0;i<slideNo;i++){
+			SlideSetVerticalSprite tempSlide = 
+					new SlideSetVerticalSprite(xSpace+i*(arrayLength/((float)slideNo-1f)), 
+							cameraHeight, resourcesManager.mSlideBgRegion, 
+			resourcesManager.mSlideKnobRegion, vbom);
+			tempSlide.setSoundBtn(sndBtns[i]);
+			spriteVolSlides.push(tempSlide);
+			attachChild(tempSlide);
+			registerTouchArea(tempSlide);
+		}
+	}
+	
+
+	private void createVolumeSetBg() {
+		final float cameraHeight = camera.getHeight();
+		
+		//Attach Bg.
+		spriteSetVoluemBg = new Sprite(0f,cameraHeight,resourcesManager.mVolumeSetBgRegion,vbom);
+		attachChild(spriteSetVoluemBg);
+	}
+	
 
 	private void createBackground(){
 		backgroundSprite = new Sprite(0,0,resourcesManager.mMainBackgroundRegion,vbom){
@@ -312,6 +500,39 @@ public class MainMenuScene extends BaseScene{
 		backgroundSprite.setPosition(0, 0);
 		attachChild(backgroundSprite);
 	}
+	
+	private void createCurtainSprite(){
+		curtainSprite = new Sprite(0,0,resourcesManager.mCurtainRegion,vbom){
+			@Override
+			protected void preDraw(GLState pGLState, Camera pCamera){
+				super.preDraw(pGLState, pCamera);
+				pGLState.enableDither();
+			}
+			
+			@Override
+			public boolean onAreaTouched(TouchEvent pSceneTouchEvent,
+					float pTouchAreaLocalX, float pTouchAreaLocalY){
+				if(pSceneTouchEvent.isActionDown()){
+					this.registerEntityModifier(new MoveModifier(0.35f, 0, camera.getWidth(), 0, 0){
+						@Override
+						protected void onModifierFinished(IEntity pItem){
+							super.onModifierFinished(pItem);
+							flagCurtainOn = false;
+							setSoundBtnTouch();
+						}
+					});
+					resourcesManager.mSoundEffect_settingHide.play();
+				}
+
+				return super.onAreaTouched(pSceneTouchEvent, pTouchAreaLocalX,
+						pTouchAreaLocalY);
+			}
+		};
+		curtainSprite.setPosition(camera.getWidth(), 0);
+		attachChild(curtainSprite);
+		registerTouchArea(curtainSprite);
+	}
+	
 	
 	private void enablePlayImageVisible(int imageNum){
 		if(playRingSprite.isVisible()==false){
@@ -348,7 +569,7 @@ public class MainMenuScene extends BaseScene{
 			@Override
 			public boolean onAreaTouched(TouchEvent pSceneTouchEvent,
 					float pTouchAreaLocalX, float pTouchAreaLocalY){
-				if(flagTimerSetting==true){
+				if((flagTimerSetting==true)||(flagCurtainOn==true)||(flagVolumeSetting==true)){
 					return super.onAreaTouched(pSceneTouchEvent, pTouchAreaLocalX,
 							pTouchAreaLocalY);
 				}
@@ -372,7 +593,7 @@ public class MainMenuScene extends BaseScene{
 			@Override
 			public boolean onAreaTouched(TouchEvent pSceneTouchEvent,
 					float pTouchAreaLocalX, float pTouchAreaLocalY){
-				if(flagTimerSetting==true){
+				if((flagTimerSetting==true)||(flagCurtainOn==true)||(flagVolumeSetting==true)){
 					return super.onAreaTouched(pSceneTouchEvent, pTouchAreaLocalX,
 							pTouchAreaLocalY);
 				}
@@ -396,7 +617,7 @@ public class MainMenuScene extends BaseScene{
 			@Override
 			public boolean onAreaTouched(TouchEvent pSceneTouchEvent,
 					float pTouchAreaLocalX, float pTouchAreaLocalY){
-				if(flagTimerSetting==true){
+				if((flagTimerSetting==true)||(flagCurtainOn==true)||(flagVolumeSetting==true)){
 					return super.onAreaTouched(pSceneTouchEvent, pTouchAreaLocalX,
 							pTouchAreaLocalY);
 				}
@@ -420,7 +641,7 @@ public class MainMenuScene extends BaseScene{
 			@Override
 			public boolean onAreaTouched(TouchEvent pSceneTouchEvent,
 					float pTouchAreaLocalX, float pTouchAreaLocalY){
-				if(flagTimerSetting==true){
+				if((flagTimerSetting==true)||(flagCurtainOn==true)||(flagVolumeSetting==true)){
 					return super.onAreaTouched(pSceneTouchEvent, pTouchAreaLocalX,
 							pTouchAreaLocalY);
 				}
@@ -444,7 +665,7 @@ public class MainMenuScene extends BaseScene{
 			@Override
 			public boolean onAreaTouched(TouchEvent pSceneTouchEvent,
 					float pTouchAreaLocalX, float pTouchAreaLocalY){
-				if(flagTimerSetting==true){
+				if((flagTimerSetting==true)||(flagCurtainOn==true)||(flagVolumeSetting==true)){
 					return super.onAreaTouched(pSceneTouchEvent, pTouchAreaLocalX,
 							pTouchAreaLocalY);
 				}
@@ -468,7 +689,7 @@ public class MainMenuScene extends BaseScene{
 			@Override
 			public boolean onAreaTouched(TouchEvent pSceneTouchEvent,
 					float pTouchAreaLocalX, float pTouchAreaLocalY){
-				if(flagTimerSetting==true){
+				if((flagTimerSetting==true)||(flagCurtainOn==true)||(flagVolumeSetting==true)){
 					return super.onAreaTouched(pSceneTouchEvent, pTouchAreaLocalX,
 							pTouchAreaLocalY);
 				}
@@ -494,7 +715,7 @@ public class MainMenuScene extends BaseScene{
 			@Override
 			public boolean onAreaTouched(TouchEvent pSceneTouchEvent,
 					float pTouchAreaLocalX, float pTouchAreaLocalY){
-				if(flagTimerSetting==true){
+				if((flagTimerSetting==true)||(flagCurtainOn==true)||(flagVolumeSetting==true)){
 					return super.onAreaTouched(pSceneTouchEvent, pTouchAreaLocalX,
 							pTouchAreaLocalY);
 				}
@@ -519,7 +740,7 @@ public class MainMenuScene extends BaseScene{
 			@Override
 			public boolean onAreaTouched(TouchEvent pSceneTouchEvent,
 					float pTouchAreaLocalX, float pTouchAreaLocalY){
-				if(flagTimerSetting==true){
+				if((flagTimerSetting==true)||(flagCurtainOn==true)||(flagVolumeSetting==true)){
 					return super.onAreaTouched(pSceneTouchEvent, pTouchAreaLocalX,
 							pTouchAreaLocalY);
 				}
@@ -544,7 +765,7 @@ public class MainMenuScene extends BaseScene{
 			@Override
 			public boolean onAreaTouched(TouchEvent pSceneTouchEvent,
 					float pTouchAreaLocalX, float pTouchAreaLocalY){
-				if(flagTimerSetting==true){
+				if((flagTimerSetting==true)||(flagCurtainOn==true)||(flagVolumeSetting==true)){
 					return super.onAreaTouched(pSceneTouchEvent, pTouchAreaLocalX,
 							pTouchAreaLocalY);
 				}
@@ -569,7 +790,7 @@ public class MainMenuScene extends BaseScene{
 			@Override
 			public boolean onAreaTouched(TouchEvent pSceneTouchEvent,
 					float pTouchAreaLocalX, float pTouchAreaLocalY){
-				if(flagTimerSetting==true){
+				if((flagTimerSetting==true)||(flagCurtainOn==true)||(flagVolumeSetting==true)){
 					return super.onAreaTouched(pSceneTouchEvent, pTouchAreaLocalX,
 							pTouchAreaLocalY);
 				}
@@ -620,13 +841,157 @@ public class MainMenuScene extends BaseScene{
 		createReviewButton(xPos,yPos1st);
 		createMoreButton(xPos,yPos1st-2*myButton_height);
 		createAlarmButton(xPos,yPos1st-3*myButton_height);
+		createVolumeSetButton(xPos, yPos1st-4*myButton_height);
+		createBlindButton(xPos, yPos1st-5*myButton_height);
+	}
+	
+	
+	private void showVolumeSetting(){
+		final float movDuration = 0.45f;
+		final float cameraHeight = camera.getHeight();
+		flagVolumeSetting = true;
+		
+		spriteSetVoluemBg.registerEntityModifier(new MoveModifier(movDuration, 0, 0, 
+				cameraHeight, cameraHeight-resourcesManager.mVolumeSetBgRegion.getHeight()));
+		spriteHideVolumeSetBtn.registerEntityModifier(new MoveModifier(movDuration*4, btnHidePosX, btnHidePosX, 
+				btnHidePosY_sleep, btnHidePosY_active, EaseBounceOut.getInstance()));
+		for(SlideSetVerticalSprite pSlide:spriteVolSlides){
+			pSlide.registerEntityModifier(new MoveYModifier(movDuration, cameraHeight, 218f));
+		}
+		for(Sprite pSprite:spriteVolText){
+			pSprite.registerEntityModifier(new MoveYModifier(movDuration, cameraHeight, 155f));
+		}
+		
+		reviewButtonSprite.setPosition(camera.getWidth(), reviewButtonSprite.getY());
+		shareButtonSprite.setPosition(camera.getWidth(), shareButtonSprite.getY());
+		moreButtonSprite.setPosition(camera.getWidth(), moreButtonSprite.getY());
+		alramButtonSprite.setPosition(camera.getWidth(), alramButtonSprite.getY());
+		blindButtonSprite.setPosition(camera.getWidth(), blindButtonSprite.getY());
+		volumeButtonSprite.setPosition(camera.getWidth(), volumeButtonSprite.getY());
+		
+		setSoundBtnTouch();
+	}
+	
+	private void hideVolumeSetting(){
+		flagVolumeSetting = false;
+		final float xPos = camera.getWidth()-resourcesManager.mMoreBtnRegion.getWidth();
+		
+		final float movDuration = 0.45f;
+		final float cameraHeight = camera.getHeight();
+		
+		spriteSetVoluemBg.registerEntityModifier(new MoveYModifier(movDuration, cameraHeight-resourcesManager.mVolumeSetBgRegion.getHeight(), cameraHeight));
+		
+		spriteHideVolumeSetBtn.registerEntityModifier(new MoveModifier(movDuration/2, btnHidePosX, btnHidePosX, 
+				btnHidePosY_active, btnHidePosY_sleep));
+		
+		for(SlideSetVerticalSprite pSlide:spriteVolSlides){
+			pSlide.registerEntityModifier(new MoveYModifier(movDuration, 218f, cameraHeight));
+		}
+		for(Sprite pSprite:spriteVolText){
+			pSprite.registerEntityModifier(new MoveYModifier(movDuration, 155f, cameraHeight));
+		}
+		
+		reviewButtonSprite.setPosition(xPos, reviewButtonSprite.getY());
+		shareButtonSprite.setPosition(xPos, shareButtonSprite.getY());
+		moreButtonSprite.setPosition(xPos, moreButtonSprite.getY());
+		alramButtonSprite.setPosition(xPos, alramButtonSprite.getY());
+		blindButtonSprite.setPosition(xPos, blindButtonSprite.getY());
+		volumeButtonSprite.setPosition(xPos, volumeButtonSprite.getY());
+		
+		setSoundBtnTouch();
+	}
+	
+	private void createVolumeSetButton(final float pX, final float pY){
+		final float positionX = pX;
+		final float positionY = pY;
+		
+		volumeButtonSprite = new ButtonSprite(
+				positionX,
+				positionY,
+				ResourcesManager.getInstance().mVolumeSetRegion,
+				engine.getVertexBufferObjectManager()){
+			@Override
+			protected void preDraw(final GLState pGLState, final Camera pCamera){
+				super.preDraw(pGLState, pCamera);
+				pGLState.enableDither();
+			}
+			@Override
+			public boolean onAreaTouched(TouchEvent pSceneTouchEvent,
+					float pTouchAreaLocalX, float pTouchAreaLocalY){
+				if((flagTimerSetting==true)||(flagCurtainOn==true)||(flagVolumeSetting==true)){
+					return super.onAreaTouched(pSceneTouchEvent, pTouchAreaLocalX,
+							pTouchAreaLocalY);
+				}
+				if(pSceneTouchEvent.isActionDown()){
+					this.setScale(1.5f);
+					resourcesManager.mSoundEffect_btnClick.play();
+				}else{
+					this.setScale(1f);
+					if(pSceneTouchEvent.isActionUp()){
+						showVolumeSetting();
+//						setSoundBtnTouch();
+					}
+				}
+				return super.onAreaTouched(pSceneTouchEvent, pTouchAreaLocalX,
+						pTouchAreaLocalY);
+			}
+		};
+		
+		registerTouchArea(volumeButtonSprite);
+		attachChild(volumeButtonSprite);
+	}
+	
+	private void createBlindButton(final float pX, final float pY){
+		final float positionX = pX;
+		final float positionY = pY;
+		
+		blindButtonSprite = new ButtonSprite(
+				positionX,
+				positionY,
+				ResourcesManager.getInstance().mBlindBtnRegion,
+				engine.getVertexBufferObjectManager()){
+			@Override
+			protected void preDraw(final GLState pGLState, final Camera pCamera){
+				super.preDraw(pGLState, pCamera);
+				pGLState.enableDither();
+			}
+			@Override
+			public boolean onAreaTouched(TouchEvent pSceneTouchEvent,
+					float pTouchAreaLocalX, float pTouchAreaLocalY){
+				if((flagTimerSetting==true)||(flagCurtainOn==true)||(flagVolumeSetting==true)){
+					return super.onAreaTouched(pSceneTouchEvent, pTouchAreaLocalX,
+							pTouchAreaLocalY);
+				}
+				
+				if(pSceneTouchEvent.isActionDown()){
+					this.setScale(1.5f);
+					resourcesManager.mSoundEffect_btnClick.play();
+				}else{
+					this.setScale(1f);
+					if(pSceneTouchEvent.isActionUp()){
+						curtainShow();
+					}
+				}
+				return super.onAreaTouched(pSceneTouchEvent, pTouchAreaLocalX,
+						pTouchAreaLocalY);
+			}
+		};
+		
+		registerTouchArea(blindButtonSprite);
+		attachChild(blindButtonSprite);
+	}
+	
+	private void curtainShow(){
+		flagCurtainOn = true;
+		curtainSprite.registerEntityModifier(new MoveModifier(0.45f, camera.getWidth(), 0, 0, 0));
+		setSoundBtnTouch();
 	}
 	
 	private void createAlarmButton(final float pX, final float pY){
 		final float positionX = pX;
 		final float positionY = pY;
 		
-		ButtonSprite alramButtonSprite = new ButtonSprite(
+		alramButtonSprite = new ButtonSprite(
 				positionX,
 				positionY,
 				ResourcesManager.getInstance().mAlramBtnRegion,
@@ -639,7 +1004,7 @@ public class MainMenuScene extends BaseScene{
 			@Override
 			public boolean onAreaTouched(TouchEvent pSceneTouchEvent,
 					float pTouchAreaLocalX, float pTouchAreaLocalY){
-				if(flagTimerSetting==true){
+				if((flagTimerSetting==true)||(flagCurtainOn==true)||(flagVolumeSetting==true)){
 					return super.onAreaTouched(pSceneTouchEvent, pTouchAreaLocalX,
 							pTouchAreaLocalY);
 				}
@@ -662,16 +1027,16 @@ public class MainMenuScene extends BaseScene{
 		attachChild(alramButtonSprite);
 	}
 	private void setSoundBtnTouch(){
-		btn_sound_1.setTouchDisable(flagTimerSetting);
-		btn_sound_2.setTouchDisable(flagTimerSetting);
-		btn_sound_3.setTouchDisable(flagTimerSetting);
-		btn_sound_4.setTouchDisable(flagTimerSetting);
-		btn_sound_5.setTouchDisable(flagTimerSetting);
-		btn_sound_6.setTouchDisable(flagTimerSetting);
-		btn_sound_7.setTouchDisable(flagTimerSetting);
-		btn_sound_8.setTouchDisable(flagTimerSetting);
-		btn_sound_9.setTouchDisable(flagTimerSetting);
-		btn_sound_10.setTouchDisable(flagTimerSetting);
+		btn_sound_1.setTouchDisable(flagTimerSetting|flagCurtainOn|flagVolumeSetting);
+		btn_sound_2.setTouchDisable(flagTimerSetting|flagCurtainOn|flagVolumeSetting);
+		btn_sound_3.setTouchDisable(flagTimerSetting|flagCurtainOn|flagVolumeSetting);
+		btn_sound_4.setTouchDisable(flagTimerSetting|flagCurtainOn|flagVolumeSetting);
+		btn_sound_5.setTouchDisable(flagTimerSetting|flagCurtainOn|flagVolumeSetting);
+		btn_sound_6.setTouchDisable(flagTimerSetting|flagCurtainOn|flagVolumeSetting);
+		btn_sound_7.setTouchDisable(flagTimerSetting|flagCurtainOn|flagVolumeSetting);
+		btn_sound_8.setTouchDisable(flagTimerSetting|flagCurtainOn|flagVolumeSetting);
+		btn_sound_9.setTouchDisable(flagTimerSetting|flagCurtainOn|flagVolumeSetting);
+		btn_sound_10.setTouchDisable(flagTimerSetting|flagCurtainOn|flagVolumeSetting);
 		
 		timerSettingSprite.setTimerSettingShowFlag(flagTimerSetting);
 	}
@@ -722,7 +1087,7 @@ public class MainMenuScene extends BaseScene{
 		final float positionX = pX;
 		final float positionY = pY;
 		
-		ButtonSprite reviewButtonSprite = new ButtonSprite(
+		reviewButtonSprite = new ButtonSprite(
 				positionX,
 				positionY,
 				ResourcesManager.getInstance().mReviewBtnRegion,
@@ -736,7 +1101,7 @@ public class MainMenuScene extends BaseScene{
 			@Override
 			public boolean onAreaTouched(TouchEvent pSceneTouchEvent,
 					float pTouchAreaLocalX, float pTouchAreaLocalY){
-				if(flagTimerSetting==true){
+				if((flagTimerSetting==true)||(flagCurtainOn==true)||(flagVolumeSetting==true)){
 					return super.onAreaTouched(pSceneTouchEvent, pTouchAreaLocalX,
 							pTouchAreaLocalY);
 				}
@@ -767,7 +1132,7 @@ public class MainMenuScene extends BaseScene{
 		final float positionX = pX;
 		final float positionY = pY;
 		
-		ButtonSprite shareButtonSprite = new ButtonSprite(
+		shareButtonSprite = new ButtonSprite(
 				positionX,
 				positionY,
 				ResourcesManager.getInstance().mShareBtnRegion,
@@ -781,7 +1146,7 @@ public class MainMenuScene extends BaseScene{
 			@Override
 			public boolean onAreaTouched(TouchEvent pSceneTouchEvent,
 					float pTouchAreaLocalX, float pTouchAreaLocalY){
-				if(flagTimerSetting==true){
+				if((flagTimerSetting==true)||(flagCurtainOn==true)||(flagVolumeSetting==true)){
 					return super.onAreaTouched(pSceneTouchEvent, pTouchAreaLocalX,
 							pTouchAreaLocalY);
 				}
@@ -819,7 +1184,7 @@ public class MainMenuScene extends BaseScene{
 		final float positionX = pX;
 		final float positionY = pY;
 		
-		ButtonSprite shareButtonSprite = new ButtonSprite(
+		moreButtonSprite = new ButtonSprite(
 				positionX,
 				positionY,
 				ResourcesManager.getInstance().mMoreBtnRegion,
@@ -833,7 +1198,7 @@ public class MainMenuScene extends BaseScene{
 			@Override
 			public boolean onAreaTouched(TouchEvent pSceneTouchEvent,
 					float pTouchAreaLocalX, float pTouchAreaLocalY){
-				if(flagTimerSetting==true){
+				if((flagTimerSetting==true)||(flagCurtainOn==true)||(flagVolumeSetting==true)){
 					return super.onAreaTouched(pSceneTouchEvent, pTouchAreaLocalX,
 							pTouchAreaLocalY);
 				}
@@ -859,8 +1224,8 @@ public class MainMenuScene extends BaseScene{
 			}
 		};
 		
-		registerTouchArea(shareButtonSprite);
-		attachChild(shareButtonSprite);
+		registerTouchArea(moreButtonSprite);
+		attachChild(moreButtonSprite);
 	}
 	
 	private void loadPlayImageSprites(){

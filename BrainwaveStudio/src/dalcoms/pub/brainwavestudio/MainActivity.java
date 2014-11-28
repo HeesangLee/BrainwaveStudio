@@ -15,16 +15,16 @@ import org.andengine.opengl.view.RenderSurfaceView;
 import org.andengine.ui.activity.LayoutGameActivity;
 
 import android.graphics.PixelFormat;
-//import android.util.Log;
 import android.view.KeyEvent;
 
-import com.google.ads.AdRequest;
-import com.google.ads.AdView;
-
-import dalcoms.pub.brainwavestudio.R;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+//import android.util.Log;
 
 public class MainActivity extends LayoutGameActivity {
-	private AdView adView;
+	
+	private AdView adMobAdView;
+	
 	final boolean AD_ON = true;
 	
 	public final int CAMERA_WIDTH = 800;
@@ -49,7 +49,7 @@ public class MainActivity extends LayoutGameActivity {
 		mRenderSurfaceView.setEGLConfigChooser(8,8,8,8,24,0);
 		mRenderSurfaceView.setRenderer(mEngine, this);
 		mRenderSurfaceView.getHolder().setFormat(PixelFormat.RGBA_8888);
-//		loadAdView(AD_ON);
+		loadAdView(AD_ON);
 	}
 	
 	@Override
@@ -117,8 +117,21 @@ public class MainActivity extends LayoutGameActivity {
 	
 	@Override
 	protected void onDestroy(){
+		adMobAdView.destroy();
 		super.onDestroy();
 		System.exit(0);
+	}
+	
+	@Override
+	public void onPause(){
+		adMobAdView.pause();
+		super.onPause();
+	}
+	
+	@Override
+	public void onResume(){
+		adMobAdView.resume();
+		super.onResume();
 	}
 	
 	@Override
@@ -131,10 +144,15 @@ public class MainActivity extends LayoutGameActivity {
 	protected void loadAdView(boolean onOff){
 		//TODO : 프로그램 종료시에 ad 종료하도록 코드 추가 할 것.
 		if(onOff == true){
-			AdRequest adRequest = new AdRequest();
-			adView = (AdView)findViewById(R.id.adView);
-//			adView.setVisibility(AdView.VISIBLE);
-			adView.loadAd(adRequest);
+			adMobAdView = (AdView) this.findViewById(R.id.adView);
+			
+			AdRequest request = new AdRequest.Builder().
+					addTestDevice(AdRequest.DEVICE_ID_EMULATOR).
+					setGender(AdRequest.GENDER_MALE).
+					build();
+			
+			adMobAdView.loadAd(request);
+			adMobAdView.setBackgroundColor(android.graphics.Color.TRANSPARENT);
 		}
 	}
 	

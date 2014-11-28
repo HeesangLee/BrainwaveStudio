@@ -3,6 +3,10 @@ package dalcoms.pub.brainwavestudio;
 import org.andengine.engine.Engine;
 import org.andengine.ui.IGameInterface.OnCreateSceneCallback;
 
+import com.google.android.gms.ads.AdListener;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.InterstitialAd;
+
 /*
  * @author Heesang.Lee
  */
@@ -20,6 +24,10 @@ public class SceneManager {
 	private SceneType currentSceneType = SceneType.SCENE_SPLASH;
 	private BaseScene currentScene;
 	private Engine engine = ResourcesManager.getInstance().engine;
+	
+	private int interstitialAdOnNum = 0;
+	private int interstitialAdOnMax = 3; // 해당 횟수 이상으로는 팝업광고를 띄우지 않는다.
+	private boolean forTStore = false;
 	
 	public enum SceneType{
 		SCENE_SPLASH,
@@ -74,4 +82,90 @@ public class SceneManager {
 		splashScene.disposeScene();
 		splashScene = null;
 	}
+	
+	public void popAdmobInterstitialAd(boolean popExitCondition){
+		if(interstitialAdOnNum++<interstitialAdOnMax){
+			final InterstitialAd adMobInterstitialAd = new InterstitialAd(ResourcesManager.getInstance().activity);
+			if(popExitCondition){
+				adMobInterstitialAd.setAdUnitId("ca-app-pub-0894410772194388/1314292703");
+			}else{
+				adMobInterstitialAd.setAdUnitId("ca-app-pub-0894410772194388/8837559502");
+			}
+			
+			final AdRequest adRequest = new AdRequest.Builder().build();
+			ResourcesManager.getInstance().activity.runOnUiThread(new Runnable() {
+				
+				@Override
+				public void run() {
+					adMobInterstitialAd.loadAd(adRequest);
+				}
+			});
+			
+			adMobInterstitialAd.setAdListener(new AdListener() {
+				public void onAdLoaded(){
+					displayAdmobInterstitialAd(adMobInterstitialAd);
+				}
+			});
+		}
+	}
+	
+	private void displayAdmobInterstitialAd(InterstitialAd pAd){
+		if(pAd.isLoaded()){
+			pAd.show();
+		}
+	}
+	
+	
+	public boolean isForTStore(){
+		return forTStore;
+	}
+	
+	public int getInterstitialAdOnMax(){
+		return interstitialAdOnMax;
+	}
+	
+	public void setInterstitialAdOnMax(int pVal){
+		this.interstitialAdOnMax = pVal;
+	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

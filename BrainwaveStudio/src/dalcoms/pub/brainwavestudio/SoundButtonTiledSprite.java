@@ -44,11 +44,27 @@ public class SoundButtonTiledSprite extends TiledSprite{
 		
 		if(pSceneTouchEvent.isActionUp()){
 			if (flagButtonStatus%2 == 0){//pause to play
-				this.playSound();
+				SceneManager.getInstance().getCurrentScene().engine.runOnUpdateThread(new Runnable() {
+					
+					@Override
+					public void run() {
+						playSound();
+						upDateCurrentTiledIndex();
+					}
+				});
+//				this.playSound();
 			}else{//play to pause
-				this.pauseSound();
+				SceneManager.getInstance().getCurrentScene().engine.runOnUpdateThread(new Runnable() {
+					
+					@Override
+					public void run() {
+						pauseSound();
+						upDateCurrentTiledIndex();
+					}
+				});
+//				this.pauseSound();
 			}
-			this.upDateCurrentTiledIndex();
+//			this.upDateCurrentTiledIndex();
 		}
 		return super.onAreaTouched(pSceneTouchEvent, pTouchAreaLocalX,
 				pTouchAreaLocalY);
@@ -68,9 +84,24 @@ public class SoundButtonTiledSprite extends TiledSprite{
 	}
 	public void offSound(){
 		if(this.mySound.isPlaying()){
-			this.pauseSound();
-			this.upDateCurrentTiledIndex();
+			SceneManager.getInstance().getCurrentScene().engine.runOnUpdateThread(new Runnable() {
+				
+				@Override
+				public void run() {
+					pauseSound();
+					upDateCurrentTiledIndex();
+				}
+			});
+//			this.pauseSound();
+//			this.upDateCurrentTiledIndex();
 		}
+	}
+	
+	public void setVolume(float pVolume){
+		this.mySound.setVolume(pVolume);
+	}
+	public float getVolume(){
+		return this.mySound.getVolume();
 	}
 }
 
